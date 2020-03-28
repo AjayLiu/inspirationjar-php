@@ -4,7 +4,7 @@
     if(isset($_GET["inputQuote"])){
         $quote = mysqli_real_escape_string($mysqli, $_GET["inputQuote"]);
     
-        $sql = "INSERT INTO happy_table (HappyID, Happy_quote, HappyRating) VALUES (NULL, ?, 0)";
+        $sql = "INSERT INTO happy_table (HappyID, Happy_quote, HappyRating, HappyDate) VALUES (NULL, ?, 0, NOW())";
         
         $stmt = mysqli_stmt_init($mysqli);
         if(!mysqli_stmt_prepare($stmt, $sql)){

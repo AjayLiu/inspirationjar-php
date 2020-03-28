@@ -62,7 +62,7 @@
 
 		<script src="jquery.fittext.js"></script>
 		<script type="text/javascript">
-			$(".quoteText").fitText();			
+			$(".quoteText").fitText(2);			
 		</script>  
 
 	</body>

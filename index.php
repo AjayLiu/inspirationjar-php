@@ -21,15 +21,26 @@
                             quoteCount = quoteCount + 5;
                             $("#quotes_root").load("load_quotes.php", {quoteNewCount: quoteCount});
                         }
-                    );
+					);
+					//LIKE AND DISLIKE BUTTON
 					$('.button').click(function(){
+						
 						var clickBtnValue = $(this).attr("name");						
 						var ajaxurl = 'vote.php',
 						data =  {'action': clickBtnValue};
-						$.post(ajaxurl, data, function (response) {
-							// Response div goes here.
-							//alert("action performed successfully");
-						});
+
+						var session;
+						$.ajaxSetup({cache: false})
+						$.get(ajaxurl, function (data) {
+							session = data;
+							//alert(session);							
+						}).done(function(){
+							$.post(ajaxurl, data, function (response) {
+								if(session == "NOT LOGGED IN"){
+									window.location = "http://localhost/login_page.php";
+								}
+							});
+						});						
 					});
 			    }
             );			
@@ -49,7 +60,8 @@
 		<div class = "intro">
             <h1>had a bad day?</h1>
             <p>Read some encouraging messages submitted from wholesome humans around the world!</p>                             
-        </div> 
+			
+		</div> 
 
 		<?php
 			include "setup_connection.php";
@@ -104,7 +116,7 @@
 		
 		<script src="jquery.fittext.js"></script>
 		<script type="text/javascript">
-			$(".quoteText").fitText(1.5);			
+			$(".quoteText").fitText(2);			
 		</script>  
 
         <button id = "refreshButton">Click for more messages!</button>

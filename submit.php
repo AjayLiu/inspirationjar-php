@@ -1,5 +1,6 @@
 <?php
     include "setup_connection.php";
+    session_start();
 ?>
 
 <html>
@@ -25,6 +26,15 @@
 		<div class = "intro">
             <h1>wanna brighten up someone's day?</h1>
             <p>" Research shows that complimenting someone can be even more uplifting than receiving one! " - <i> Some Guy, 2020 </i> </p>                             
+            <?php 
+                if(!isset($_SESSION['payload'])){
+                    echo "NOT LOGGED IN";
+                    $_SESSION['redir'] = "http://localhost/submit.php";
+                    header("Location: http://localhost/login_page.php");
+                } else {
+                    echo $_SESSION['payload']['email'];
+                } 
+            ?>
         </div> 
 
 		<form action="submit_received.php" method="get">
@@ -35,5 +45,3 @@
 	</body>
 
 </html>
-
-<?php include "google.php" ?>
