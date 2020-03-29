@@ -32,10 +32,12 @@
                     $_SESSION['redir'] = "http://localhost/submit.php";
                     header("Location: http://localhost/login_page.php");
                 } else {
-                    echo $_SESSION['payload']['email'];
+                    echo 'Logged in as: '.$_SESSION['payload']['email'];
                 } 
             ?>
         </div> 
+        
+        <hr width = 80%>
 
 		<form action="submit_received.php" method="get">
 			Your Quote: <input type="text" name="inputQuote"><br>
