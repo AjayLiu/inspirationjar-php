@@ -30,6 +30,5 @@
 </html>
 
 <?php       
-    //session_start();
     include "google.php"; 
 ?>
