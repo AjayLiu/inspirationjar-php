@@ -2,7 +2,55 @@
 	<head>
 		<link rel="stylesheet" href="styles.css" type="text/css">
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+			$(document).ready(
+                function(){
+                    //Refresh Button
+					var quoteCount = 5;
+                    $("#refreshButton").click(
+                        function(){
+                            quoteCount = quoteCount + 5;
+                            $("#quotes_root").load("load_quotes.php", {quoteNewCount: quoteCount});
+                        }
+					);
+					//LIKE AND DISLIKE BUTTON
+					$('.button').click(function(){
+						
+						var clickBtnValue = $(this).attr("name");						
+						var ajaxurl = 'vote.php',
+						data =  {'action': clickBtnValue};
 
+						var session;
+						$.ajaxSetup({cache: false})
+						$.get(ajaxurl, function (data) {
+							session = data;
+						}).done(function(){
+							$.post(ajaxurl, data, function (response) {
+								if(response != "DUPE"){
+									if(response != "LOGGED IN"){
+										//SEND TO LOGIN PAGE
+										window.location = session;
+									} else {
+										//ADD or SUBTRACT ONE TO GRATITUDE (client side)  									
+										var id = clickBtnValue.substring(clickBtnValue.indexOf('d') + 1);
+										var grat = ".gratitudeRatings[data-gratID=\"" + id + "\"]";
+										
+										var rating = $(grat).text().substring($(grat).text().indexOf(':')+1).trim();
+										
+										//ADD 1 or SUBTRACT 1
+										var toAdd = (clickBtnValue.charAt(0) == 'g') ? 1 : -1;																				
+										var ratingInt = parseInt(rating) + toAdd;
+										
+										var newHTML = $(grat).text().substring(0, $(grat).text().indexOf(':') + 1) + "<br>" + ratingInt;
+										$(grat).html(newHTML);
+									}
+								}													
+							});
+						});						
+					});
+			    }
+            );			
+		</script>
 	</head>
 
 	<body>
@@ -11,7 +59,7 @@
 
 			$quoteNewCount = $_POST['quoteNewCount'];
 
-			$sql = "SELECT HappyID, Happy_quote FROM happy_table ORDER BY HappyRating DESC LIMIT $quoteNewCount";
+			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table ORDER BY HappyRating DESC LIMIT $quoteNewCount";
 			$result = $mysqli->query($sql) or die("an error has occured");
 
 
@@ -25,8 +73,11 @@
 								<div class = "quoteBlock">
 									<div class = "quoteText">
 										"<?php echo stripslashes($row["Happy_quote"]);?>"
+									</div>									
+									<div class = "gratitudeRatings" data-gratID="<?php echo ($row["HappyID"]);?>">
+										Gratitude Rating: <br> 
+										<?php echo $row["HappyRating"]; ?>
 									</div>
-																		
 									<div class = "buttons">
 										<input type="submit" class="button" name="<?php echo "good".($row["HappyID"]);?>" id = "goodButton" value="Thanks, I feel better!" />
 										<input type="submit" class="button" name="<?php echo "bad".($row["HappyID"]);?>" id = "badButton" value="I still feel like trash" />

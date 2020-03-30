@@ -1,6 +1,6 @@
 <?php
     
-    $isLocal = false;
+    $isLocal = true;
 
     if($isLocal){
         $submitLink = "http://localhost/submit.php";
