@@ -1,7 +1,7 @@
 <?php
     include "setup_connection.php";
     include "redirectLinks.php";
-
+    include "rememberMe.php";
     session_start();
 
     $email = $_SESSION['payload']['email'];
@@ -68,7 +68,7 @@
 
                 
                 //ADD TO ACCOUNT's POST HISTORY
-                $sql = "SELECT HappyID FROM happy_table WHERE Happy_quote = ?";            
+                $sql = "SELECT HappyID FROM happy_table WHERE Happy_quote = ? ORDER BY HappyDate DESC LIMIT 1";            
                 $stmt = mysqli_stmt_init($mysqli);
                 if(!mysqli_stmt_prepare($stmt, $sql)){
                     echo "SQL ERROR";

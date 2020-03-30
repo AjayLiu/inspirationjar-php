@@ -1,6 +1,7 @@
 <?php
 	include "setup_connection.php";
 	include "redirectLinks.php";
+	include "rememberMe.php";
 ?>
 
 <!DOCTYPE html>
