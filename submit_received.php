@@ -1,5 +1,7 @@
 <?php
     include "setup_connection.php";
+    include "redirectLinks.php";
+
     session_start();
 
     $email = $_SESSION['payload']['email'];
@@ -16,8 +18,30 @@
             
             $quote = mysqli_real_escape_string($mysqli, $_GET["inputQuote"]);
 
-            //SEARCH THROUGH HISTORY FOR DUPLICATES
+            //SEARCH THROUGH HISTORY FOR DUPLICATES OR SPAM (submitted too fast from the previous)
             $isDupe = false;
+            $isSpam = false;
+
+            //CHECK FOR SPAM
+            if(count($prevPostsIDs) > 1){
+                $latestPostID = $prevPostsIDs[count($prevPostsIDs)-2]; //most recent post
+
+                $sql = "SELECT HappyDate FROM happy_table WHERE HappyID = '$latestPostID'";
+                $result = $mysqli->query($sql) or die("ouch, error");
+                $nowTime = new DateTime();
+
+                $latestPostTime = $result->fetch_assoc()['HappyDate'];
+                $latestPostTimeDT = new DateTime($latestPostTime);
+                
+                $interval = $nowTime->diff($latestPostTimeDT);
+                $secsElapsed = $interval->format('%s');
+                
+                if((int)$secsElapsed < 30){
+                    $isSpam = true;
+                }
+            }
+                
+            //CHECK FOR DUPLICATES
             for($i = 0; $i < count($prevPostsIDs)-1; $i++) {
                 $id = $prevPostsIDs[$i];
                 $sql = "SELECT Happy_quote FROM happy_table WHERE HappyID = $id";
@@ -31,7 +55,7 @@
             }
 
             
-            if(!$isDupe){
+            if(!$isDupe && !$isSpam){
                 //ADD NEW UNIQUE QUOTE
                 $sql = "INSERT INTO happy_table (HappyID, Happy_quote, HappyRating, HappyDate) VALUES (NULL, ?, 0, NOW())";            
                 $stmt = mysqli_stmt_init($mysqli);
@@ -57,22 +81,19 @@
                     }
                     $sql = "UPDATE accounts SET Posts = CONCAT('$prevPosts', '$newId,') WHERE Email = '$email'";
                     $result = $mysqli->query($sql) or die("ouch, error"); 
-                }
-
-                                         
+                }                       
             } 
             
         } else {
             $isEmpty = true;
         }
     } else {
-        $_SESSION['redir'] = "http://localhost/submit.php";
-        header("Location: http://localhost/login_page.php");
+        $_SESSION['redir'] = "$submitLink";
+        header("Location: $loginPageLink");
     }
 ?>
 
 <html>
-
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -81,8 +102,7 @@
         <link rel="stylesheet" href="styles.css" type="text/css">
     </head>
 
-    <body>
-        
+    <body>                
         <div class = "navbar">
             <div class = "navanchors">
                 <ul>
@@ -91,18 +111,18 @@
                     <li><a href = "contact.html">Contact</a></li>
                 </ul>
             </div>            
-        </div>
+        </div>        
         <div class = "submitSuccess">
             <?php 
                 if($isDupe){
                     echo "It looks like you submitted this before. Maybe try thinking of another quote!";         
                 } else if($isEmpty) {
                     echo "Please type in something before submitting!";
+                } else if($isSpam){
+                    echo "It looks like you submitted a quote $secsElapsed seconds ago. Please wait for at least 30 seconds before submitting again as we want to prevent spammers.";
                 } else {
                     echo "Thanks for your submission!";
                 }
-
-                
             ?>
         </div>
 

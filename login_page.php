@@ -24,6 +24,7 @@
         </div>
 		<div class = "intro">
             <h1>Log in</h1>
+            <p> Don't worry, all your activity will be kept anonymous. Logging in is just to ensure that all posts/likes/dislikes are unique.
         </div> 		
 	</body>
 

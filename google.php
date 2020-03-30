@@ -1,4 +1,5 @@
 <?php 
+    include "redirectLinks.php";
     require ("vendor/autoload.php");
     session_start();
 
@@ -7,7 +8,7 @@
 
     $g_client->setClientId("549099927731-c1aqlvs43ftmc88t3b22t3eg6b4q2hgl.apps.googleusercontent.com");
     $g_client->setClientSecret("wJPhdVv5EwFRNEY1Pl7EOhAH");
-    $g_client->setRedirectUri("http://localhost/afterLogin.php");
+    $g_client->setRedirectUri("$afterLoginLink");
     $g_client->setScopes("email");
     $g_client->setApprovalPrompt('force');
 

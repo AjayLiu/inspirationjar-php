@@ -1,7 +1,9 @@
 <?php
-    include "setup_connection.php";
+	include "setup_connection.php";
+	include "redirectLinks.php";
 ?>
 
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset='utf-8'>
@@ -33,12 +35,27 @@
 						$.ajaxSetup({cache: false})
 						$.get(ajaxurl, function (data) {
 							session = data;
-							//alert(session);							
 						}).done(function(){
 							$.post(ajaxurl, data, function (response) {
-								if(session == "NOT LOGGED IN"){
-									window.location = "http://localhost/login_page.php";
-								}
+								if(response != "DUPE"){
+									if(response != "LOGGED IN"){
+										//SEND TO LOGIN PAGE
+										window.location = session;
+									} else {
+										//ADD or SUBTRACT ONE TO GRATITUDE (client side)  									
+										var id = clickBtnValue.substring(clickBtnValue.indexOf('d') + 1);
+										var grat = ".gratitudeRatings[data-gratID=\"" + id + "\"]";
+										
+										var rating = $(grat).text().substring($(grat).text().indexOf(':')+1).trim();
+										
+										//ADD 1 or SUBTRACT 1
+										var toAdd = (clickBtnValue.charAt(0) == 'g') ? 1 : -1;																				
+										var ratingInt = parseInt(rating) + toAdd;
+										
+										var newHTML = $(grat).text().substring(0, $(grat).text().indexOf(':') + 1) + "<br>" + ratingInt;
+										$(grat).html(newHTML);
+									}
+								}													
 							});
 						});						
 					});
@@ -67,7 +84,7 @@
 			include "setup_connection.php";
 
 
-			$sql = "SELECT HappyID, Happy_quote FROM happy_table ORDER BY HappyRating DESC LIMIT 5";
+			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table ORDER BY HappyRating DESC LIMIT 5";
 			$result = $mysqli->query($sql);
 
 			if ($result->num_rows > 0) {
@@ -80,19 +97,19 @@
 								<div class = "quoteBlock">
 									<div class = "quoteText">
 										"<?php echo stripslashes($row["Happy_quote"]);?>"
+									</div>									
+									<div class = "gratitudeRatings" data-gratID="<?php echo ($row["HappyID"]);?>">
+										Gratitude Rating: <br> 
+										<?php echo $row["HappyRating"]; ?>
 									</div>
-																		
 									<div class = "buttons">
 										<input type="submit" class="button" name="<?php echo "good".($row["HappyID"]);?>" id = "goodButton" value="Thanks, I feel better!" />
 										<input type="submit" class="button" name="<?php echo "bad".($row["HappyID"]);?>" id = "badButton" value="I still feel like trash" />
 									</div>
 								</div>
 							</div>
-
-						<?php
-						
+						<?php						
 					}
-
 				?>
 				</div>
 
@@ -114,13 +131,22 @@
 
 		</script>
 		
+		<div class = "refreshButtonContainer">
+			<button id = "refreshButton">Click for more messages!</button>
+		</div>
+		
 		<script src="jquery.fittext.js"></script>
 		<script type="text/javascript">
-			$(".quoteText").fitText(2);			
+			if(window.innerWidth > 767){
+				$(".quoteText").fitText(2);	
+				$("#refreshButton").fitText(8);	
+			} else {
+				$(".quoteText").fitText(1);	
+				$("#refreshButton").fitText(2);	
+			}
+				
 		</script>  
-
-        <button id = "refreshButton">Click for more messages!</button>
-
+		
 	</body>
 
 </html>

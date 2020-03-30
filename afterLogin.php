@@ -5,7 +5,6 @@
     $email = $payload['email'];
 
     if(isset($email)){
-
         
         //ADD ACCOUNT TO DATABASE IF NEW
         $sql = "SELECT Email FROM accounts WHERE Email = '$email'";

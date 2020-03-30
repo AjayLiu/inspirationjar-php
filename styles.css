@@ -125,9 +125,10 @@ html {
 }
 
 #refreshButton{
-	width: 20%;
-	height: 500%;
-	margin: auto;
+	width: 80%;
+	height: 10vh;
+	margin:auto;
+
 }
 
 .submitSuccess{
