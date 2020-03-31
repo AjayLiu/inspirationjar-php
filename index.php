@@ -17,6 +17,17 @@
         <script>
 			$(document).ready(
                 function(){
+					//MAKE A LIST WITH ALL IDs that the user has already voted on
+					$.ajax({
+						type: 'GET',
+						url: 'getVotedIDs.php',
+						dataType: 'json',
+						cache: false,
+						success: function(result) {
+							alert(result);
+						},
+					});
+
                     //Refresh Button
 					var quoteCount = 5;
                     $("#refreshButton").click(
@@ -29,9 +40,26 @@
 					$('.button').click(function(){
 						
 						var clickBtnValue = $(this).attr("name");						
+												
+						/* CLIENT SIDE ANIMATION */
+						var id = clickBtnValue.substring(clickBtnValue.indexOf('d') + 1);
+						
+
+
+						var grat = ".gratitudeRatings[data-gratID=\"" + id + "\"]";
+						//ADD or SUBTRACT ONE TO GRATITUDE (client side)  																			
+						var rating = $(grat).text().substring($(grat).text().indexOf(':')+1).trim();										
+						var toAdd = (clickBtnValue.charAt(0) == 'g') ? 1 : -1;																				
+						var ratingInt = parseInt(rating) + toAdd;
+						var newHTML = $(grat).text().substring(0, $(grat).text().indexOf(':') + 1) + "<br>" + ratingInt;
+						$(grat).html(newHTML);
+						
+						//CHANGE COLOR
+						$(grat).css('color', toAdd == 1? "green": "red"); 
+						
+						//AJAX TO LOG VOTE INTO DATABASE / PROMPT LOGIN
 						var ajaxurl = 'vote.php',
 						data =  {'action': clickBtnValue};
-
 						var session;
 						$.ajaxSetup({cache: false})
 						$.get(ajaxurl, function (data) {
@@ -42,20 +70,10 @@
 									if(response != "LOGGED IN"){
 										//SEND TO LOGIN PAGE
 										window.location = session;
-									} else {
-										//ADD or SUBTRACT ONE TO GRATITUDE (client side)  									
-										var id = clickBtnValue.substring(clickBtnValue.indexOf('d') + 1);
-										var grat = ".gratitudeRatings[data-gratID=\"" + id + "\"]";
-										
-										var rating = $(grat).text().substring($(grat).text().indexOf(':')+1).trim();
-										
-										//ADD 1 or SUBTRACT 1
-										var toAdd = (clickBtnValue.charAt(0) == 'g') ? 1 : -1;																				
-										var ratingInt = parseInt(rating) + toAdd;
-										
-										var newHTML = $(grat).text().substring(0, $(grat).text().indexOf(':') + 1) + "<br>" + ratingInt;
-										$(grat).html(newHTML);
 									}
+								} else {
+									//CHANGE COLOR TO YELLOW IF DUPE
+									$(grat).css('color', "yellow");
 								}													
 							});
 						});						
@@ -96,7 +114,7 @@
 						?>
 							<div class = "quote_container">
 								<div class = "quoteBlock">
-									<div class = "quoteText">
+									<div class = "quoteText" data-gratID="<?php echo ($row["HappyID"]);?>">
 										"<?php echo stripslashes($row["Happy_quote"]);?>"
 									</div>									
 									<div class = "gratitudeRatings" data-gratID="<?php echo ($row["HappyID"]);?>">
@@ -130,6 +148,7 @@
 			}
 			setRandomColors();
 
+			
 		</script>
 		
 		<div class = "refreshButtonContainer">

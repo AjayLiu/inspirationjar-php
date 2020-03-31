@@ -42,7 +42,7 @@
         <hr width = 80%>
 
 		<form action="submit_received.php" method="get">
-			Your Quote (anonymous): " <input type="text" name="inputQuote"> "<br>
+			Your Quote <br> " <input type="text" name="inputQuote"> " - Sincerely, (anonymous good samaritan, aka You) <br>
 			<input type="submit" value = "Submit">
 		</form>
         
