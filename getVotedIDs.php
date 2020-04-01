@@ -15,12 +15,8 @@
         $result = $mysqli->query($sql) or die("ouch, error");            
         $likesAndDislikes = $result->fetch_assoc();
         $likesAndDislikesStr = $likesAndDislikes['Likes'].$likesAndDislikes['Dislikes'];
-        $likesAndDislikesStr = substr($likesAndDislikesStr, 0, strlen($likesAndDislikesStr)-1); //REMOVE TRAILING COMMA
 
-        //Change into array
-        $arr = explode(",","$likesAndDislikesStr");
-        
-        echo json_encode($arr);
+        echo $likesAndDislikesStr;
     }
 
     
