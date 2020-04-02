@@ -23,30 +23,42 @@
                     <li><a href = "submit.php">Submit</a></li>
                     <li><a href = "contact.html">Contact</a></li>
                 </ul>
-            </div>            
+            </div>
         </div>
 		<div class = "intro">
             <h1>wanna brighten up someone's day?</h1>
-            <p>" Research shows that complimenting someone can be even more uplifting than receiving one! " - <i> Some Guy, 2020 </i> </p>                             
-            <?php 
+            <p>" Research shows that complimenting someone can be even more uplifting than receiving one! " - <i> Some Guy, 2020 </i> </p>
+            <br>
+            <hr width = 80%>
+            <br>
+            <?php
                 if(!isset($_SESSION['payload'])){
                     echo "NOT LOGGED IN";
                     $_SESSION['redir'] = "$submitLink";
                     header("Location: $loginPageLink");
                 } else {
                     echo 'Logged in as: '.$_SESSION['payload']['email'];
-                } 
+                }
             ?>
-        </div> 
-        
+            <br>
+            <br>
+        </div>
+
+
         <hr width = 80%>
 
 		<form action="submit_received.php" method="get">
-			Your Quote <br> " <input type="text" name="inputQuote"> " - Sincerely, (anonymous good samaritan, aka You) <br>
-			<input type="submit" value = "Submit">
+			<br>
+      Your Quote
+      <br><br>
+      " <input type="text" name="inputQuote"> " <input type="submit" value = "Submit">
+      <br> <br>- Sincerely, (anonymous good samaritan, aka You)
+      <br>
+
 		</form>
-        
-        <em>Please keep your quotes appropriate and uplifting. If your quotes are reported and reviewed to be inappropriate, spam, malicious, or irrelevant to this site, your account's privilege to post may be revoked.</em>
+
+
+    <em><br><br>Please keep your quotes appropriate and uplifting. If your quotes are reported and reviewed to be inappropriate, spam, malicious, or irrelevant to this site, your account's privilege to post may be revoked.</em>
 	</body>
 
 </html>

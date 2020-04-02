@@ -1,4 +1,3 @@
 <?php 
-    include "getVotedIDs.php";
-    //echo $latestPostID;
+    include "returnTotalQuoteCount.php";
 ?>

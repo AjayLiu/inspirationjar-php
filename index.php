@@ -12,7 +12,7 @@
         <title>Home | EncourageMe </title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="stylesheet" href="styles.css" type="text/css">
-        
+
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="/js/quoteLoader.js"></script>
 	</head>
@@ -25,31 +25,32 @@
                     <li><a href = "submit.php">Submit</a></li>
                     <li><a href = "contact.html">Contact</a></li>
                 </ul>
-            </div>            
+            </div>
         </div>
 		<div class = "intro">
             <h1>had a bad day?</h1>
-            <p>Read some encouraging messages submitted from wholesome humans around the world!</p>                             
-			
-		</div> 
+            <p>Read some encouraging messages submitted from wholesome humans around the world!</p>
+		</div>
 
 		<?php
-			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table ORDER BY HappyRating DESC LIMIT 5";
+			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE isReported = 0 OR isReviewedSafe = 1 ORDER BY HappyRating DESC LIMIT 5";
 			$result = $mysqli->query($sql);
 
 			if ($result->num_rows > 0) {
 				?> <div id = "quotes_root" > <?php
 
-					// output data of each row		
+					// output data of each row
 					while($row = $result->fetch_assoc()) {
 						?>
 							<div class = "quote_container">
 								<div class = "quoteBlock" data-gratID="<?php echo ($row["HappyID"]);?>">
+									<input type="image" src="/images/redflag.png" name="<?php echo ($row["HappyID"]);?>" class = "reportButton"/>
+
 									<div class = "quoteText" data-gratID="<?php echo ($row["HappyID"]);?>">
 										"<?php echo stripslashes($row["Happy_quote"]);?>"
-									</div>									
+									</div>
 									<div class = "gratitudeRatings" data-gratID="<?php echo ($row["HappyID"]);?>">
-										Gratitude Rating: <br> 
+										Gratitude Rating: <br>
 										<?php echo $row["HappyRating"]; ?>
 									</div>
 									<div class = "buttons">
@@ -58,7 +59,7 @@
 									</div>
 								</div>
 							</div>
-						<?php						
+						<?php
 					}
 				?>
 				</div>
@@ -67,25 +68,17 @@
 			} else {
 				echo "0 results";
 			}
-        ?> 
+        ?>
         <script src = "/js/randomColors.js"></script>
-		
+
 		<div class = "refreshButtonContainer">
 			<button id = "refreshButton">Click for more messages!</button>
 		</div>
-		
+
 		<script src="/js/jquery.fittext.js"></script>
-		<script type="text/javascript">
-			if(window.innerWidth > 767){
-				$(".quoteText").fitText(2);	
-				$("#refreshButton").fitText(8);	
-			} else {
-				$(".quoteText").fitText(1);	
-				$("#refreshButton").fitText(2);	
-			}
-				
-		</script>  
-		
+		<script src="/js/fittext.js"></script>
+
+
 	</body>
 
 </html>

@@ -12,10 +12,10 @@
         if(isset($_GET["inputQuote"]) && $_GET["inputQuote"] != ''){
             //GET POST HISTORY FROM THIS ACCOUNT
             $sql = "SELECT Posts FROM accounts WHERE Email = '$email';";
-            $result = $mysqli->query($sql) or die("ouch, error");                                 
+            $result = $mysqli->query($sql) or die("ouch, error");
             $prevPosts = $result->fetch_assoc()['Posts'];
             $prevPostsIDs = explode(",","$prevPosts");
-            
+
             $quote = mysqli_real_escape_string($mysqli, $_GET["inputQuote"]);
 
             //SEARCH THROUGH HISTORY FOR DUPLICATES OR SPAM (submitted too fast from the previous)
@@ -26,12 +26,12 @@
             if(count($prevPostsIDs) > 1){
                 $latestPostID = $prevPostsIDs[count($prevPostsIDs)-2]; //most recent post
                 $sql = "SELECT HappyDate FROM happy_table WHERE HappyID = '$latestPostID'";
-                $result = $mysqli->query($sql) or die("ouch, error");                
+                $result = $mysqli->query($sql) or die("ouch, error");
                 $nowTime = new DateTime();
 
                 $latestPostTime = $result->fetch_assoc()['HappyDate'];
                 $latestPostTimeDT = new DateTime($latestPostTime);
-                
+
                 // $interval = $nowTime->diff($latestPostTimeDT);
                 // $secsElapsed = $interval->format('%s');
                 $diff = $nowTime->getTimestamp() - $latestPostTimeDT->getTimestamp();
@@ -40,7 +40,7 @@
                     $isSpam = true;
                 }
             }
-                
+
             //CHECK FOR DUPLICATES
             $sql = "SELECT HappyID FROM happy_table WHERE Happy_quote = '$quote'";
             $result = $mysqli->query($sql) or die("ouch, error");
@@ -50,10 +50,10 @@
                 $isDupe = true;
             }
 
-            
+
             if(!$isDupe && !$isSpam){
                 //ADD NEW UNIQUE QUOTE
-                $sql = "INSERT INTO happy_table (HappyID, Happy_quote, HappyRating, HappyDate) VALUES (NULL, ?, 0, NOW())";            
+                $sql = "INSERT INTO happy_table (HappyID, Happy_quote, HappyRating, HappyDate) VALUES (NULL, ?, 0, NOW())";
                 $stmt = mysqli_stmt_init($mysqli);
                 if(!mysqli_stmt_prepare($stmt, $sql)){
                     echo "SQL ERROR";
@@ -62,9 +62,9 @@
                     mysqli_stmt_execute($stmt);
                 }
 
-                
+
                 //ADD TO ACCOUNT's POST HISTORY
-                $sql = "SELECT HappyID FROM happy_table WHERE Happy_quote = ? ORDER BY HappyDate DESC LIMIT 1";            
+                $sql = "SELECT HappyID FROM happy_table WHERE Happy_quote = ? ORDER BY HappyDate DESC LIMIT 1";
                 $stmt = mysqli_stmt_init($mysqli);
                 if(!mysqli_stmt_prepare($stmt, $sql)){
                     echo "SQL ERROR";
@@ -76,10 +76,10 @@
                         $newId = $thisId;
                     }
                     $sql = "UPDATE accounts SET Posts = CONCAT('$prevPosts', '$newId,') WHERE Email = '$email'";
-                    $result = $mysqli->query($sql) or die("ouch, error"); 
-                }                       
-            } 
-            
+                    $result = $mysqli->query($sql) or die("ouch, error");
+                }
+            }
+
         } else {
             $isEmpty = true;
         }
@@ -99,7 +99,7 @@
     </head>
 
     <body>
-                                
+
         <div class = "navbar">
             <div class = "navanchors">
                 <ul>
@@ -107,14 +107,14 @@
                     <li><a href = "submit.php">Submit</a></li>
                     <li><a href = "contact.html">Contact</a></li>
                 </ul>
-            </div>            
-        </div>      
-        
+            </div>
+        </div>
+
 
         <div class = "submitSuccess">
-            <?php 
+            <?php
                 if($isDupe){
-                    echo "It looks like this quote was submitted before. Maybe try thinking of another quote!";         
+                    echo "It looks like this quote was submitted before. Maybe try thinking of another quote!";
                 } else if($isEmpty) {
                     echo "Please type in something before submitting!";
                 } else if($isSpam){
@@ -130,6 +130,3 @@
         </div>
     </body>
 </html>
-
-
-

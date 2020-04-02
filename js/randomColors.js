@@ -6,4 +6,4 @@ function setRandomColors(){
          arr[i].style.backgroundColor = random_color;
     }
 }
-setRandomColors();
+//setRandomColors();
