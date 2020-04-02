@@ -5,7 +5,7 @@ $(document).ready(
         var alreadyVotes;
         $.ajax({
             type: 'GET',
-            url: 'getVotedIDs.php',
+            url: 'backend_php/getVotedIDs.php',
             cache: false,
             success: function(result) {
                 alreadyVotes = result;
@@ -21,7 +21,7 @@ $(document).ready(
                 var reportID = $(this).attr("name");
 
 
-                var ajaxurl = 'report.php',
+                var ajaxurl = 'backend_php/report.php',
                 data =  {'reportedID': reportID};
                 $.post(ajaxurl, data, function (response) {
                     if(response != "SUCCESS"){
@@ -51,7 +51,7 @@ $(document).ready(
                 //FIRST CHECK IF THERE ARE ANY QUOTES TO LOAD
                 $.ajax({
                     type: 'GET',
-                    url: 'returnTotalQuoteCount.php',
+                    url: 'backend_php/returnTotalQuoteCount.php',
                     cache: false,
                     success: function(result) {
                         if(quoteCount <= result){
@@ -116,7 +116,7 @@ $(document).ready(
             });
             */
             //AJAX TO LOG VOTE INTO DATABASE / PROMPT LOGIN
-            var ajaxurl = 'vote.php',
+            var ajaxurl = 'backend_php/vote.php',
             data =  {'action': clickBtnValue};
             $.ajaxSetup({cache: false})
             $.post(ajaxurl, data, function (response) {
@@ -133,7 +133,7 @@ $(document).ready(
             //GET ALL IDs that the user has already voted on
             $.ajax({
                 type: 'GET',
-                url: 'getVotedIDs.php',
+                url: 'backend_php/getVotedIDs.php',
                 cache: false,
                 success: function(result) {
                     alreadyVotes = result;

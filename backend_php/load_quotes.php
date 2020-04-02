@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<link rel="stylesheet" href="styles.css" type="text/css">
+		<link rel="stylesheet" href="../css/styles.css" type="text/css">
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="/js/quoteLoader.js"></script>
 	</head>

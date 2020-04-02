@@ -1,7 +1,7 @@
 <?php
-    include "setup_connection.php";
-    include "redirectLinks.php";
-    include "rememberMe.php";
+    include "backend_php/setup_connection.php";
+    include "backend_php/redirectLinks.php";
+    include "backend_php/rememberMe.php";
     session_start();
 ?>
 
@@ -12,14 +12,15 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title>Submit | EncourageMe </title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-		<link rel="stylesheet" href="styles.css" type="text/css">
+		<link rel="stylesheet" href="/css/styles.css" type="text/css">
 	</head>
 
 	<body>
-		<div class = "navbar">
+        <div class = "navbar">
             <div class = "navanchors">
                 <ul>
                     <li><a href = "index.php">Home</a></li>
+					<li><a href = "myaccount.php">My Account</a></li>
                     <li><a href = "submit.php">Submit</a></li>
                     <li><a href = "contact.html">Contact</a></li>
                 </ul>

@@ -1,5 +1,5 @@
-<?php 
-    include "redirectLinks.php";
+<?php
+    include "backend_php/redirectLinks.php";
     require ("vendor/autoload.php");
     session_start();
 
@@ -34,7 +34,7 @@
 
         try {
             $pay_load = $g_client->verifyIdToken();
-        }catch (Exception $e) { 
+        }catch (Exception $e) {
             echo $e->getMessage();
         }
 

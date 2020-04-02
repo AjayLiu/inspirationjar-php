@@ -1,7 +1,7 @@
 <?php
-	include "setup_connection.php";
-	include "redirectLinks.php";
-	include "rememberMe.php";
+	include "backend_php/setup_connection.php";
+	include "backend_php/redirectLinks.php";
+	include "backend_php/rememberMe.php";
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title> My Account | EncourageMe </title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel="stylesheet" href="styles.css" type="text/css">
+        <link rel="stylesheet" href="/css/styles.css" type="text/css">
 
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script>
@@ -20,7 +20,7 @@
                     //PROMPT LOGIN PAGE IF NOT LOGGED IN
                     $.ajax({
                       type: 'GET',
-                      url: 'isLoggedIn.php',
+                      url: 'backend_php/isLoggedIn.php',
                       cache: false,
                       success: function(result) {
                           if(result != "LOGGED IN"){
@@ -37,7 +37,7 @@
 				//LOG OUT
 				$.ajax({
 				  type: 'GET',
-				  url: 'logout.php',
+				  url: 'backend_php/logout.php',
 				  cache: false,
 				  success: function(result) {
 					  alert(result);
