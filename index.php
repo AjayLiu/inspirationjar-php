@@ -22,6 +22,7 @@
             <div class = "navanchors">
                 <ul>
                     <li><a href = "index.php">Home</a></li>
+					<li><a href = "myaccount.php">My Account</a></li>
                     <li><a href = "submit.php">Submit</a></li>
                     <li><a href = "contact.html">Contact</a></li>
                 </ul>

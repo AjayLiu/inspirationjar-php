@@ -168,6 +168,10 @@ html {
 	color: gold;
 }
 
+.logoutButton{
+	margin:auto;
+}
+
 /* MOBILE */
 @media screen and (max-width: 767px) {
 	.quoteBlock{
