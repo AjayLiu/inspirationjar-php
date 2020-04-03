@@ -2,21 +2,22 @@
 	<head>
 		<link rel="stylesheet" href="../css/styles.css" type="text/css">
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="/js/quoteLoader.js"></script>
+		<script src="../js/quoteLoader.js"></script>
 	</head>
 
 	<body>
 		<?php
 			include "setup_connection.php";
-
-			$quoteNewCount = $_POST['quoteNewCount'];
-
-			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE isReported = 0 OR isReviewedSafe = 1 ORDER BY HappyRating DESC LIMIT 5";
+			$quoteNewCount = 5;
+			if(isset($_POST['quoteNewCount'])){
+				$quoteNewCount = $_POST['quoteNewCount'];
+			}
+			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE isReported = 0 OR isReviewedSafe = 1 ORDER BY HappyRating DESC LIMIT $quoteNewCount";
 			$result = $mysqli->query($sql) or die("an error has occured");
 
 
 			if ($result->num_rows > 0) {
-				?> <div id = "quotes_root" > <?php
+
 
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
@@ -40,11 +41,6 @@
 						</div>
 					<?php
 				}
-
-				?>
-				</div>
-
-				<?php
 			} else {
 				//0 results;
 				//echo "0 results";

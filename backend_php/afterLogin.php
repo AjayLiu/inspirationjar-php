@@ -19,7 +19,6 @@
         }
 
         //REMEMBER
-
         $sessionID = uniqid('', true);
         $sql = "INSERT INTO sessions (session_id, email) VALUES ('$sessionID', '$email')";
         $result = $mysqli->query($sql) or die("ouch, died here");

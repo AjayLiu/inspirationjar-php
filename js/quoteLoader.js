@@ -19,8 +19,6 @@ $(document).ready(
         $(".reportButton").click(
             function(){
                 var reportID = $(this).attr("name");
-
-
                 var ajaxurl = 'backend_php/report.php',
                 data =  {'reportedID': reportID};
                 $.post(ajaxurl, data, function (response) {
@@ -56,7 +54,7 @@ $(document).ready(
                     success: function(result) {
                         if(quoteCount <= result){
                             quoteCount = quoteCount + 5;
-                            $("#quotes_root").load("load_quotes.php", {quoteNewCount: quoteCount}, function(){
+                            $("#quotes_root").load("/backend_php/load_quotes.php", {'quoteNewCount': quoteCount}, function(){
                                 markDupes();
                             });
                         } else {

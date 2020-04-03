@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="/css/styles.css" type="text/css">
 
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="/js/quoteLoader.js"></script>
 	</head>
 
 	<body>
@@ -28,14 +27,17 @@
                 </ul>
             </div>
         </div>
+
 		<div class = "intro">
             <h1>had a bad day?</h1>
             <p>Read some encouraging messages submitted from wholesome humans around the world!</p>
 		</div>
 
-		<?php
-			include "backend_php/load_quotes.php";
-        ?>
+		<div id = "quotes_root" >
+			<?php include "backend_php/load_quotes.php"; ?>
+		</div>
+
+
         <script src = "/js/randomColors.js"></script>
 
 		<div class = "refreshButtonContainer">
