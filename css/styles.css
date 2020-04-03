@@ -73,7 +73,7 @@ a:hover{
 
 
 * {
-	font-family: Trebuchet MS, sans-serif	;
+	font-family: Calibri, Trebuchet MS, sans-serif	;
 }
 
 
@@ -94,7 +94,6 @@ html {
 	padding-top: 10%;
 	text-align: center;
 	position: relative;
-	border: 1px solid black;
 }
 
 .quoteText{

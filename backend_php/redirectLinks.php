@@ -1,7 +1,5 @@
 <?php
-
     $isLocal = false;
-
     if($isLocal){
         $submitLink = "http://localhost/submit.php";
         $loginPageLink = "http://localhost/login_page.php";
@@ -15,9 +13,4 @@
         $indexLink = "https://encourageme.herokuapp.com/index.php";
         $accountLink = "https://encourageme.herokuapp.com/myaccount.php";
     }
-
-
-
-
-
 ?>
