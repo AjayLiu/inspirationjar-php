@@ -1,5 +1,5 @@
 <?php
-    $isLocal = true;
+    $isLocal = false;
     if($isLocal){
         $submitLink = "http://localhost/submit.php";
         $loginPageLink = "http://localhost/login_page.php";
