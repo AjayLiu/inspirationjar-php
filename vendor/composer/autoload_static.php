@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit88a581d0f42a6558300dbf74fa1e1307
+class ComposerStaticInita717a4a220c352ebbb5035b802df2f4a
 {
     public static $files = array (
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
@@ -99,6 +99,10 @@ class ComposerStaticInit88a581d0f42a6558300dbf74fa1e1307
         ),
     );
 
+    public static $fallbackDirsPsr0 = array (
+        0 => __DIR__ . '/..' . '/mofodojodino/profanity-filter/src',
+    );
+
     public static $classMap = array (
         'Google\\Auth\\ApplicationDefaultCredentials' => __DIR__ . '/..' . '/google/auth/src/ApplicationDefaultCredentials.php',
         'Google\\Auth\\CacheTrait' => __DIR__ . '/..' . '/google/auth/src/CacheTrait.php',
@@ -131,10 +135,11 @@ class ComposerStaticInit88a581d0f42a6558300dbf74fa1e1307
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit88a581d0f42a6558300dbf74fa1e1307::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit88a581d0f42a6558300dbf74fa1e1307::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit88a581d0f42a6558300dbf74fa1e1307::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit88a581d0f42a6558300dbf74fa1e1307::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita717a4a220c352ebbb5035b802df2f4a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita717a4a220c352ebbb5035b802df2f4a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInita717a4a220c352ebbb5035b802df2f4a::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInita717a4a220c352ebbb5035b802df2f4a::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInita717a4a220c352ebbb5035b802df2f4a::$classMap;
 
         }, null, ClassLoader::class);
     }

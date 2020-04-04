@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4ee3bb22c696b09031424bd169cb8a3",
+    "content-hash": "93dbee76c948869e7e44bfca7c239b04",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -378,6 +378,46 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "mofodojodino/profanity-filter",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mofodojodino/ProfanityFilter.git",
+                "reference": "529d24adcdb5b9507a4622db6aba6e54c5bb82a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mofodojodino/ProfanityFilter/zipball/529d24adcdb5b9507a4622db6aba6e54c5bb82a9",
+                "reference": "529d24adcdb5b9507a4622db6aba6e54c5bb82a9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.0",
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dean Tedesco",
+                    "email": "dino@tedesco.net.au"
+                }
+            ],
+            "description": "Filters out profanities from strings.",
+            "time": "2016-05-11T00:19:07+00:00"
         },
         {
             "name": "monolog/monolog",

@@ -2,6 +2,8 @@
     include "backend_php/setup_connection.php";
     include "backend_php/redirectLinks.php";
     include "backend_php/rememberMe.php";
+    require_once("vendor/mofodojodino/profanity-filter/src/mofodojodino/ProfanityFilter/Check.php");
+
     session_start();
 
     $email = $_SESSION['payload']['email'];
@@ -17,6 +19,10 @@
             $prevPostsIDs = explode(",","$prevPosts");
 
             $quote = mysqli_real_escape_string($mysqli, $_GET["inputQuote"]);
+
+            //CHECK IF CONTAINS PROFANITY
+            $check = new Check();
+            $isSwear = $check->hasProfanity($quote);
 
             //SEARCH THROUGH HISTORY FOR DUPLICATES OR SPAM (submitted too fast from the previous)
             $isDupe = false;
@@ -51,7 +57,7 @@
             }
 
 
-            if(!$isDupe && !$isSpam){
+            if(!$isDupe && !$isSpam && !$isSwear){
                 //ADD NEW UNIQUE QUOTE
                 $sql = "INSERT INTO happy_table (HappyID, Happy_quote, HappyRating, HappyDate) VALUES (NULL, ?, 0, NOW())";
                 $stmt = mysqli_stmt_init($mysqli);
@@ -120,6 +126,8 @@
                     echo "Please type in something before submitting!";
                 } else if($isSpam){
                     echo "It looks like you submitted a quote $diff seconds ago. Please wait for at least 30 seconds before submitting again as we want to prevent spammers.";
+                } else if($isSwear) {
+                    echo "We've detected some profanity in your quote. Please keep your quotes friendly and don't spread hate.";
                 } else {
                     echo "Thanks for your submission!";
                 }
