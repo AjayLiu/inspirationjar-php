@@ -3,9 +3,11 @@
 		<link rel="stylesheet" href="../css/styles.css" type="text/css">
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="../js/quoteLoader.js"></script>
+
 	</head>
 
 	<body>
+
 		<?php
 			include "setup_connection.php";
 			$quoteNewCount = 5;
@@ -34,8 +36,8 @@
 									<?php echo $row["HappyRating"]; ?>
 								</div>
 								<div class = "buttons">
-									<input type="submit" class="button" name="<?php echo "good".($row["HappyID"]);?>" id = "goodButton" value="Thanks, I feel better!" />
-									<input type="submit" class="button" name="<?php echo "bad".($row["HappyID"]);?>" id = "badButton" value="I still feel like trash" />
+									<input type="image" src=images/smile.png class="button" name="<?php echo "good".($row["HappyID"]);?>" id = "goodButton" value="Thanks, I feel better!"/>
+									<input type="image" src=images/sad.png class="button" name="<?php echo "bad".($row["HappyID"]);?>" id = "badButton" value="I still feel like trash" />
 								</div>
 							</div>
 						</div>
@@ -48,9 +50,9 @@
 		?>
 
 		<script src = "/js/randomColors.js"></script>
-
 		<script src="/js/jquery.fittext.js"></script>
 		<script src="/js/fittext.js"></script>
+
 
 	</body>
 

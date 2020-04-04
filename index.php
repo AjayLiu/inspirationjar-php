@@ -43,11 +43,6 @@
 		<div class = "refreshButtonContainer">
 			<button id = "refreshButton">Click for more messages!</button>
 		</div>
-
-		<script src="/js/jquery.fittext.js"></script>
-		<script src="/js/fittext.js"></script>
-
-
 	</body>
 
 </html>

@@ -120,6 +120,7 @@ html {
 
 .gratitudeRatings{
 	margin: 20px 0 0 0;
+	font-size: 1.2rem;
 	color: purple;
 }
 
@@ -134,7 +135,8 @@ html {
   color: #069;
   text-decoration: none;
   cursor: pointer;
-
+  width: 15vh;
+  height: 15vh;
 }
 
 #goodButton{
@@ -189,9 +191,9 @@ html {
 
 	.button{
 		font-size: 1rem;
-		height: 10vh;
 		margin-top: 8vh;
-
+		width: 10vh;
+	    height: 10vh;
 	}
 
 	.navbar ul {

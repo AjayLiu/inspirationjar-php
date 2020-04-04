@@ -95,25 +95,6 @@ $(document).ready(
             var id = clickBtnValue.substring(clickBtnValue.indexOf('d') + 1);
 
             //AJAX TO LOG VOTE INTO DATABASE / PROMPT LOGIN
-            /*
-            var ajaxurl = 'vote.php',
-            data =  {'action': clickBtnValue};
-            var session;
-            $.ajaxSetup({cache: false})
-            $.get(ajaxurl, function (data) {
-                session = data;
-            }).done(function(){
-                $.post(ajaxurl, data, function (response) {
-                    if(response != "DUPE"){
-                        if(response != "LOGGED IN"){
-                            //SEND TO LOGIN PAGE
-                            window.location = session;
-                        }
-                    }
-                });
-            });
-            */
-            //AJAX TO LOG VOTE INTO DATABASE / PROMPT LOGIN
             var ajaxurl = 'backend_php/vote.php',
             data =  {'action': clickBtnValue};
             $.ajaxSetup({cache: false})
