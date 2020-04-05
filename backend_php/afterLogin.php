@@ -15,7 +15,6 @@
         if($result->fetch_assoc()['Email'] == null){
             $sql = "INSERT INTO accounts (Email) VALUES ('$email')";
             $result = $mysqli->query($sql) or die("ouch, error");
-
         }
 
         //REMEMBER

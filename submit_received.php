@@ -21,10 +21,25 @@
             $quote = mysqli_real_escape_string($mysqli, $_GET["inputQuote"]);
 
             //CHECK IF CONTAINS PROFANITY
-            $check = new Check();
-            $isSwear = $check->hasProfanity($quote);
+            $isSwear = false;
+            $profanityArr = include("backend_php/profanities.php");
 
+            foreach(explode(' ', $quote) as $str){
+                $cleanerStr = strtolower(str_replace(array("?","!",",",";","."," "), "", $str));
+                if(in_array($cleanerStr, $profanityArr)){
+                    $isSwear = true;
+                    break;
+                }
+            }
+
+
+
+
+            /*
+            $check = new Check();
+            */
             //SEARCH THROUGH HISTORY FOR DUPLICATES OR SPAM (submitted too fast from the previous)
+
             $isDupe = false;
             $isSpam = false;
 
@@ -120,15 +135,17 @@
 
         <div class = "submitSuccess">
             <?php
-                if($isDupe){
+                if($isSwear) {
+
+                    echo "<br>";
+                    echo "We've detected some profanity in your quote. Please keep your quotes friendly and don't spread hate.";
+                } else if($isDupe){
                     echo "It looks like this quote was submitted before. Maybe try thinking of another quote!";
                 } else if($isEmpty) {
                     echo "Please type in something before submitting!";
                 } else if($isSpam){
                     echo "It looks like you submitted a quote $diff seconds ago. Please wait for at least 30 seconds before submitting again as we want to prevent spammers.";
-                } else if($isSwear) {
-                    echo "We've detected some profanity in your quote. Please keep your quotes friendly and don't spread hate.";
-                } else {
+                }  else {
                     echo "Thanks for your submission!";
                 }
             ?>

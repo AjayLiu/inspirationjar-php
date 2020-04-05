@@ -1,6 +1,5 @@
 {
     "require": {
-        "google/apiclient": "2.1.0",
-        "mofodojodino/profanity-filter": "^1.3"
+        "google/apiclient": "2.1.0"        
     }
 }
