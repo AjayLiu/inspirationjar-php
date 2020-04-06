@@ -33,14 +33,13 @@
             );
 
 			function logout(){
-				alert("LOGOUT");
 				//LOG OUT
 				$.ajax({
 				  type: 'GET',
 				  url: 'backend_php/logout.php',
 				  cache: false,
 				  success: function(result) {
-					  alert(result);
+					  window.location.reload();
 				  }
 				});
 			}
@@ -72,8 +71,14 @@
 				header("LOCATION: ".$loginPageLink);
 			}
 		?>
-
 		<button class = "logoutButton" onclick="logout()">Log out</button>
+
+		<hr width = 500px>
+
+		<div id = "posts_root" >
+			<?php include "backend_php/load_posts.php"; ?>
+		</div>
+
 
 	</body>
 

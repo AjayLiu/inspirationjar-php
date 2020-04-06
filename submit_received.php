@@ -2,7 +2,6 @@
     include "backend_php/setup_connection.php";
     include "backend_php/redirectLinks.php";
     include "backend_php/rememberMe.php";
-    require_once("vendor/mofodojodino/profanity-filter/src/mofodojodino/ProfanityFilter/Check.php");
 
     session_start();
 
@@ -12,13 +11,20 @@
 
     if(isset($email)){
         if(isset($_GET["inputQuote"]) && $_GET["inputQuote"] != ''){
-            //GET POST HISTORY FROM THIS ACCOUNT
-            $sql = "SELECT Posts FROM accounts WHERE Email = '$email';";
+            ///GET POST HISTORY FROM THIS ACCOUNT
+            $sql = "SELECT Posts, isBanned FROM accounts WHERE Email = '$email';";
             $result = $mysqli->query($sql) or die("ouch, error");
-            $prevPosts = $result->fetch_assoc()['Posts'];
+            $accountInfo = $result->fetch_assoc();
+            $prevPosts = $accountInfo['Posts'];
             $prevPostsIDs = explode(",","$prevPosts");
 
             $quote = mysqli_real_escape_string($mysqli, $_GET["inputQuote"]);
+
+            //CHECK IF USER IS BANNED
+            $isBanned = false;
+            if($accountInfo['isBanned']){
+                $isBanned = true;
+            }
 
             //CHECK IF CONTAINS PROFANITY
             $isSwear = false;
@@ -72,7 +78,7 @@
             }
 
 
-            if(!$isDupe && !$isSpam && !$isSwear){
+            if(!$isDupe && !$isSpam && !$isSwear && !$isBanned){
                 //ADD NEW UNIQUE QUOTE
                 $sql = "INSERT INTO happy_table (HappyID, Happy_quote, HappyRating, HappyDate) VALUES (NULL, ?, 0, NOW())";
                 $stmt = mysqli_stmt_init($mysqli);
@@ -131,13 +137,12 @@
                 </ul>
             </div>
         </div>
-
-
+    
         <div class = "submitSuccess">
             <?php
-                if($isSwear) {
-
-                    echo "<br>";
+                if($isBanned){
+                    echo "Sorry, it looks like your account has been suspended from posting quotes. If you would like to repeal this decision, visit the contacts page.";
+                }else if($isSwear) {
                     echo "We've detected some profanity in your quote. Please keep your quotes friendly and don't spread hate.";
                 } else if($isDupe){
                     echo "It looks like this quote was submitted before. Maybe try thinking of another quote!";

@@ -159,6 +159,7 @@ html {
 	width: 80%;
 	height: 10vh;
 	margin:auto;
+	font-size: 3vw;
 }
 
 .submitSuccess{
@@ -167,12 +168,26 @@ html {
 }
 
 .submitAnother a{
-	color: gold;
+	font-size: 2rem;
+	color: orange;
+}
+
+#posts_root{
+	width: 80%;
+	margin:auto;
+}
+
+.quoteEditBar{
+	display: flex;
+	margin: 50px;
+	justify-content: space-around;
 }
 
 .logoutButton{
 	margin:auto;
 }
+
+
 
 /* MOBILE */
 @media screen and (max-width: 767px) {
@@ -211,6 +226,7 @@ html {
     }
 
 	#refreshButton{
+		font-size: 5vw;
 		scroll-snap-align: end;
 	}
 }

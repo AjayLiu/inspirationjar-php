@@ -33,7 +33,7 @@ $(document).ready(
                             alert("It looks like you reported a quote just " + response + " seconds ago. Please wait at least 30 seconds before reporting.");
                         }
                     } else {
-                        alert("Thanks for maintaining order in this site! We will review this quote and take the appropriate actions.");
+                        alert("Report Successful. Thanks for maintaining order in this site! We will review this quote and take the appropriate actions.");
                         var reportedBlock = ".quoteBlock[data-gratID=\"" + reportID + "\"]";
                         $(reportedBlock).remove();
                     }
