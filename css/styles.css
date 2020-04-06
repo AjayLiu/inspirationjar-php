@@ -177,6 +177,10 @@ html {
 	margin:auto;
 }
 
+#prevPosts{
+	font-size: 30px;
+}
+
 .quoteEditBar{
 	display: flex;
 	margin: 50px;

@@ -28,7 +28,7 @@
             }
 
         ?>
-        <h1>Your Previous Posts: <?php echo count($prevPostsIDs)-1?> </h1>
+        <div id = "prevPosts">Your Previous Posts: <?php echo count($prevPostsIDs)-1?> </h1>
         <?php
             if ($result->num_rows > 0) {
 				// output data of each row

@@ -18,26 +18,29 @@ $(document).ready(
         //REPORT BUTTON
         $(".reportButton").click(
             function(){
-                var reportID = $(this).attr("name");
-                var ajaxurl = 'backend_php/report.php',
-                data =  {'reportedID': reportID};
-                $.post(ajaxurl, data, function (response) {
-                    if(response != "SUCCESS"){
-                        if(response == "DUPE"){
-                            alert("It looks like you reported this quote before. Sorry for showing this to you again, must be an error");
-                        } else if(isNaN(response)){
-                            //REDIRECT TO LOGIN
-                            window.location = response;
+                var yes = confirm("Are you sure you want to report this post?");
+                if(yes){
+                    var reportID = $(this).attr("name");
+                    var ajaxurl = 'backend_php/report.php',
+                    data =  {'reportedID': reportID};
+                    $.post(ajaxurl, data, function (response) {
+                        if(response != "SUCCESS"){
+                            if(response == "DUPE"){
+                                alert("It looks like you reported this quote before. Sorry for showing this to you again, must be an error");
+                            } else if(isNaN(response)){
+                                //REDIRECT TO LOGIN
+                                window.location = response;
+                            } else {
+                                //SPAM
+                                alert("It looks like you reported a quote just " + response + " seconds ago. Please wait at least 30 seconds before reporting.");
+                            }
                         } else {
-                            //SPAM
-                            alert("It looks like you reported a quote just " + response + " seconds ago. Please wait at least 30 seconds before reporting.");
+                            alert("Report Successful. Thanks for maintaining order in this site! We will review this quote and take the appropriate actions.");
+                            var reportedBlock = ".quoteBlock[data-gratID=\"" + reportID + "\"]";
+                            $(reportedBlock).remove();
                         }
-                    } else {
-                        alert("Report Successful. Thanks for maintaining order in this site! We will review this quote and take the appropriate actions.");
-                        var reportedBlock = ".quoteBlock[data-gratID=\"" + reportID + "\"]";
-                        $(reportedBlock).remove();
-                    }
-                });
+                    });
+                }
             }
         );
 
