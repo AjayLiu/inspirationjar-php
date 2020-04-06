@@ -73,7 +73,7 @@
 		?>
 		<button class = "logoutButton" onclick="logout()">Log out</button>
 
-		<hr width = 500px>
+		<hr width = 50%>
 
 		<div id = "posts_root" >
 			<?php include "backend_php/load_posts.php"; ?>
