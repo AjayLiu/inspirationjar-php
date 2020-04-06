@@ -11,7 +11,7 @@
     $result = $mysqli->query($sql) or die("ouch, error");
 
     //DELETE THE COOKIE
-    setcookie('session', '' , time() - 3600);
+    setcookie('session', time() - 3600, '/');
 
     echo "SUCCESS";
 ?>

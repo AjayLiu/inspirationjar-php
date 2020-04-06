@@ -22,7 +22,8 @@
         $sql = "INSERT INTO sessions (session_id, email) VALUES ('$sessionID', '$email')";
         $result = $mysqli->query($sql) or die("ouch, died here");
 
-        setcookie("session", $sessionID, mktime (0, 0, 0, 12, 31, 2021));
+        //MAKE SESSION COOKIE
+        setcookie("session", $sessionID, mktime (0, 0, 0, 12, 31, 2021), '/');
 
 
 

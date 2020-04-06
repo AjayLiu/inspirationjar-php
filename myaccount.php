@@ -64,7 +64,7 @@
 
 
 		<?php
-			if($_SESSION['payload']['email'] != null){
+			if(isset($_SESSION['payload']['email'])){
 				echo "You are logged in as: ".$_SESSION['payload']['email'];
 			} else {
 				$_SESSION["redir"] = $accountLink;
