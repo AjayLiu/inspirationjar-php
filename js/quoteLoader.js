@@ -123,6 +123,8 @@ $(document).ready(
                         //SEND TO LOGIN PAGE
                         window.location = response;
                     }
+                } else {
+                    //user probably spamming the vote or something
                 }
             });
 

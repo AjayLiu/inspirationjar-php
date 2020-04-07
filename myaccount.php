@@ -14,36 +14,7 @@
         <link rel="stylesheet" href="/css/styles.css" type="text/css">
 
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script>
-            $(document).ready(
-                function(){
-                    //PROMPT LOGIN PAGE IF NOT LOGGED IN
-                    $.ajax({
-                      type: 'GET',
-                      url: 'backend_php/isLoggedIn.php',
-                      cache: false,
-                      success: function(result) {
-                          if(result != "LOGGED IN"){
-                              //REDIRECT TO LOGIN
-                              window.location = response;
-                          }
-                      }
-                    });
-                }
-            );
-
-			function logout(){
-				//LOG OUT
-				$.ajax({
-				  type: 'GET',
-				  url: 'backend_php/logout.php',
-				  cache: false,
-				  success: function(result) {
-					  window.location.reload();
-				  }
-				});
-			}
-        </script>
+        <script src = "/js/accountPage.js"></script>
 	</head>
 
 	<body>
@@ -76,7 +47,11 @@
 		<hr width = 50%>
 
 		<div id = "posts_root" >
-			<?php include "backend_php/load_posts.php"; ?>
+			<?php
+				include "backend_php/load_posts.php";
+				include "backend_php/load_likes.php";
+				include "backend_php/load_dislikes.php"; 
+			?>
 		</div>
 
 
