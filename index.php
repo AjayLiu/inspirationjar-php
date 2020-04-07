@@ -39,10 +39,6 @@
 
 
         <script src = "/js/randomColors.js"></script>
-
-		<div class = "refreshButtonContainer">
-			<button id = "refreshButton">Click for more messages!</button>
-		</div>
 	</body>
 
 </html>

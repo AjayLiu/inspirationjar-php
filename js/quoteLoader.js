@@ -45,32 +45,48 @@ $(document).ready(
         );
 
         //Refresh Button
-        var quoteCount = 5;
+        var quoteCount;
+        function refresh(){
+            allowRefresh = false;
+            //FIRST CHECK IF THERE ARE ANY QUOTES TO LOAD
+            $.ajax({
+                type: 'GET',
+                url: 'backend_php/returnTotalQuoteCount.php',
+                cache: false,
+                success: function(result) {
+                    quoteCount = $( ".quoteBlock" ).length + 5;
+                    $("#quotes_root").load("/backend_php/load_quotes.php", {'quoteNewCount': quoteCount}, function(){
+                        markDupes();
+                    });
+                },
+            });
+        }
 
-        $("#refreshButton").click(
-            function(){
-                //FIRST CHECK IF THERE ARE ANY QUOTES TO LOAD
-                $.ajax({
-                    type: 'GET',
-                    url: 'backend_php/returnTotalQuoteCount.php',
-                    cache: false,
-                    success: function(result) {
-                        if(quoteCount <= result){
-                            quoteCount = quoteCount + 5;
-                            $("#quotes_root").load("/backend_php/load_quotes.php", {'quoteNewCount': quoteCount}, function(){
-                                markDupes();
-                            });
-                        } else {
-                            //REMOVE REFRESH BUTTON
-                            alert("No more quotes to load!");
-                            $("#refreshButton").remove();
+
+        var allowRefresh =true;
+        $(window).scroll(function() {
+            if(allowRefresh){
+                if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+                    $.ajax({
+                        type: 'GET',
+                        url: 'backend_php/returnTotalQuoteCount.php',
+                        cache: false,
+                        success: function(result) {
+                            quoteCount = $( ".quoteBlock" ).length;
+                            if(quoteCount == result){
+                                allowRefresh = false;
+                            }
+                            if(quoteCount <= result){
+                                if(allowRefresh){
+                                    refresh();
+                                }
+                            }
                         }
-                    },
-                });
-
-
+                    });
+                }
             }
-        );
+
+        });
 
         function markDupes(){
             //MARK ALL POSTS THAT ARE ALREADY VOTED IN YELLOW
