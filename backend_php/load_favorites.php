@@ -2,7 +2,7 @@
 	<head>
 		<link rel="stylesheet" href="../css/styles.css" type="text/css">
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="../js/postLoader.js"></script>
+        <script src="../js/favoriteLoader.js"></script>
 	</head>
 
 	<body>
@@ -10,25 +10,25 @@
 		<?php
 			include "setup_connection.php";
             $email = $_SESSION['payload']['email'];
-            $sql = "SELECT Posts FROM accounts WHERE Email = '$email'";
+            $sql = "SELECT Favorites FROM accounts WHERE Email = '$email'";
 			$result = $mysqli->query($sql) or die("an error has occured");
-            $prevPosts = $result->fetch_assoc()['Posts'];
-            $prevPostsIDs = explode(",", "$prevPosts"); //LAST IS ALWAYS EMPTY
-            $postsToSql = "";
+            $prevFaves = $result->fetch_assoc()['Favorites'];
+            $prevFaveIDs = explode(",", "$prevFaves"); //LAST IS ALWAYS EMPTY
+            $favesToSql = "";
 
-            if(count($prevPostsIDs) > 1){
-                for($i = 0; $i < count($prevPostsIDs)-1; $i++){
-                    $postsToSql .= $prevPostsIDs[$i];
-                    if($i != count($prevPostsIDs)-2){
-                        $postsToSql.=',';
+            if(count($prevFaveIDs) > 1){
+                for($i = 0; $i < count($prevFaveIDs)-1; $i++){
+                    $favesToSql .= $prevFaveIDs[$i];
+                    if($i != count($prevFaveIDs)-2){
+                        $favesToSql.=',';
                     }
                 }
-                $sql = "SELECT * FROM happy_table WHERE HappyID IN ($postsToSql) ORDER BY HappyDate DESC";
+                $sql = "SELECT * FROM happy_table WHERE HappyID IN ($favesToSql)";
     			$result = $mysqli->query($sql) or die("an error has occured");
             }
 
         ?>
-        <div id = "prevPosts">Your Previous Posts: <?php echo count($prevPostsIDs)-1?> </div>
+        <div id = "prevPosts">Your Favorites: <?php echo count($prevFaveIDs)-1?> </div>
         <?php
             if ($result->num_rows > 0) {
 				// output data of each row
@@ -49,8 +49,8 @@
                                     }
 		                            ?>
 								</div>
-                                <div class = "quoteEditBar" data-gratID="<?php echo ($row["HappyID"]);?>">
-                                    <input type="image" src="/images/trashcan.png" name="<?php echo ($row["HappyID"]);?>" class = "deleteButton" value=''/>
+								<div class = "quoteEditBar" data-gratID="<?php echo ($row["HappyID"]);?>">
+									<input type="image" src="/images/heartbreak.png" name="<?php echo ($row["HappyID"]);?>" class = "unfavoriteButton" value=''/>
                                 </div>
 							</div>
 						</div>

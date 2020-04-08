@@ -26,7 +26,8 @@
 					?>
 						<div class = "quote_container">
 							<div class = "quoteBlock" data-gratID="<?php echo ($row["HappyID"]);?>">
-								<input type="image" src="/images/redflag.png" name="<?php echo ($row["HappyID"]);?>" class = "reportButton"/>
+								<input type="image" src="/images/redflag.png" name="<?php echo ($row["HappyID"]);?>" class = "reportButton" value=''/>
+								<input type="image" src="/images/heartBlank.png" name="<?php echo ($row["HappyID"]);?>" class = "favoriteButton" value=''/>
 
 								<div class = "quoteText" data-gratID="<?php echo ($row["HappyID"]);?>">
 									"<?php echo stripslashes($row["Happy_quote"]);?>"

@@ -49,8 +49,9 @@
 		<div id = "posts_root" >
 			<?php
 				include "backend_php/load_posts.php";
+				include "backend_php/load_favorites.php";
 				include "backend_php/load_likes.php";
-				include "backend_php/load_dislikes.php"; 
+				include "backend_php/load_dislikes.php";
 			?>
 		</div>
 

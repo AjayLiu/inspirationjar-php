@@ -14,6 +14,19 @@ $(document).ready(
             },
         });
 
+        //GET ALL IDs that the user has already FAVORITED on
+        var alreadyFaves;
+        $.ajax({
+            type: 'GET',
+            url: 'backend_php/getFavedIDs.php',
+            cache: false,
+            success: function(result) {
+                alreadyFaves = result;
+                markFaves();
+            },
+        });
+
+
 
         //REPORT BUTTON
         $(".reportButton").click(
@@ -44,7 +57,44 @@ $(document).ready(
             }
         );
 
-        //Refresh Button
+
+
+
+        //FAVORITE BUTTON
+        $(".favoriteButton").click(
+            function(){
+
+                //FLIP FLOP THE IMAGE
+                if($(this).attr("src") == "../images/heart.png"){
+                    $(this).attr("src","../images/heartBlank.png");
+                } else {
+                    $(this).attr("src","../images/heart.png");
+                }
+
+                var favID = $(this).attr("name");
+                var ajaxurl = 'backend_php/favorite.php',
+                data =  {'favID': favID};
+                $.post(ajaxurl, data, function (response) {
+                    if(response != "LOGGED IN"){
+                        //SEND TO LOGIN PAGE
+                        window.location = response;
+                    } else {
+                        //GET ALL IDs that the user has already FAVORITED on
+                        $.ajax({
+                            type: 'GET',
+                            url: 'backend_php/getFavedIDs.php',
+                            cache: false,
+                            success: function(result) {
+                                alreadyFaves = result;
+                            },
+                        });
+                    }
+                });
+            }
+
+        );
+
+        //Refresh
         var quoteCount;
         function refresh(){
             allowRefresh = false;
@@ -92,12 +142,26 @@ $(document).ready(
             //MARK ALL POSTS THAT ARE ALREADY VOTED IN YELLOW
             $('.gratitudeRatings').each(function(){
                 var thisId = $(this).attr("data-gratid");
-
                 //FOUND A POST ALREADY VOTED BY USER
                 if(alreadyVotes.indexOf(thisId+",") != -1){
                     var newHTML = "You already voted on this post!";
                     $(this).html(newHTML);
                     $(this).css('color', "orange");
+                }
+            });
+        }
+
+        //MARK Favorites
+        function markFaves(){
+            //CHANGE PICS OF ALL POSTS THAT ARE FAVORITED INTO HEARTS
+            $('.favoriteButton').each(function(){
+                var thisId = $(this).attr("name");
+
+                //FOUND A POST ALREADY FAVORITED BY USER
+                if(alreadyFaves.indexOf(thisId+",") != -1){
+                    $(this).attr("src","../images/heart.png");
+                } else {
+                    $(this).attr("src","../images/heartBlank.png");
                 }
             });
         }

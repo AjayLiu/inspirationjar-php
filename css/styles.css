@@ -98,10 +98,10 @@ html {
 }
 
 .quoteText{
-	margin: 0px auto 0 auto;
+	margin: 20px auto 0 auto;
 	display: block;
 	width: 90%;
-	height: 50vh;
+	height: 45vh;
 	overflow: auto;
 	word-wrap: break-word;
 }
@@ -154,12 +154,22 @@ html {
 	position: absolute;
 }
 
+.favoriteButton{
+	left: 20px;
+	top: 20px;
+	width: 5vh;
+	height: 5vh;
+	position: absolute;
+}
 
-#refreshButton{
-	width: 80%;
-	height: 10vh;
-	margin:auto;
-	font-size: 3vw;
+.deleteButton{
+	width: 5vh;
+	height: 5vh;
+}
+
+.unfavoriteButton{
+	width: 5vh;
+	height: 5vh;
 }
 
 .submitSuccess{
@@ -228,9 +238,4 @@ html {
 		scroll-snap-align: center;
         padding-top: 100px;
     }
-
-	#refreshButton{
-		font-size: 5vw;
-		scroll-snap-align: end;
-	}
 }
