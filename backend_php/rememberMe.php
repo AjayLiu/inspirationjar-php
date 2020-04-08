@@ -24,7 +24,7 @@
 
 
     } else {
-        echo "NO COOKIE FOUND YO";
+        //echo "NO COOKIE FOUND YO";
     }
 
 ?>
