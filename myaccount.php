@@ -12,8 +12,13 @@
         <title> My Account | EncourageMe </title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="stylesheet" href="/css/styles.css" type="text/css">
+		<link rel="stylesheet" href="/css/tabStyles.css" type="text/css">
 
-        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src = "/js/randomColors.js"></script>
+		<script src="/js/jquery.fittext.js"></script>
+		<script src="/js/fittext.js"></script>
+
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src = "/js/accountPage.js"></script>
 	</head>
 
@@ -47,13 +52,46 @@
 		<hr width = 50%>
 
 		<div id = "posts_root" >
-			<?php
-				include "backend_php/load_posts.php";
-				include "backend_php/load_favorites.php";
-				include "backend_php/load_likes.php";
-				include "backend_php/load_dislikes.php";
-			?>
+			<!-- Tab links -->
+			<div class="tab">
+				<button class="tablinks" onclick="openPosts(event, 'Posts')" id="defaultOpen">Your Posts</button>
+				<button class="tablinks" onclick="openPosts(event, 'Favorites')">Your Favorites</button>
+				<button class="tablinks" onclick="openPosts(event, 'Likes')">Your Likes</button>
+				<button class="tablinks" onclick="openPosts(event, 'Dislikes')">Your Dislikes</button>
+			</div>
+			<!-- Tab content -->
+			<div id="Posts" class="tabcontent">
+				<?php
+					include "backend_php/load_posts.php";
+				?>
+			</div>
+
+
+			<div id="Favorites" class="tabcontent">
+				<?php
+					include "backend_php/load_favorites.php";
+   			 	?>
+			</div>
+
+			<div id="Likes" class="tabcontent">
+				<?php
+					include "backend_php/load_likes.php";
+   			 	?>
+			</div>
+
+			<div id="Dislikes" class="tabcontent">
+				<?php
+					include "backend_php/load_dislikes.php";
+   			 	?>
+			</div>
 		</div>
+
+
+		<script src = "/js/loadTabs.js"></script>
+		<script>
+			// Get the element with id="defaultOpen" and click on it
+			document.getElementById("defaultOpen").click();
+		</script>
 
 
 	</body>

@@ -1,7 +1,6 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="../css/styles.css" type="text/css">
-		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	</head>
 
 	<body>
@@ -11,23 +10,23 @@
             $email = $_SESSION['payload']['email'];
             $sql = "SELECT Likes FROM accounts WHERE Email = '$email'";
 			$result = $mysqli->query($sql) or die("an error has occured");
-            $prevPosts = $result->fetch_assoc()['Likes'];
-            $prevPostsIDs = explode(",", "$prevPosts"); //LAST IS ALWAYS EMPTY
-            $postsToSql = "";
+            $prevLikes = $result->fetch_assoc()['Likes'];
+            $prevLikesIDs = explode(",", "$prevLikes"); //LAST IS ALWAYS EMPTY
+            $LikesToSql = "";
 
-            if(count($prevPostsIDs) > 1){
-                for($i = 0; $i < count($prevPostsIDs)-1; $i++){
-                    $postsToSql .= $prevPostsIDs[$i];
-                    if($i != count($prevPostsIDs)-2){
-                        $postsToSql.=',';
+            if(count($prevLikesIDs) > 1){
+                for($i = 0; $i < count($prevLikesIDs)-1; $i++){
+                    $LikesToSql .= $prevLikesIDs[$i];
+                    if($i != count($prevLikesIDs)-2){
+                        $LikesToSql.=',';
                     }
                 }
-                $sql = "SELECT * FROM happy_table WHERE HappyID IN ($postsToSql)";
+                $sql = "SELECT * FROM happy_table WHERE HappyID IN ($LikesToSql)";
     			$result = $mysqli->query($sql) or die("an error has occured");
             }
 
         ?>
-        <div id = "prevPosts">Your Previous Likes: <?php echo count($prevPostsIDs)-1?> </h1>
+        <div id = "prevPosts">Your Previous Likes: <?php echo count($prevLikesIDs)-1;?> </div>
         <?php
             if ($result->num_rows > 0) {
 				// output data of each row
@@ -58,12 +57,6 @@
 			}
 
 		?>
-
-		<script src = "/js/randomColors.js"></script>
-		<script src="/js/jquery.fittext.js"></script>
-		<script src="/js/fittext.js"></script>
-
-
 	</body>
 
 </html>

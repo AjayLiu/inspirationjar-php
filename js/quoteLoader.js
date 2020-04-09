@@ -116,7 +116,7 @@ $(document).ready(
         var allowRefresh =true;
         $(window).scroll(function() {
             if(allowRefresh){
-                if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+                if($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
                     $.ajax({
                         type: 'GET',
                         url: 'backend_php/returnTotalQuoteCount.php',

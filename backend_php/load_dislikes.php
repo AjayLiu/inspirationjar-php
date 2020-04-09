@@ -1,7 +1,6 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="../css/styles.css" type="text/css">
-		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	</head>
 
 	<body>
@@ -11,23 +10,22 @@
             $email = $_SESSION['payload']['email'];
             $sql = "SELECT Dislikes FROM accounts WHERE Email = '$email'";
 			$result = $mysqli->query($sql) or die("an error has occured");
-            $prevPosts = $result->fetch_assoc()['Dislikes'];
-            $prevPostsIDs = explode(",", "$prevPosts"); //LAST IS ALWAYS EMPTY
-            $postsToSql = "";
-
-            if(count($prevPostsIDs) > 1){
-                for($i = 0; $i < count($prevPostsIDs)-1; $i++){
-                    $postsToSql .= $prevPostsIDs[$i];
-                    if($i != count($prevPostsIDs)-2){
-                        $postsToSql.=',';
+            $prevDislikes = $result->fetch_assoc()['Dislikes'];
+            $prevDislikesIDs = explode(",", "$prevDislikes"); //LAST IS ALWAYS EMPTY
+            $DislikesToSql = "";
+            if(count($prevDislikesIDs) > 1){
+                for($i = 0; $i < count($prevDislikesIDs)-1; $i++){
+                    $DislikesToSql .= $prevDislikesIDs[$i];
+                    if($i != count($prevDislikesIDs)-2){
+                        $DislikesToSql.=',';
                     }
                 }
-                $sql = "SELECT * FROM happy_table WHERE HappyID IN ($postsToSql)";
+                $sql = "SELECT * FROM happy_table WHERE HappyID IN ($DislikesToSql)";
     			$result = $mysqli->query($sql) or die("an error has occured");
             }
 
         ?>
-        <div id = "prevPosts">Your Previous Dislikes: <?php echo count($prevPostsIDs)-1?> </h1>
+        <div id = "prevPosts">Your Previous Dislikes: <?php echo count($prevDislikesIDs)-1;?> </div>
         <?php
             if ($result->num_rows > 0) {
 				// output data of each row
@@ -58,11 +56,6 @@
 			}
 
 		?>
-
-		<script src = "/js/randomColors.js"></script>
-		<script src="/js/jquery.fittext.js"></script>
-		<script src="/js/fittext.js"></script>
-
 
 	</body>
 

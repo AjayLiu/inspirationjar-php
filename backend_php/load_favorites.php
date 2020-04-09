@@ -28,7 +28,7 @@
             }
 
         ?>
-        <div id = "prevPosts">Your Favorites: <?php echo count($prevFaveIDs)-1?> </div>
+        <div id = "prevPosts">Your Favorites: <?php echo count($prevFaveIDs)-1;?> </div>
         <?php
             if ($result->num_rows > 0) {
 				// output data of each row
@@ -62,11 +62,6 @@
 			}
 
 		?>
-
-		<script src = "/js/randomColors.js"></script>
-		<script src="/js/jquery.fittext.js"></script>
-		<script src="/js/fittext.js"></script>
-
 
 	</body>
 

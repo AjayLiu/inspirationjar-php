@@ -3,6 +3,7 @@
 		<link rel="stylesheet" href="../css/styles.css" type="text/css">
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="../js/postLoader.js"></script>
+
 	</head>
 
 	<body>
@@ -28,7 +29,7 @@
             }
 
         ?>
-        <div id = "prevPosts">Your Previous Posts: <?php echo count($prevPostsIDs)-1?> </div>
+        <div id = "prevPosts">Your Previous Posts: <?php echo count($prevPostsIDs)-1;?> </div>
         <?php
             if ($result->num_rows > 0) {
 				// output data of each row
@@ -62,10 +63,6 @@
 			}
 
 		?>
-
-		<script src = "/js/randomColors.js"></script>
-		<script src="/js/jquery.fittext.js"></script>
-		<script src="/js/fittext.js"></script>
 
 
 	</body>

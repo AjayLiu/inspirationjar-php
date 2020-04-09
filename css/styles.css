@@ -100,6 +100,7 @@ html {
 .quoteText{
 	margin: 20px auto 0 auto;
 	display: block;
+	font-size: 2rem;
 	width: 90%;
 	height: 45vh;
 	overflow: auto;
@@ -147,16 +148,16 @@ html {
 }
 
 .reportButton{
-	right: 10px;
-	top: 10px;
+	right: 25px;
+	top: 25px;
 	width: 5vh;
 	height: 5vh;
 	position: absolute;
 }
 
 .favoriteButton{
-	left: 20px;
-	top: 20px;
+	left: 30px;
+	top: 30px;
 	width: 5vh;
 	height: 5vh;
 	position: absolute;
@@ -223,6 +224,22 @@ html {
 		margin-top: 8vh;
 		width: 10vh;
 	    height: 10vh;
+	}
+
+	.reportButton{
+		right: 10px;
+		top: 10px;
+		width: 4vh;
+		height: 4vh;
+		position: absolute;
+	}
+
+	.favoriteButton{
+		left: 10px;
+		top: 10px;
+		width: 4vh;
+		height: 4vh;
+		position: absolute;
 	}
 
 	.navbar ul {
