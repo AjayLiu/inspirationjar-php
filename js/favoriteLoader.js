@@ -17,7 +17,7 @@ $(document).ready(
                             var reportedBlock = ".quoteBlock[data-gratID=\"" + unfavoriteID + "\"]";
                             $(reportedBlock).remove();
 
-                            $("#prevPosts").load(location.href + " #prevPosts");
+                            $("#prevFaves").load("getAccountNums/numFaves.php");
                         }
 
                     });

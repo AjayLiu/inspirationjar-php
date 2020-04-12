@@ -163,14 +163,20 @@ html {
 	position: absolute;
 }
 
-.deleteButton{
+.deleteButton, .unlikeButton, .undislikeButton{
 	width: 5vh;
 	height: 5vh;
 }
 
+
 .unfavoriteButton{
 	width: 5vh;
 	height: 5vh;
+}
+
+
+.submitQuoteInputBox{
+	width: 60%;
 }
 
 .submitSuccess{
@@ -188,8 +194,18 @@ html {
 	margin:auto;
 }
 
-#prevPosts{
+hr{
+	margin: 100px auto;
+}
+
+.loginStatus{
+	font-size: 2rem;
+	margin: 100px auto;
+}
+
+#prevPosts, #prevLikes, #prevDislikes, #prevFaves{
 	font-size: 30px;
+	margin: 30px;
 }
 
 .quoteEditBar{
@@ -255,4 +271,8 @@ html {
 		scroll-snap-align: center;
         padding-top: 100px;
     }
+
+	.tab{
+		scroll-snap-align: center;
+	}
 }

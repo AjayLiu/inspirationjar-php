@@ -28,7 +28,7 @@
             }
 
         ?>
-        <div id = "prevPosts">Your Favorites: <?php echo count($prevFaveIDs)-1;?> </div>
+        <div id = "prevFaves"><?php include "getAccountNums/numFaves.php"; ?> </div>
         <?php
             if ($result->num_rows > 0) {
 				// output data of each row

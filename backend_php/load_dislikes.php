@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="../css/styles.css" type="text/css">
+		<script src="../js/dislikeHistoryLoader.js"></script>
+
 	</head>
 
 	<body>
@@ -25,7 +27,7 @@
             }
 
         ?>
-        <div id = "prevPosts">Your Previous Dislikes: <?php echo count($prevDislikesIDs)-1;?> </div>
+        <div id = "prevDislikes"><?php include "getAccountNums/numDislikes.php"; ?> </div>
         <?php
             if ($result->num_rows > 0) {
 				// output data of each row
@@ -46,6 +48,9 @@
                                     }
 		                            ?>
 								</div>
+								<div class = "quoteEditBar" data-gratID="<?php echo ($row["HappyID"]);?>">
+                                    <input type="image" src="/images/trashcan.png" name="<?php echo ($row["HappyID"]);?>" class = "undislikeButton" value='dislike'/>
+                                </div>
 							</div>
 						</div>
 					<?php

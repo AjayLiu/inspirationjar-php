@@ -1,23 +1,20 @@
 $(document).ready(
     function(){
-        //DELETE BUTTON
-        $(".deleteButton").click(
+        $(".undislikeButton").click(
             function(){
-                var yes = confirm("Are you sure you want to delete this post permanently?");
+                var yes = confirm("Are you sure you want to Undislike this post?");
                 if(yes){
                     var deleteID = $(this).attr("name");
-                    var ajaxurl = 'backend_php/delete.php',
-                    data =  {'deleteID': deleteID};
+                    var likeOrDislike = $(this).val();
+                    var ajaxurl = 'backend_php/unvote.php',
+                    data =  {'deleteID': deleteID, 'likeOrDislike': likeOrDislike};
                     $.post(ajaxurl, data, function (response) {
                         if(response != "SUCCESS"){
                             window.location = response;
                         } else {
-                            alert("Post successfully deleted");
-
                             var reportedBlock = ".quoteBlock[data-gratID=\"" + deleteID + "\"]";
                             $(reportedBlock).remove();
-
-                            $("#prevPosts").load("getAccountNums/numPosts.php");
+                            $("#prevDislikes").load("backend_php/getAccountNums/numDislikes.php");
                         }
 
                     });

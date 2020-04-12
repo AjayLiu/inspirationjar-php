@@ -38,18 +38,20 @@
             <p>Manage your account here!</p>
 		</div>
 
+		<div class = "loginStatus">
+			<?php
+				if(isset($_SESSION['payload']['email'])){
+					echo "You are logged in as: ".$_SESSION['payload']['email'];
+				} else {
+					$_SESSION["redir"] = $accountLink;
+					header("LOCATION: ".$loginPageLink);
+				}
+			?>
+			<br>
+			<button class = "logoutButton" onclick="logout()">Log out</button>
 
-		<?php
-			if(isset($_SESSION['payload']['email'])){
-				echo "You are logged in as: ".$_SESSION['payload']['email'];
-			} else {
-				$_SESSION["redir"] = $accountLink;
-				header("LOCATION: ".$loginPageLink);
-			}
-		?>
-		<button class = "logoutButton" onclick="logout()">Log out</button>
+		</div>
 
-		<hr width = 50%>
 
 		<div id = "posts_root" >
 			<!-- Tab links -->

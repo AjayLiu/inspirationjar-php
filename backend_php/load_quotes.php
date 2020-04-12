@@ -10,7 +10,7 @@
 
 		<?php
 			include "setup_connection.php";
-			$quoteNewCount = 5;
+			$quoteNewCount = 10;
 			if(isset($_POST['quoteNewCount'])){
 				$quoteNewCount = $_POST['quoteNewCount'];
 			}

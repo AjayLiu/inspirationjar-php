@@ -104,7 +104,7 @@ $(document).ready(
                 url: 'backend_php/returnTotalQuoteCount.php',
                 cache: false,
                 success: function(result) {
-                    quoteCount = $( ".quoteBlock" ).length + 5;
+                    quoteCount = $( ".quoteBlock" ).length + 10;
                     $("#quotes_root").load("/backend_php/load_quotes.php", {'quoteNewCount': quoteCount}, function(){
                         markDupes();
                     });

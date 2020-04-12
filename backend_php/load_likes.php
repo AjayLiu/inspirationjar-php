@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="../css/styles.css" type="text/css">
+		<script src="../js/likeHistoryLoader.js"></script>
 	</head>
 
 	<body>
@@ -26,7 +27,7 @@
             }
 
         ?>
-        <div id = "prevPosts">Your Previous Likes: <?php echo count($prevLikesIDs)-1;?> </div>
+        <div id = "prevLikes"><?php include "getAccountNums/numLikes.php"; ?></div>
         <?php
             if ($result->num_rows > 0) {
 				// output data of each row
@@ -47,6 +48,9 @@
                                     }
 		                            ?>
 								</div>
+								<div class = "quoteEditBar" data-gratID="<?php echo ($row["HappyID"]);?>">
+                                    <input type="image" src="/images/trashcan.png" name="<?php echo ($row["HappyID"]);?>" class = "unlikeButton" value='like'/>
+                                </div>
 							</div>
 						</div>
 					<?php

@@ -29,32 +29,25 @@
 		<div class = "intro">
             <h1>wanna brighten up someone's day?</h1>
             <p>" Research shows that complimenting someone can be even more uplifting than receiving one! " - <i> Some Guy, 2020 </i> </p>
-            <br>
-            <hr width = 80%>
-            <br>
-            <?php
-                if(!isset($_SESSION['payload'])){
-                    echo "NOT LOGGED IN";
-                    $_SESSION['redir'] = "$submitLink";
-                    header("Location: $loginPageLink");
-                } else {
-                    echo 'Logged in as: '.$_SESSION['payload']['email'];
-                }
-            ?>
-            <br>
-            <br>
+            <div class = "loginStatus">
+    			<?php
+    				if(isset($_SESSION['payload']['email'])){
+    					echo "You are logged in as: ".$_SESSION['payload']['email'];
+    				} else {
+    					$_SESSION["redir"] = $accountLink;
+    					header("LOCATION: ".$loginPageLink);
+    				}
+    			?>
+    		</div>
         </div>
-
-
-        <hr width = 80%>
 
 		<form action="submit_received.php" method="get">
 			<br>
-      Your Quote
-      <br><br>
-      " <input type="text" name="inputQuote"> " <input type="submit" value = "Submit">
-      <br> <br>- Sincerely, (anonymous good samaritan, aka You)
-      <br>
+            Your Quote
+            <br><br>
+            " <input class = "submitQuoteInputBox" type="text" name="inputQuote"> " <input type="submit" value = "Submit">
+            <br> <br>- Sincerely, (anonymous good samaritan, aka You)
+            <br>
 
 		</form>
 
