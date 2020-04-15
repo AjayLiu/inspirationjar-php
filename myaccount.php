@@ -12,7 +12,7 @@
         <title> My Account | EncourageMe </title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="stylesheet" href="/css/styles.css" type="text/css">
-		<link rel="stylesheet" href="/css/tabStyles.css" type="text/css">
+		<link rel="stylesheet" href="/css/accountPageStyles.css" type="text/css">
 
 		<script src = "/js/randomColors.js"></script>
 		<script src="/js/jquery.fittext.js"></script>
@@ -20,6 +20,8 @@
 
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src = "/js/accountPage.js"></script>
+		<script src = "/js/countNumber.js"></script>
+
 	</head>
 
 	<body>
@@ -53,16 +55,22 @@
 		</div>
 
 
+
+
 		<div id = "posts_root" >
 			<!-- Tab links -->
 			<div class="tab">
-				<button class="tablinks" onclick="openPosts(event, 'Posts')" id="defaultOpen">Your Posts</button>
-				<button class="tablinks" onclick="openPosts(event, 'Favorites')">Your Favorites</button>
-				<button class="tablinks" onclick="openPosts(event, 'Likes')">Your Likes</button>
-				<button class="tablinks" onclick="openPosts(event, 'Dislikes')">Your Dislikes</button>
+				<button class="tablinks tabPost" onclick="openPosts(event, 'Posts')" id="defaultOpen">Your Posts</button>
+				<button class="tablinks tabFave" onclick="openPosts(event, 'Favorites')">Your Favorites</button>
+				<button class="tablinks tabLike" onclick="openPosts(event, 'Likes')">Your Likes</button>
+				<button class="tablinks tabDislike" onclick="openPosts(event, 'Dislikes')">Your Dislikes</button>
 			</div>
 			<!-- Tab content -->
 			<div id="Posts" class="tabcontent">
+				<div class = "likeCounter">
+					Your Gratitude Rating:
+					<div class = "count"></div>
+				</div>
 				<?php
 					include "backend_php/load_posts.php";
 				?>

@@ -29,7 +29,7 @@
             }
 
         ?>
-        <div id = "prevPosts">Your Previous Posts: <?php echo count($prevPostsIDs)-1;?> </div>
+        <div id = "prevPosts"><?php include "getAccountNums/numPosts.php"; ?> </div>
         <?php
             if ($result->num_rows > 0) {
 				// output data of each row

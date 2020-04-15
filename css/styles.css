@@ -72,6 +72,7 @@ a:hover{
 }
 
 
+
 * {
 	font-family: Calibri, Trebuchet MS, sans-serif	;
 }
@@ -127,17 +128,25 @@ html {
 
 .button{
 	font-size: 2rem;
-  background: none!important;
-  border: none;
-  padding: 0!important;
-  /*optional*/
-  font-family: arial, sans-serif;
-  /*input has OS specific font-family*/
-  color: #069;
-  text-decoration: none;
-  cursor: pointer;
-  width: 15vh;
-  height: 15vh;
+	background: none!important;
+	border: none;
+	padding: 0!important;
+	/*optional*/
+	font-family: arial, sans-serif;
+	/*input has OS specific font-family*/
+	color: #069;
+	text-decoration: none;
+	cursor: pointer;
+	width: 15vh;
+	height: 15vh;
+	box-shadow: 4px 4px rgba(64, 61, 48, 0.39);
+	border-radius:15vh;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 0 #666;
+  transform: translateY(4px);
 }
 
 #goodButton{
@@ -194,6 +203,19 @@ html {
 	margin:auto;
 }
 
+#posts_root .quoteBlock{
+	width: 80%;
+	height: 300px;
+}
+#posts_root .quoteText{
+	padding: 0 auto;
+	margin: 0 auto;
+	height: 150px;
+}
+#posts_root .gratitudeRatings{
+	margin: 0;
+}
+
 hr{
 	margin: 100px auto;
 }
@@ -210,7 +232,7 @@ hr{
 
 .quoteEditBar{
 	display: flex;
-	margin: 50px;
+	margin: 25px;
 	justify-content: space-around;
 }
 
