@@ -46,7 +46,7 @@
 		</div>
 
 		<div id = "quotes_root" >
-			<?php //include "backend_php/load_quotes.php"; ?>
+			<?php include "backend_php/load_quotes.php"; ?>
 		</div>
 
 
