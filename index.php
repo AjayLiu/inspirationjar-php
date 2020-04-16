@@ -12,7 +12,7 @@
         <title>Home | EncourageMe </title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="stylesheet" href="/css/styles.css" type="text/css">
-
+		<link rel="stylesheet" href="/css/tabStyles.css" type="text/css">
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	</head>
 
@@ -33,12 +33,26 @@
             <p>Read some encouraging messages submitted from wholesome humans around the world!</p>
 		</div>
 
+		<input type="image" src="/images/gear.png" class = "settingsButton" value=''/>
+		<!-- Tab links -->
+		<div class = 'settingsTab'>
+			<div class="tab">
+				<h4>Sort by: &nbsp&nbsp</h4>
+				<button class="tablinks" onclick="setSort(event, 'MostLiked')" id = "defaultOpen">Most Liked</button>
+				<button class="tablinks" onclick="setSort(event, 'MostRecent')">Most Recent</button>
+				<button class="tablinks" onclick="setSort(event, 'LeastLiked')">Least Liked</button>
+				<button class="tablinks" onclick="setSort(event, 'LeastRecent')">Least Recent</button>
+			</div>
+		</div>
+
 		<div id = "quotes_root" >
-			<?php include "backend_php/load_quotes.php"; ?>
+			<?php //include "backend_php/load_quotes.php"; ?>
 		</div>
 
 
         <script src = "/js/randomColors.js"></script>
+		<script src = "/js/mainPageTabs.js"></script>
+
 	</body>
 
 </html>

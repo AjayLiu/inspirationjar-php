@@ -1,6 +1,7 @@
 .html {
 }
 
+
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
@@ -51,4 +52,16 @@
 @media screen and (max-width: 767px) {
     .tab{
     }
+}
+
+
+
+
+
+
+
+
+.likeCounter{
+    font-size: 30px;
+    margin: 50px auto 100px auto;
 }

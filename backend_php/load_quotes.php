@@ -14,7 +14,24 @@
 			if(isset($_POST['quoteNewCount'])){
 				$quoteNewCount = $_POST['quoteNewCount'];
 			}
-			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE isReported = 0 OR isReviewedSafe = 1 ORDER BY HappyRating DESC LIMIT $quoteNewCount";
+
+			$sortSetting = 'HappyRating DESC';
+			switch($_COOKIE['sort']){
+				case 'MostLiked':
+					$sortSetting = "HappyRating DESC";
+					break;
+				case 'MostRecent':
+					$sortSetting = "HappyDate DESC";
+					break;
+				case 'LeastLiked':
+					$sortSetting = "HappyRating ASC";
+					break;
+				case 'LeastRecent':
+					$sortSetting = "HappyDate ASC";
+					break;
+			}
+
+			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE isReviewedSafe = 1 ORDER BY ".$sortSetting." LIMIT $quoteNewCount";
 			$result = $mysqli->query($sql) or die("an error has occured");
 
 

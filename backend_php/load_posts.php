@@ -44,10 +44,12 @@
                                     <?php
                                     if($row['isReported'] && !$row['isReviewedSafe']){
                                         echo "This post has been reported and is under review.";
-                                    } else {
-                                        echo "Gratitude Rating: <br>";
-    									echo $row["HappyRating"];
-                                    }
+                                    } else if (!$row['isReviewedSafe']){
+										echo "This post is still under review.";
+									} else {
+										echo "Gratitude Rating: <br>";
+										echo $row["HappyRating"];
+									}
 		                            ?>
 								</div>
                                 <div class = "quoteEditBar" data-gratID="<?php echo ($row["HappyID"]);?>">

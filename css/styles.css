@@ -90,20 +90,20 @@ html {
 }
 
 .quoteBlock{
-	height: 75vh;
-  	width: 100vw;
-	padding-top: 10%;
+	height: 65vh;
+  	width: 90vw;
+	padding-top: 100px;
 	text-align: center;
 	position: relative;
 	border: 1px solid gray;
 }
 
 .quoteText{
-	margin: 20px auto 0 auto;
+	margin: 0 auto 0 auto;
 	display: block;
 	font-size: 2rem;
 	width: 90%;
-	height: 45vh;
+	height: 40vh;
 	overflow: auto;
 	word-wrap: break-word;
 }
@@ -240,13 +240,48 @@ hr{
 	margin:auto;
 }
 
+.settingsButton{
+	margin: 10px auto;
+	width: 32px;
+	height: 32px;
 
+	transition: 0.70s;
+    -webkit-transition: 0.70s;
+    -moz-transition: 0.70s;
+    -ms-transition: 0.70s;
+    -o-transition: 0.70s;
+    display: block;
+}
+
+
+.settingsButton:hover {
+  transition: 0.70s;
+  -webkit-transition: 0.70s;
+  -moz-transition: 0.70s;
+  -ms-transition: 0.70s;
+  -o-transition: 0.70s;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.settingsTab{
+	margin: auto;
+	width: 90vw;
+}
+
+/* CONTROVERSIAL */
+input:focus {
+	outline:0;
+}
 
 /* MOBILE */
 @media screen and (max-width: 767px) {
 	.quoteBlock{
-		padding-top: 10%;
-		height: 60vh;
+		padding-top: 50px;
+		height: 55vh;
 	}
 
 	.quoteText{
@@ -254,12 +289,10 @@ hr{
 	}
 
 	.buttons{
-		margin-top: 0.5vh;
 	}
 
 	.button{
 		font-size: 1rem;
-		margin-top: 8vh;
 		width: 10vh;
 	    height: 10vh;
 	}

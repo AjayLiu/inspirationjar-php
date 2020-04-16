@@ -11,7 +11,7 @@
 
     if(isset($email)){
         if(isset($_GET["inputQuote"]) && $_GET["inputQuote"] != ''){
-            ///GET POST HISTORY FROM THIS ACCOUNT
+            ///GET HISTORY FROM THIS ACCOUNT
             $sql = "SELECT Posts, isBanned FROM accounts WHERE Email = '$email';";
             $result = $mysqli->query($sql) or die("ouch, error");
             $accountInfo = $result->fetch_assoc();
@@ -54,18 +54,21 @@
                 $latestPostID = $prevPostsIDs[count($prevPostsIDs)-2]; //most recent post
                 $sql = "SELECT HappyDate FROM happy_table WHERE HappyID = '$latestPostID'";
                 $result = $mysqli->query($sql) or die("ouch, error");
-                $nowTime = new DateTime();
+                if(isset($result)){
+                    $nowTime = new DateTime();
 
-                $latestPostTime = $result->fetch_assoc()['HappyDate'];
-                $latestPostTimeDT = new DateTime($latestPostTime);
+                    $latestPostTime = $result->fetch_assoc()['HappyDate'];
+                    $latestPostTimeDT = new DateTime($latestPostTime);
 
-                // $interval = $nowTime->diff($latestPostTimeDT);
-                // $secsElapsed = $interval->format('%s');
-                $diff = $nowTime->getTimestamp() - $latestPostTimeDT->getTimestamp();
+                    // $interval = $nowTime->diff($latestPostTimeDT);
+                    // $secsElapsed = $interval->format('%s');
+                    $diff = $nowTime->getTimestamp() - $latestPostTimeDT->getTimestamp();
 
-                if((int)$diff < 30){
-                    $isSpam = true;
+                    if((int)$diff < 30){
+                        $isSpam = true;
+                    }
                 }
+
             }
 
             //CHECK FOR DUPLICATES
@@ -137,7 +140,7 @@
                 </ul>
             </div>
         </div>
-    
+
         <div class = "submitSuccess">
             <?php
                 if($isBanned){
@@ -151,7 +154,7 @@
                 } else if($isSpam){
                     echo "It looks like you submitted a quote $diff seconds ago. Please wait for at least 30 seconds before submitting again as we want to prevent spammers.";
                 }  else {
-                    echo "Thanks for your submission!";
+                    echo "Thanks for your submission! Your quote will be on the front page after review!";
                 }
             ?>
         </div>

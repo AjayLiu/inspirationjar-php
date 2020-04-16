@@ -16,8 +16,8 @@ $(document).ready(
 
                             var reportedBlock = ".quoteBlock[data-gratID=\"" + deleteID + "\"]";
                             $(reportedBlock).remove();
-
                             $("#prevPosts").load("getAccountNums/numPosts.php");
+                            updateGratRating();
                         }
 
                     });
