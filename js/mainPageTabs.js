@@ -24,11 +24,7 @@ $(document).ready(
         $(".settingsButton").click(
             function(){
                 showSettings = !showSettings;
-                if(showSettings){
-                    $(".settingsTab").show();
-                } else {
-                    $(".settingsTab").hide();
-                }
+                $(".settingsTab").fadeToggle();
             }
         );
     }

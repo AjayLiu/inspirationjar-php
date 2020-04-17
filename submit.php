@@ -13,6 +13,8 @@
         <title>Submit | EncourageMe </title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
 		<link rel="stylesheet" href="/css/styles.css" type="text/css">
+        <link rel="icon" type="image/png" href="/images/smile.png">
+
 	</head>
 
 	<body>

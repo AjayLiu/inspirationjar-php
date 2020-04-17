@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="/css/styles.css" type="text/css">
 		<link rel="stylesheet" href="/css/tabStyles.css" type="text/css">
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<link rel="icon" type="image/png" href="/images/smile.png">
+
 	</head>
 
 	<body>
@@ -46,7 +48,7 @@
 		</div>
 
 		<div id = "quotes_root" >
-			<?php include "backend_php/load_quotes.php"; ?>
+			<?php //include "backend_php/load_quotes.php"; ?>
 		</div>
 
 
