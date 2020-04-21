@@ -11,9 +11,8 @@ function setSort(evt, name) {
 
   document.cookie = "sort = " + name;
 
-  //$("#quotes_root").load("backend_php/load_quotes.php");
+  $("#quotes_root").load("backend_php/load_quotes.php");
 }
-document.getElementById("defaultOpen").click();
 
 $(document).ready(
     function(){
