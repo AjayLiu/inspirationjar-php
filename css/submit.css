@@ -1,0 +1,45 @@
+
+.submitQuoteInputBox{
+	width: 80%;
+	font-size: 1.2rem;
+    height: 60px;
+	text-overflow: ;
+}
+
+.submitSuccess{
+	font-size: x-large;
+	margin: 100px auto;
+}
+
+.submitAnother a{
+	font-size: 2rem;
+	color: orange;
+}
+
+body{
+    background-image: url("/images/kitchen.png");
+    background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
+
+.panel{
+    margin: auto;
+    padding: 30px;
+    width: 40%;
+    height: 90vh;
+    background-color: rgb(238, 238, 238);
+}
+
+label{
+    font-size: 1.8rem;
+}
+
+@media screen and (max-width: 767px) {
+    .panel{
+        padding: 10px;
+        width: 90%;
+        height: 90vh;
+    }
+}

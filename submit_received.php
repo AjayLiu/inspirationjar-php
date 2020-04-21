@@ -127,6 +127,7 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="stylesheet" href="/css/styles.css" type="text/css">
         <link rel="icon" type="image/png" href="/images/logo.png">
+        <link rel="stylesheet" href="/css/submit.css" type="text/css">
 
     </head>
 
@@ -142,27 +143,28 @@
                 </ul>
             </div>
         </div>
+        <div class = "panel">
+            <div class = "submitSuccess">
+                <?php
+                    if($isBanned){
+                        echo "Sorry, it looks like your account has been suspended from posting quotes. If you would like to repeal this decision, visit the contacts page.";
+                    }else if($isSwear) {
+                        echo "We've detected some profanity in your quote. Please keep your quotes friendly and don't spread hate.";
+                    } else if($isDupe){
+                        echo "It looks like this quote was submitted before. Maybe try thinking of another quote!";
+                    } else if($isEmpty) {
+                        echo "Please type in something before submitting!";
+                    } else if($isSpam){
+                        echo "It looks like you submitted a quote $diff seconds ago. Please wait for at least 30 seconds before submitting again as we want to prevent spammers.";
+                    }  else {
+                        echo "Thanks for your submission! Your quote will be on the front page after review!";
+                    }
+                ?>
+            </div>
 
-        <div class = "submitSuccess">
-            <?php
-                if($isBanned){
-                    echo "Sorry, it looks like your account has been suspended from posting quotes. If you would like to repeal this decision, visit the contacts page.";
-                }else if($isSwear) {
-                    echo "We've detected some profanity in your quote. Please keep your quotes friendly and don't spread hate.";
-                } else if($isDupe){
-                    echo "It looks like this quote was submitted before. Maybe try thinking of another quote!";
-                } else if($isEmpty) {
-                    echo "Please type in something before submitting!";
-                } else if($isSpam){
-                    echo "It looks like you submitted a quote $diff seconds ago. Please wait for at least 30 seconds before submitting again as we want to prevent spammers.";
-                }  else {
-                    echo "Thanks for your submission! Your quote will be on the front page after review!";
-                }
-            ?>
-        </div>
-
-        <div class = "submitAnother">
-            <a href = "submit.php">Submit Another Quote</a>
+            <div class = "submitAnother">
+                <a href = "submit.php">Submit Another Quote</a>
+            </div>
         </div>
     </body>
 </html>

@@ -76,7 +76,7 @@ a:hover{
 
 
 html {
-	scroll-snap-type: y mandatory;
+	/* scroll-snap-type: y mandatory; */
 }
 
 
@@ -95,7 +95,7 @@ html {
 	position: relative;
 	background-image: url("/images/widePaper.png");
 	background-repeat: no-repeat;
-	background-size: auto;
+	background-size: cover;
 
 }
 
@@ -185,22 +185,6 @@ html {
 }
 
 
-.submitQuoteInputBox{
-	width: 60%;
-	font-size: 1.5rem;
-	overflow: auto;
-}
-
-.submitSuccess{
-	font-size: x-large;
-	margin: 100px auto;
-}
-
-.submitAnother a{
-	font-size: 2rem;
-	color: orange;
-}
-
 #posts_root{
 	width: 80%;
 	margin: 0 auto;
@@ -223,10 +207,6 @@ hr{
 	margin: 100px auto;
 }
 
-.loginStatus{
-	font-size: 2rem;
-	margin: 100px auto;
-}
 
 #prevPosts, #prevLikes, #prevDislikes, #prevFaves{
 	font-size: 30px;
@@ -241,6 +221,12 @@ hr{
 
 .logoutButton{
 	margin:auto;
+}
+
+.loginStatus{
+    font-weight: bold;
+	font-size: 1.2rem;
+	margin: 20px auto;
 }
 
 
@@ -291,15 +277,15 @@ hr{
     }
 
 	.quote_container{
-		scroll-snap-align: center;
+		/* scroll-snap-align: center; */
 	}
 
     .intro {
-		scroll-snap-align: center;
+		/* scroll-snap-align: center; */
         padding-top: 100px;
     }
 
 	.tab{
-		scroll-snap-align: center;
+		/* scroll-snap-align: center; */
 	}
 }

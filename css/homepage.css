@@ -111,6 +111,6 @@
 	}
 
 	.settingsButton, .splashScreen{
-		scroll-snap-align: center;
+		/* scroll-snap-align: center; */
 	}
 }
