@@ -44,10 +44,10 @@
 
 		<form action="submit_received.php" method="get">
 			<br>
-            Your Quote
+            <label for = "quote">Your Quote</label>
             <br><br>
             " <input class = "submitQuoteInputBox" type="text" name="inputQuote"> " <input type="submit" value = "Submit">
-            <br> <br>- Sincerely, (anonymous good samaritan, aka You)
+            <br> <br>- Sincerely, You (the kindest human alive)
             <br>
 
 		</form>

@@ -11,10 +11,7 @@ function setSort(evt, name) {
 
   document.cookie = "sort = " + name;
 
-  $("#quotes_root").css('visibility','hidden');
-  $("#quotes_root").load("backend_php/load_quotes.php", function(){
-      $("#quotes_root").css('visibility','visible');
-  });
+  //$("#quotes_root").load("backend_php/load_quotes.php");
 }
 document.getElementById("defaultOpen").click();
 

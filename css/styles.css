@@ -187,6 +187,8 @@ html {
 
 .submitQuoteInputBox{
 	width: 60%;
+	font-size: 1.5rem;
+	overflow: auto;
 }
 
 .submitSuccess{
@@ -241,10 +243,7 @@ hr{
 	margin:auto;
 }
 
-/* CONTROVERSIAL */
-input:focus {
-	outline:0;
-}
+
 
 /* MOBILE */
 @media screen and (max-width: 767px) {

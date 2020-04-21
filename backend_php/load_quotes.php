@@ -54,8 +54,8 @@
 									<?php echo $row["HappyRating"]; ?>
 								</div>
 								<div class = "buttons">
-									<input type="image" src=images/smile.png class="button" name="<?php echo "good".($row["HappyID"]);?>" id = "goodButton" value="Thanks, I feel better!"/>
-									<input type="image" src=images/sad.png class="button" name="<?php echo "bad".($row["HappyID"]);?>" id = "badButton" value="I still feel like trash" />
+									<input type="image" alt='Like Button' src=images/smile.png class="button" name="<?php echo "good".($row["HappyID"]);?>" id = "goodButton" value="Thanks, I feel better!"/>
+									<input type="image" alt='Dislike Button' src=images/sad.png class="button" name="<?php echo "bad".($row["HappyID"]);?>" id = "badButton" value="I still feel like trash" />
 								</div>
 							</div>
 						</div>

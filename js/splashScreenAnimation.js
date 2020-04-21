@@ -11,10 +11,10 @@ function moveJar() {
         if (pos >= window.innerWidth * 0.10) {
           fadeTitle();
           showScrollIndicator();
-          //$("#quotes_root").load("backend_php/load_quotes.php");
+          displayQuotes();
           return;
         } else {
-          pos++;
+          pos+=2;
           elem.style.left = pos + 'px';
         }
         setTimeout(frame, 1);
@@ -49,4 +49,10 @@ function showScrollIndicator(){
         f++;
         elem.style.top = (pos + mov) + 'px';
     }
+}
+
+$(".settingsButton").hide();
+function displayQuotes(){
+    $(".settingsButton").show();
+    $("#quotes_root").load("backend_php/load_quotes.php");
 }

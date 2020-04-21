@@ -25,6 +25,10 @@
   transform: rotate(45deg);
 }
 
+.settingsButton:focus {
+	outline:0;
+}
+
 .settingsTab{
 	margin: auto;
 	width: 90vw;
