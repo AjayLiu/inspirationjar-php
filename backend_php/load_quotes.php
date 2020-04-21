@@ -63,7 +63,7 @@
 				}
 			} else {
 				//0 results;
-				//echo "0 results";
+				echo "0 results, :(";
 			}
 		?>
 

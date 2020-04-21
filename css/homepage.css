@@ -1,0 +1,112 @@
+.settingsButton{
+	margin: 10px auto;
+	width: 32px;
+	height: 32px;
+
+	transition: 0.70s;
+    -webkit-transition: 0.70s;
+    -moz-transition: 0.70s;
+    -ms-transition: 0.70s;
+    -o-transition: 0.70s;
+    display: block;
+}
+
+
+.settingsButton:hover {
+  transition: 0.70s;
+  -webkit-transition: 0.70s;
+  -moz-transition: 0.70s;
+  -ms-transition: 0.70s;
+  -o-transition: 0.70s;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.settingsTab{
+	margin: auto;
+	width: 90vw;
+}
+
+.splashScreen{
+	width: 100%;
+	height: 100%;
+	background-color: rgb(199, 251, 255);
+}
+
+#jar{
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	left: -100px;
+	top: 20%;
+	height: 60%;
+	width: 80%;
+	text-align: left;
+	z-index: 2;
+}
+
+#jar img {
+	width: 359px;
+	height: 478px;
+}
+
+#title{
+	position: relative;
+	left: 50px;
+	top: 25%;
+	font-size: 4rem;
+}
+
+#titleDescription{
+	font-weight: lighter;
+	font-size: 2rem;
+}
+
+#scrollIndicator{
+	position: absolute;
+	bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	width: 100px;
+	height: 100px;
+}
+
+@media screen and (max-width: 767px) {
+
+	#jar{
+		flex-direction: column;
+		position: relative;
+		left: -100px;
+		top: 20%;
+		height: 60%;
+		width: 80%;
+		text-align: center;
+	}
+
+	#title{
+		position: static;
+		font-size: 3rem;
+	}
+
+	#titleDescription{
+		font-weight: lighter;
+		font-size: 1.5rem;
+	}
+
+
+	#jar img {
+		margin: 0 auto;
+
+		width: 180px;
+		height: 239px;
+	}
+
+	.settingsButton, .splashScreen{
+		scroll-snap-align: center;
+	}
+}

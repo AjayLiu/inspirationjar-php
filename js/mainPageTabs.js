@@ -17,6 +17,7 @@ document.getElementById("defaultOpen").click();
 
 $(document).ready(
     function(){
+
         var showSettings = false;
         $(".settingsTab").hide();
 
@@ -27,5 +28,7 @@ $(document).ready(
                 $(".settingsTab").fadeToggle();
             }
         );
+
+
     }
 );
