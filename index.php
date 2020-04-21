@@ -27,7 +27,7 @@
                     <li><a href = "index.php">Home</a></li>
 					<li><a href = "myaccount.php">My Account</a></li>
                     <li><a href = "submit.php">Submit</a></li>
-                    <li><a href = "contact.html">Contact</a></li>
+					<li><a href = "about.html">About</a></li>
                 </ul>
             </div>
         </div>
@@ -60,9 +60,10 @@
 		<div id = "quotes_root" >
 			<?php //include "backend_php/load_quotes.php"; ?>
 		</div>
-		
+
         <script src = "/js/randomColors.js"></script>
 		<script src = "/js/mainPageTabs.js"></script>
+		<script src = "/js/scrollAnim.js"></script>
 		<script src = "/js/splashScreenAnimation.js"></script>
 
 	</body>

@@ -44,7 +44,7 @@
 	display: flex;
 	flex-direction: row;
 	position: relative;
-	left: -100px;
+	left: -10%;
 	top: 20%;
 	height: 60%;
 	width: 80%;
@@ -52,7 +52,7 @@
 	z-index: 2;
 }
 
-#jar img {
+#jar img, #tree img {
 	width: 359px;
 	height: 478px;
 }
@@ -92,6 +92,8 @@
 		text-align: center;
 	}
 
+
+
 	#title{
 		position: static;
 		font-size: 3rem;
@@ -103,7 +105,7 @@
 	}
 
 
-	#jar img {
+	#jar img, #tree img {
 		margin: 0 auto;
 
 		width: 180px;
