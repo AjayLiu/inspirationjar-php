@@ -60,7 +60,7 @@
 		<div id = "quotes_root" >
 			<?php //include "backend_php/load_quotes.php"; ?>
 		</div>
-
+		
         <script src = "/js/randomColors.js"></script>
 		<script src = "/js/mainPageTabs.js"></script>
 		<script src = "/js/splashScreenAnimation.js"></script>

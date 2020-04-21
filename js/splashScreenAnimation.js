@@ -1,18 +1,23 @@
-moveJar();
+$(document).ready( function(){
+    moveJar();
+});
+
 function moveJar() {
     var elem = document.getElementById("jar");
     var pos = $("#jar").position().left;
-    var id = setInterval(frame, 1);
 
+    frame();
     function frame() {
         if (pos >= window.innerWidth * 0.10) {
-          clearInterval(id);
           fadeTitle();
           showScrollIndicator();
+          //$("#quotes_root").load("backend_php/load_quotes.php");
+          return;
         } else {
           pos++;
           elem.style.left = pos + 'px';
         }
+        setTimeout(frame, 1);
     }
 }
 
