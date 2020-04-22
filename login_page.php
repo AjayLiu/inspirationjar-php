@@ -11,8 +11,9 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'>
 		<link rel="stylesheet" href="/css/styles.css" type="text/css">
         <link rel="icon" type="image/png" href="/images/logo.png">
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-	</head>
+    </head>
 
 	<body>
         <div class = "navbar">
@@ -20,8 +21,9 @@
                 <ul>
                     <li><a href = "index.php">Home</a></li>
 					<li><a href = "myaccount.php">My Account</a></li>
-                    <li><a href = "submit.php">Submit</a></li>
-                    <li><a href = "about.html">About</a></li>
+					<li id = "logo"><a href = "index.php"><img src = "/images/logo.png"></a></li>
+                    <li class="skewLeft"><a href = "submit.php">Submit</a></li>
+					<li class="skewLeft"><a href = "about.html">About</a></li>
                 </ul>
             </div>
         </div>
@@ -29,10 +31,19 @@
             <h1>Log in</h1>
             <p> Don't worry, all your activity will be kept anonymous. Logging in is just to ensure that all posts/likes/dislikes are unique.
         </div>
+        <div>
+            <?php
+                include "google.php";
+            ?>
+        <div>
+        <div class = "rememberMe">
+            <input type="checkbox" id="rememberCheckbox" class = "rememberChange" value="Remember" checked readonly>
+            <label for="remember me" id = "rememberLabel" class = "rememberChange"> <a> &nbspRemember me </a> </label>
+        </div>
 	</body>
 
-</html>
+    <script src = "/js/loginPage.js"></script>
 
-<?php
-    include "google.php";
-?>
+
+
+</html>

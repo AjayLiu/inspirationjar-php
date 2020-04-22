@@ -8,6 +8,7 @@
     $email = $_SESSION['payload']['email'];
 
     $isEmpty = false;
+    $tooLong = false;
 
     if(isset($email)){
         if(isset($_GET["inputQuote"]) && $_GET["inputQuote"] != ''){
@@ -17,6 +18,10 @@
             $accountInfo = $result->fetch_assoc();
             $prevPosts = $accountInfo['Posts'];
             $prevPostsIDs = explode(",","$prevPosts");
+
+            if(strlen($_GET["inputQuote"]) > 400){
+                $tooLong = true;
+            }
 
             $quote = mysqli_real_escape_string($mysqli, $_GET["inputQuote"]);
 
@@ -81,7 +86,7 @@
             }
 
 
-            if(!$isDupe && !$isSpam && !$isSwear && !$isBanned){
+            if(!$isDupe && !$isSpam && !$isSwear && !$isBanned && !$tooLong){
                 //ADD NEW UNIQUE QUOTE
                 $sql = "INSERT INTO happy_table (HappyID, Happy_quote, HappyRating, HappyDate) VALUES (NULL, ?, 0, NOW())";
                 $stmt = mysqli_stmt_init($mysqli);
@@ -138,8 +143,9 @@
                 <ul>
                     <li><a href = "index.php">Home</a></li>
 					<li><a href = "myaccount.php">My Account</a></li>
-                    <li><a href = "submit.php">Submit</a></li>
-                    <li><a href = "about.html">About</a></li>
+					<li id = "logo"><a href = "index.php"><img src = "/images/logo.png"></a></li>
+                    <li class="skewLeft"><a href = "submit.php">Submit</a></li>
+					<li class="skewLeft"><a href = "about.html">About</a></li>
                 </ul>
             </div>
         </div>
@@ -156,7 +162,9 @@
                         echo "Please type in something before submitting!";
                     } else if($isSpam){
                         echo "It looks like you submitted a quote $diff seconds ago. Please wait for at least 30 seconds before submitting again as we want to prevent spammers.";
-                    }  else {
+                    } else if($tooLong) {
+                        echo "Your quote is too long! Please keep your quote shorter than 400 characters!";
+                    }else {
                         echo "Thanks for your submission! Your quote will be on the front page after review!";
                     }
                 ?>

@@ -26,9 +26,11 @@
                 <ul>
                     <li><a href = "index.php">Home</a></li>
 					<li><a href = "myaccount.php">My Account</a></li>
-                    <li><a href = "submit.php">Submit</a></li>
-					<li><a href = "about.html">About</a></li>
+					<li id = "logo"><a href = "index.php"><img src = "/images/logo.png"></a></li>
+                    <li class="skewLeft"><a href = "submit.php">Submit</a></li>
+					<li class="skewLeft"><a href = "about.html">About</a></li>
                 </ul>
+
             </div>
         </div>
 
@@ -42,10 +44,10 @@
 					</div>
 				</div>
 			</div>
-			<img id = "scrollIndicator" src = "images/scroll.png">
+			<input type="image" src = "/images/scroll.png" id = "scrollIndicator" value=''/>
 		</div>
 
-		<input type="image" src="/images/gear.png" class = "settingsButton" value=''/>
+		<input alt = "search filter settings button" type="image" src="/images/gear.png" class = "settingsButton" value=''/>
 		<!-- Tab links -->
 		<div class = 'settingsTab'>
 			<div class="tab">

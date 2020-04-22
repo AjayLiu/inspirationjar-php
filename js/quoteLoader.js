@@ -124,7 +124,7 @@ $(document).ready(
                         success: function(result) {
                             quoteCount = $( ".quoteBlock" ).length;
                             if(quoteCount == result){
-                                $('.loadingIndicator').text("That's all the quotes!");
+                                $('.loadingIndicator').text("That's all the quotes so far! Help spread the positivity and submit a quote!");
                                 allowRefresh = false;
                             }
                             if(quoteCount <= result){

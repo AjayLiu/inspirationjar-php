@@ -27,11 +27,12 @@
 	<body>
 		<div class = "navbar">
             <div class = "navanchors">
-                <ul>
+				<ul>
                     <li><a href = "index.php">Home</a></li>
 					<li><a href = "myaccount.php">My Account</a></li>
-                    <li><a href = "submit.php">Submit</a></li>
-					<li><a href = "about.html">About</a></li>
+					<li id = "logo"><a href = "index.php"><img src = "/images/logo.png"></a></li>
+                    <li class="skewLeft"><a href = "submit.php">Submit</a></li>
+					<li class="skewLeft"><a href = "about.html">About</a></li>
                 </ul>
             </div>
         </div>

@@ -17,15 +17,53 @@ body,html {
 	z-index: 100;
 }
 
-.navbar img{
-    margin: auto 4%;
-}
 
 .navbar ul{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+.navbar li{
+	list-style: none;
+	margin: 0 auto;
+}
+
+
+
+.navanchors{
+	margin: 0 auto;
+	padding: 0 auto;
+	width: 80%;
+}
+
+.navbar ul li a {
+	color:white;
+	font-weight: bolder;
+	font-size: 2.5vh;
+}
+
+.navbar img{
+	position:absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 45px;
+	height: 45px;
+}
+
+.skewLeft{
+	position: relative;
+	left: -45px;
 }
 
 .intro{
@@ -43,42 +81,11 @@ body,html {
     text-decoration: underline;
 }
 
-a{
-    text-decoration: none;
-}
-
-a:hover{
-    text-decoration: underline;
-}
-.navbar li{
-    list-style: none;
-    margin: auto;
-}
-
-.navanchors{
-    margin: auto;
-    padding: auto;
-    width: 80%;
-}
-
-.navbar ul li a {
-    color:white;
-    font-weight: bolder;
-    font-size: 2.5vh;
-    width: 1%;
-}
-
 
 
 * {
 	font-family: Calibri, Trebuchet MS, sans-serif	;
 }
-
-
-html {
-	/* scroll-snap-type: y mandatory; */
-}
-
 
 
 .quote_container{
@@ -88,8 +95,8 @@ html {
 
 .quoteBlock{
 	margin-top: 10px;
-	height: 65vh;
-  	width: 90vw;
+	height: 55vh;
+  	width: 80vw;
 	padding-top: 100px;
 	text-align: center;
 	position: relative;
@@ -104,7 +111,7 @@ html {
 	display: block;
 	font-size: 2rem;
 	width: 90%;
-	height: 40vh;
+	height: 60%;
 	overflow: auto;
 	word-wrap: break-word;
 }
@@ -112,7 +119,7 @@ html {
 .buttons{
 	display: flex;
 	height: 15vh;
-	width: 80vw;
+	width: 70%;
 	margin: 0px auto 50px auto;
 	justify-content: space-around;
 }
@@ -138,8 +145,8 @@ html {
 	color: #069;
 	text-decoration: none;
 	cursor: pointer;
-	width: 15vh;
-	height: 15vh;
+	width: 12vh;
+	height: 12vh;
 	box-shadow: 4px 4px rgba(64, 61, 48, 0.39);
 	border-radius:15vh;
 }
@@ -234,7 +241,24 @@ hr{
 	margin: 20px auto;
 }
 
-
+.rememberMe{
+	margin: auto;
+	margin-top: 30px;
+	padding: auto;
+	width: 200px;
+	height: 50px;
+	font-size: 1.4rem;
+}
+#rememberCheckbox{
+	transform : scale(1.5);
+}
+#rememberLabel{
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Standard */
+	cursor: pointer;
+}
 
 /* MOBILE */
 @media screen and (max-width: 767px) {
@@ -280,6 +304,12 @@ hr{
 		grid-row-gap: 10px;
         padding: 0;
     }
+	.skewLeft{
+		position: static;
+	}
+	#logo{
+		display: none;
+	}
 
 	.quote_container{
 		/* scroll-snap-align: center; */

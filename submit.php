@@ -23,8 +23,9 @@
                 <ul>
                     <li><a href = "index.php">Home</a></li>
 					<li><a href = "myaccount.php">My Account</a></li>
-                    <li><a href = "submit.php">Submit</a></li>
-                    <li><a href = "about.html">About</a></li>
+					<li id = "logo"><a href = "index.php"><img src = "/images/logo.png"></a></li>
+                    <li class="skewLeft"><a href = "submit.php">Submit</a></li>
+					<li class="skewLeft"><a href = "about.html">About</a></li>
                 </ul>
             </div>
         </div>
@@ -48,7 +49,7 @@
     			<br>
                 <label for = "quote">Your Quote</label>
                 <br><br>
-                " <input class = "submitQuoteInputBox" type="text" name="inputQuote"> " <input type="submit" value = "Submit">
+                " <input class = "submitQuoteInputBox" type="text" name="inputQuote" maxlength="400"> " <input type="submit" value = "Submit">
 
     		</form>
 
