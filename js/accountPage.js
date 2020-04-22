@@ -12,8 +12,18 @@ $(document).ready(
               }
           }
         });
+
+
+        //LOGOUT BUTTOn
+        $(".logoutButton").click(
+            function(){
+                logout();
+            }
+        );
     }
 );
+
+
 
 function logout(){
     var yes = confirm("Are you sure you want to log out?");

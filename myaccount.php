@@ -14,12 +14,12 @@
         <link rel="stylesheet" href="/css/styles.css" type="text/css">
 		<link rel="stylesheet" href="/css/tabStyles.css" type="text/css">
 		<link rel="icon" type="image/png" href="/images/logo.png">
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 		<script src = "/js/randomColors.js"></script>
 		<script src="/js/jquery.fittext.js"></script>
 		<script src="/js/fittext.js"></script>
 
-		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src = "/js/accountPage.js"></script>
 		<script src = "/js/countNumber.js"></script>
 	</head>
@@ -50,7 +50,7 @@
 				}
 			?>
 			<br>
-			<button class = "logoutButton" onclick="logout()"><img src="/images/logout512.png" class = "logoutImg"></button>
+			<input type="image" src="/images/logout512.png" class = "logoutButton" value=''/>
 		</div>
 
 		<div id = "posts_root" >
