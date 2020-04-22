@@ -50,7 +50,7 @@
 				}
 			?>
 			<br>
-			<button class = "logoutButton" onclick="logout()"><img src="/images/logout512.png"></button>
+			<button class = "logoutButton" onclick="logout()"><img src="/images/logout512.png" class = "logoutImg"></button>
 		</div>
 
 		<div id = "posts_root" >
