@@ -1,5 +1,6 @@
 <?php
     include "setup_connection.php";
+    include "redirectLinks.php";
 
     include "../google.php";
 
@@ -23,10 +24,8 @@
         $result = $mysqli->query($sql) or die("ouch, died here");
 
         //MAKE SESSION COOKIE
-        setcookie("session", $sessionID, mktime (0, 0, 0, 12, 31, 2021), '/');
-
-
-
+        setcookie("session", $sessionID, mktime (0, 0, 0, 12, 31, 2021));
+        setcookie("session", $sessionID, mktime (0, 0, 0, 12, 31, 2021), "/", $siteName);
     }
 
     $url = $_SESSION['redir'];

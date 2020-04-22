@@ -31,7 +31,7 @@
         <div class = "panel">
             <div class = "intro">
                 <h1>wanna brighten up someone's day?</h1>
-                <p>" Research shows that complimenting someone can be even more uplifting than receiving one! " - <i> Some Guy, 2020 </i> </p>
+                <p>"Research shows that complimenting someone can be even more uplifting than receiving one!" - <i> Some Guy, 2020 </i> </p>
                 <div class = "loginStatus">
         			<?php
         				if(isset($_SESSION['payload']['email'])){

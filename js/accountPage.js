@@ -16,13 +16,17 @@ $(document).ready(
 );
 
 function logout(){
-    //LOG OUT
-    $.ajax({
-      type: 'GET',
-      url: 'backend_php/logout.php',
-      cache: false,
-      success: function(result) {
-          window.location.reload();
-      }
-    });
+    var yes = confirm("Are you sure you want to log out?");
+    if(yes){
+        //LOG OUT
+        $.ajax({
+          type: 'GET',
+          url: 'backend_php/logout.php',
+          cache: false,
+          success: function(result) {
+              window.location.reload();
+          }
+        });
+    }
+
 }

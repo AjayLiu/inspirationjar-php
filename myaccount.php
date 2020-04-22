@@ -22,7 +22,6 @@
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src = "/js/accountPage.js"></script>
 		<script src = "/js/countNumber.js"></script>
-
 	</head>
 
 	<body>
@@ -51,12 +50,8 @@
 				}
 			?>
 			<br>
-			<button class = "logoutButton" onclick="logout()">Log out</button>
-
+			<button class = "logoutButton" onclick="logout()"><img src="/images/logout512.png"></button>
 		</div>
-
-
-
 
 		<div id = "posts_root" >
 			<!-- Tab links -->

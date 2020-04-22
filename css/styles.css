@@ -221,6 +221,14 @@ hr{
 
 .logoutButton{
 	margin:auto;
+	border:0;
+    background:transparent;
+  	cursor: pointer;
+}
+
+.logoutButton img{
+	width: 64px;
+	height: 64px;
 }
 
 .loginStatus{

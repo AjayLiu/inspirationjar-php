@@ -3,7 +3,6 @@
 	width: 80%;
 	font-size: 1.2rem;
     height: 60px;
-	text-overflow: ;
 }
 
 .submitSuccess{
@@ -25,11 +24,15 @@ body{
 
 
 .panel{
-    margin: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
     padding: 30px;
     width: 40%;
-    height: 90vh;
-    background-color: rgb(238, 238, 238);
+    height: 80vh;
+	border-radius: 25px;
+    background-color: white;
 }
 
 label{
@@ -38,8 +41,7 @@ label{
 
 @media screen and (max-width: 767px) {
     .panel{
-        padding: 10px;
-        width: 90%;
+        width: 80vw;
         height: 90vh;
     }
 }
