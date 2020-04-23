@@ -1,9 +1,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="../css/styles.css" type="text/css">
-		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="../js/postLoader.js"></script>
-
 	</head>
 
 	<body>
@@ -68,5 +66,7 @@
 
 
 	</body>
+
+
 
 </html>

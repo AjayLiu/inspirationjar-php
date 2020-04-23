@@ -49,7 +49,7 @@
     			<br>
                 <label for = "quote">Your Quote</label>
                 <br><br>
-                " <input class = "submitQuoteInputBox" type="text" name="inputQuote" maxlength="400"> " <input type="submit" value = "Submit">
+                " <input autofocus class = "submitQuoteInputBox" type="text" name="inputQuote" maxlength="400"> " <input type="submit" value = "Submit">
 
     		</form>
 

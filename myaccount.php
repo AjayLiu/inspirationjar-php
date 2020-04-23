@@ -17,8 +17,7 @@
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 		<script src = "/js/randomColors.js"></script>
-		<script src="/js/jquery.fittext.js"></script>
-		<script src="/js/fittext.js"></script>
+
 
         <script src = "/js/accountPage.js"></script>
 		<script src = "/js/countNumber.js"></script>
@@ -64,9 +63,13 @@
 			</div>
 			<!-- Tab content -->
 			<div id="Posts" class="tabcontent">
-				<div class = "likeCounter">
-					Your Gratitude Rating:
-					<div class = "count"></div>
+				<div class = "yourGratitudeRating">
+					<img src = "/images/wreath0.png">
+					<div class = "likeCounter">
+						Your Gratitude Rating:
+						<div class = "count"></div>
+					</div>
+					<img src = "/images/wreath1.png">
 				</div>
 				<?php
 					include "backend_php/load_posts.php";

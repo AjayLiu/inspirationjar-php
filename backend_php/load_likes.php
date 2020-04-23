@@ -2,6 +2,7 @@
 	<head>
 		<link rel="stylesheet" href="../css/styles.css" type="text/css">
 		<script src="../js/likeHistoryLoader.js"></script>
+		
 	</head>
 
 	<body>
