@@ -2,7 +2,7 @@
     $isLocal = false;
 
     $siteName = $isLocal ? "localhost" : "inspirationjar.com";
-    $http = $isLocal ? "http" : "https";
+    $http = $isLocal ? "http" : "http";
     $submitLink = $http."://".$siteName."/submit.php";
     $loginPageLink =  $http."://".$siteName."/login_page.php";
     $afterLoginLink =  $http."://".$siteName."/backend_php/afterLogin.php";
