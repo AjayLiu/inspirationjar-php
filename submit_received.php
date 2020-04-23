@@ -59,7 +59,7 @@
                 $latestPostID = $prevPostsIDs[count($prevPostsIDs)-2]; //most recent post
                 $sql = "SELECT HappyDate FROM happy_table WHERE HappyID = '$latestPostID'";
                 $result = $mysqli->query($sql) or die("ouch, error");
-                if(isset($result)){
+                if(mysql_num_rows($result)>0){
                     $nowTime = new DateTime();
 
                     $latestPostTime = $result->fetch_assoc()['HappyDate'];
