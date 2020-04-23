@@ -4,6 +4,8 @@
 
     include "../google.php";
 
+    session_start();
+    
     $payload = $_SESSION['payload'];
     $email = $payload['email'];
 
