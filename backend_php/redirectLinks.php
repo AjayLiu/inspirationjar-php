@@ -1,7 +1,7 @@
 <?php
     $isLocal = false;
 
-    $siteName = $isLocal ? "localhost" : "encourageme.herokuapp.com";
+    $siteName = $isLocal ? "localhost" : "inspirationjar.com";
     $http = $isLocal ? "http" : "https";
     $submitLink = $http."://".$siteName."/submit.php";
     $loginPageLink =  $http."://".$siteName."/login_page.php";
