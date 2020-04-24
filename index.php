@@ -36,15 +36,29 @@
 
 		<div class = "splashScreen">
 			<div id = "jar">
-				<img src = "images/jar.png">
+				<div>
+					<input type="image" src = "/images/jar.png" id = "jarImg" value=''/>
+					<div id = "clickMeIndicator">
+						<input type="image" src = "/images/click.png" id = "clickMeIndicatorInput" value=''/>
+						<!-- <label id = "clickLabel">Click to draw a random quote!</label> -->
+					</div>
+				</div>
 				<div id = 'title'>
-					Inspiration Jar
+					<div id = "titleText">
+						Inspiration Jar
+					</div>
 					<div id = 'titleDescription'>
 						read some encouraging messages to help you through hard times!
 					</div>
+					<div id = 'jarQuote'>
+
+					</div>
 				</div>
 			</div>
-			<input type="image" src = "/images/scroll.png" id = "scrollIndicator" value=''/>
+			<div id = "scrollIndicator">
+				<input type="image" src = "/images/scroll.png" id = "scrollIndicatorInput" value=''/>
+				<!-- <label id = "scrollLabel">Scroll down to browse all quotes!</label> -->
+			</div>
 		</div>
 
 		<input alt = "search filter settings button" type="image" src="/images/gear.png" class = "settingsButton" value=''/>
@@ -68,8 +82,9 @@
 
         <script src = "/js/randomColors.js"></script>
 		<script src = "/js/mainPageTabs.js"></script>
-		<script src = "/js/scrollAnim.js"></script>
 		<script src = "/js/splashScreenAnimation.js"></script>
+		<script src = "/js/jarclick.js"></script>
+		<script src = "/js/scrollAnim.js"></script>
 
 	</body>
 

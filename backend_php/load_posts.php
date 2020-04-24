@@ -29,7 +29,7 @@
         ?>
         <div id = "prevPosts"><?php include "getAccountNums/numPosts.php"; ?> </div>
         <?php
-            if ($result->num_rows > 0) {
+            if (mysqli_num_rows($result) > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
 					?>

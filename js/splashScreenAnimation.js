@@ -11,6 +11,7 @@ function moveJar() {
         if (pos >= window.innerWidth * 0.10) {
           fadeTitle();
           showScrollIndicator();
+          showClickIndicator();
           setTimeout(displayQuotes, 400);
           return;
         } else {

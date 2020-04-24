@@ -52,7 +52,7 @@
 	z-index: 2;
 }
 
-#jar img, #tree img {
+#jar img, #tree img, #jarImg {
 	width: 359px;
 	height: 478px;
 }
@@ -71,7 +71,19 @@
 
 #scrollIndicator{
 	position: absolute;
-	bottom: 20px;
+	bottom: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	width: 300px;
+	height: 100px;
+	z-index: 5;
+}
+
+#scrollIndicatorInput{
+	position: absolute;
+	bottom: 0px;
 	margin-left: auto;
 	margin-right: auto;
 	left: 0;
@@ -81,11 +93,119 @@
 	z-index: 5;
 }
 
+#scrollLabel{
+	position: relative;
+	top: 70px;
+}
+
 .loadingIndicator{
 	margin: 30px auto;
 	font-size: 1.2rem;
 	color: rgb(255, 153, 0);
 }
+
+#clickMeIndicator{
+	position: absolute;
+	top: 500px;
+	left: 120px;
+	width: 200px;
+	height: 75px;
+	z-index: 5;
+}
+
+#clickMeIndicatorInput{
+	position: absolute;
+	bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	width: 75px;
+	height: 75px;
+	z-index: 5;
+}
+
+#clickLabel{
+	position: relative;
+	top: 70px;
+}
+
+
+
+#jarQuote{
+	position: relative;
+	top: -30%;
+}
+
+#jarQuote .quoteBlock{
+	width: 60vw;
+	-webkit-animation-name: fadeInLeft;
+    -moz-animation-name: fadeInLeft;
+    -o-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0.4s;
+    -moz-animation-duration: 0.4s;
+    -o-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -o-animation-duration: 0.4s;
+}
+
+
+@-webkit-keyframes fadeInLeft {
+    from {
+        opacity:0;
+        -webkit-transform: translatex(-10px);
+        -moz-transform: translatex(-10px);
+        -o-transform: translatex(-10px);
+        transform: translatex(-10px);
+    }
+    to {
+        opacity:1;
+        -webkit-transform: translatex(0);
+        -moz-transform: translatex(0);
+        -o-transform: translatex(0);
+        transform: translatex(0);
+    }
+}
+@-moz-keyframes fadeInLeft {
+    from {
+        opacity:0;
+        -webkit-transform: translatex(-10px);
+        -moz-transform: translatex(-10px);
+        -o-transform: translatex(-10px);
+        transform: translatex(-10px);
+    }
+    to {
+        opacity:1;
+        -webkit-transform: translatex(0);
+        -moz-transform: translatex(0);
+        -o-transform: translatex(0);
+        transform: translatex(0);
+    }
+}
+@keyframes fadeInLeft {
+    from {
+        opacity:0;
+        -webkit-transform: translatex(-100px);
+        -moz-transform: translatex(-100px);
+        -o-transform: translatex(-100px);
+        transform: translatex(-100px);
+    }
+    to {
+        opacity:1;
+        -webkit-transform: translatex(0);
+        -moz-transform: translatex(0);
+        -o-transform: translatex(0);
+        transform: translatex(0);
+    }
+}
+
+
+
 
 @media screen and (max-width: 767px) {
 
@@ -112,7 +232,7 @@
 	}
 
 
-	#jar img, #tree img {
+	#jar img, #tree img,#jarImg {
 		margin: 0 auto;
 
 		width: 180px;

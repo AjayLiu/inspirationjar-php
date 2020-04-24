@@ -3,7 +3,6 @@
 		<link rel="stylesheet" href="../css/styles.css" type="text/css">
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="../js/quoteLoader.js"></script>
-
 	</head>
 
 	<body>
@@ -35,7 +34,7 @@
 			$result = $mysqli->query($sql) or die("an error has occured");
 
 
-			if ($result->num_rows > 0) {
+			if (mysqli_num_rows($result) > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
 					?>

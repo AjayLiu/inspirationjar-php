@@ -2,7 +2,7 @@
 	<head>
 		<link rel="stylesheet" href="../css/styles.css" type="text/css">
         <script src="../js/favoriteLoader.js"></script>
-		
+
 	</head>
 
 	<body>
@@ -30,7 +30,7 @@
         ?>
         <div id = "prevFaves"><?php include "getAccountNums/numFaves.php"; ?> </div>
         <?php
-            if ($result->num_rows > 0) {
+            if (mysqli_num_rows($result) > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
 					?>

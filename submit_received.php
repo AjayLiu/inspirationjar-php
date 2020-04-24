@@ -44,22 +44,18 @@
             }
 
 
-
-
-            /*
-            $check = new Check();
-            */
             //SEARCH THROUGH HISTORY FOR DUPLICATES OR SPAM (submitted too fast from the previous)
 
             $isDupe = false;
             $isSpam = false;
+
 
             //CHECK FOR SPAM
             if(count($prevPostsIDs) > 1){
                 $latestPostID = $prevPostsIDs[count($prevPostsIDs)-2]; //most recent post
                 $sql = "SELECT HappyDate FROM happy_table WHERE HappyID = '$latestPostID'";
                 $result = $mysqli->query($sql) or die("ouch, error");
-                if(mysql_num_rows($result)>0){
+                if(mysqli_num_rows($result)>0){
                     $nowTime = new DateTime();
 
                     $latestPostTime = $result->fetch_assoc()['HappyDate'];
