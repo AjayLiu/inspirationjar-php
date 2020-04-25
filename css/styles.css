@@ -96,17 +96,17 @@ a:hover{
 .quoteBlock{
 	margin-top: 10px;
 	height: 55vh;
-  	width: 80vw;
+  	width: 70vw;
 	padding-top: 100px;
 	text-align: center;
 	position: relative;
 	background-image: url("/images/widePaper.png");
 	background-repeat: no-repeat;
 	background-size: cover;
-
 }
 
 .quoteText{
+
 	margin: 0 auto 0 auto;
 	display: block;
 	font-size: 2rem;
@@ -129,7 +129,7 @@ a:hover{
 }
 
 .gratitudeRatings{
-	margin: 20px 0 0 0;
+	margin-top: 20px;
 	font-size: 1.2rem;
 	color: purple;
 }

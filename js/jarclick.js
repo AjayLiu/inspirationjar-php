@@ -1,12 +1,16 @@
 $("#jarQuote").hide();
+$("#clickLabel").hide();
 
 var clickCount = 0;
 
 function jarClick(){
     clickCount++;
     if(clickCount <= 1){
-        $("#titleText").hide();
-        $("#titleDescription").hide();
+        $("#titleText").fadeOut();
+        $("#titleDescription").fadeOut();
+        $("#clickLabel").fadeIn();
+    } else if (clickCount == 2){
+        $('#clickMeIndicator').fadeOut();
     }
     $("#jarQuote").load("backend_php/getRandomQuote.php");
     $("#jarQuote").show();

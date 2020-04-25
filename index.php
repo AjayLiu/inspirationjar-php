@@ -39,8 +39,8 @@
 				<div>
 					<input type="image" src = "/images/jar.png" id = "jarImg" value=''/>
 					<div id = "clickMeIndicator">
+						<label id = "clickLabel">Draw another quote!</label>
 						<input type="image" src = "/images/click.png" id = "clickMeIndicatorInput" value=''/>
-						<!-- <label id = "clickLabel">Click to draw a random quote!</label> -->
 					</div>
 				</div>
 				<div id = 'title'>
@@ -59,6 +59,9 @@
 				<input type="image" src = "/images/scroll.png" id = "scrollIndicatorInput" value=''/>
 				<!-- <label id = "scrollLabel">Scroll down to browse all quotes!</label> -->
 			</div>
+		</div>
+		<div id = "browseTitle">
+			Browse all quotes!
 		</div>
 
 		<input alt = "search filter settings button" type="image" src="/images/gear.png" class = "settingsButton" value=''/>

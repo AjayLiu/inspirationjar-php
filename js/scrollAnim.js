@@ -7,7 +7,7 @@ function showScrollIndicator(){
     var pos = $("#scrollIndicator").position().top;
     var f = 0;
     var mov = 0;
-    var loop = setInterval(scrollAnim, 20);
+    var loop = setInterval(scrollAnim, 40);
     function scrollAnim(){
         if(f >= 80 && f < 90){
             mov++;
@@ -27,20 +27,22 @@ function showClickIndicator(){
 
     //animation
     var elem0 = document.getElementById("clickMeIndicator");
-    var pos = $("#clickMeIndicator").position().top;
+    var posLeft = $("#clickMeIndicator").position().left;
+    var posTop = $("#clickMeIndicator").position().top;
     var f = 0;
     var mov = 0;
     var loop = setInterval(scrollAnim, 20);
     function scrollAnim(){
         if(f >= 80 && f < 90){
-            mov--;
-        } else if( f > 80 && f < 100) {
             mov++;
+        } else if( f > 80 && f < 100) {
+            mov--;
         } else if (f == 100){
             f = 0;
         }
         f++;
-        elem0.style.top = (pos + mov) + 'px';
+        elem0.style.left = (posLeft + mov) + 'px';
+        elem0.style.top = (posTop + mov) + 'px';
     }
 }
 
@@ -51,7 +53,7 @@ $(document).ready(
         $("#scrollIndicatorInput").click(
             function(){
                 window.scroll({
-                  top: window.innerHeight,
+                  top: window.innerHeight * 0.9,
                   behavior: 'smooth'
                 });
             }
