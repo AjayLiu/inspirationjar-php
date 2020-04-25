@@ -3,7 +3,8 @@
 
 <?php
     include "setup_connection.php";
-    $sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE isReviewedSafe = 1 ORDER BY RAND() LIMIT 1";
+    $id = $_POST['id'];
+    $sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE HappyID = $id";
     $result = $mysqli->query($sql) or die("an error has occured");
 
 

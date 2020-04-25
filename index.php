@@ -70,8 +70,8 @@
 			<div class="tab">
 				<h4>Sort by: &nbsp&nbsp</h4>
 				<button class="tablinks" onclick="setSort(event, 'MostLiked')" id = "defaultOpen">Most Liked</button>
-				<button class="tablinks" onclick="setSort(event, 'MostRecent')">Latest</button>
 				<button class="tablinks" onclick="setSort(event, 'LeastLiked')">Least Liked</button>
+				<button class="tablinks" onclick="setSort(event, 'MostRecent')">Latest</button>
 				<button class="tablinks" onclick="setSort(event, 'LeastRecent')">Oldest</button>
 			</div>
 		</div>
