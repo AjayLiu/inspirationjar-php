@@ -227,8 +227,11 @@
 
 	#clickMeIndicator{
 		top: -45px;
-		left: 80px;
-	} 
+		left: 30px;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
 	#clickMeIndicatorInput{
 		width: 40px;
 		height: 40px;
@@ -253,7 +256,7 @@
 
 	#jarQuote .quoteText{
 		height: 17vh;
-		font-size: 1rem;
+		font-size: 1.2rem;
 	}
 	#jarQuote .button{
 		font-size: 1rem;
