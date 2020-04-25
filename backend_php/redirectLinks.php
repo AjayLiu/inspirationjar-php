@@ -1,5 +1,5 @@
 <?php
-    $isLocal = false;
+    $isLocal = true;
 
     $siteName = $isLocal ? "localhost" : "inspirationjar.com";
     $http = $isLocal ? "http://" : "https://www.";
