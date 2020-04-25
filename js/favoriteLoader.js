@@ -12,12 +12,10 @@ $(document).ready(
                         if(response != "SUCCESS"){
                             window.location = response;
                         } else {
-                            alert("Post successfully unfavorited");
-
                             var reportedBlock = ".quoteBlock[data-gratID=\"" + unfavoriteID + "\"]";
                             $(reportedBlock).remove();
 
-                            $("#prevFaves").load("getAccountNums/numFaves.php");
+                            $("#prevFaves").load("backend_php/getAccountNums/numFaves.php");
                         }
 
                     });
