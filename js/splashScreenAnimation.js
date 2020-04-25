@@ -7,8 +7,13 @@ function moveJar() {
     var pos = $("#jar").position().left;
 
     frame();
+
+    var destination = window.innerWidth * 0.10;
+    if(window.innerWidth < 767){
+        destination = 0;
+    }
     function frame() {
-        if (pos >= window.innerWidth * 0.10) {
+        if (pos >= destination) {
           fadeTitle();
           showScrollIndicator();
           showClickIndicator();

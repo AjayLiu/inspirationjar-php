@@ -21,13 +21,12 @@ function showScrollIndicator(){
     }
 }
 
-$("#clickMeIndicator").hide();
+$('#clickMeIndicator').hide();
 function showClickIndicator(){
     $('#clickMeIndicator').fadeIn();
 
     //animation
     var elem0 = document.getElementById("clickMeIndicator");
-    var posLeft = $("#clickMeIndicator").position().left;
     var posTop = $("#clickMeIndicator").position().top;
     var f = 0;
     var mov = 0;
@@ -41,7 +40,6 @@ function showClickIndicator(){
             f = 0;
         }
         f++;
-        elem0.style.left = (posLeft + mov) + 'px';
         elem0.style.top = (posTop + mov) + 'px';
     }
 }

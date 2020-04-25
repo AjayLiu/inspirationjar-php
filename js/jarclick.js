@@ -1,14 +1,18 @@
 $("#jarQuote").hide();
-$("#clickLabel").hide();
 
 var clickCount = 0;
 
 function jarClick(){
     clickCount++;
     if(clickCount <= 1){
+        $("#clickLabel").fadeOut();
+        setInterval(function(){
+            $("#clickLabel").fadeIn();
+            $("#clickLabel").text("Click the jar for more!");
+        }, 2000);
+
         $("#titleText").fadeOut();
         $("#titleDescription").fadeOut();
-        $("#clickLabel").fadeIn();
     } else if (clickCount == 2){
         $('#clickMeIndicator').fadeOut();
     }

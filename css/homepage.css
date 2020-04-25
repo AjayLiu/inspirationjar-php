@@ -106,9 +106,10 @@
 
 #clickMeIndicator{
 	position: absolute;
-	top: 50px;
-	left: -140px;
-	width: 200px;
+	text-align: center;
+	top: -50px;
+	left: 65px;
+	width: 300px;
 	height: 75px;
 	z-index: 5;
 }
@@ -126,8 +127,8 @@
 
 #clickLabel{
 	color: orange;
+	font-size: 1.6rem;
 	position: relative;
-	bottom: 10px;
 }
 
 
@@ -217,27 +218,36 @@
 	#jar{
 		flex-direction: column;
 		position: relative;
-		left: -100px;
+		left: -120px;
 		top: 20%;
 		height: 60%;
-		width: 80%;
+		width: 95vw;
 		text-align: center;
 	}
 
 	#clickMeIndicator{
-		top: -20px;
-		left: -10px;
+		top: -45px;
+		left: 80px;
 	}
 	#clickMeIndicatorInput{
 		width: 40px;
 		height: 40px;
 	}
+	#clickLabel{
+		font-size: 1.3rem;
+	}
+
+	#scrollIndicatorInput{
+		width: 50px;
+		height: 50px;
+	}
+
 
 	#jarQuote{
 		top: 0;
 	}
 	#jarQuote .quoteBlock{
-		width: 80vw;
+		width: 90vw;
 		height: 32vh;
 	}
 

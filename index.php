@@ -39,8 +39,8 @@
 				<div>
 					<input type="image" src = "/images/jar.png" id = "jarImg" value=''/>
 					<div id = "clickMeIndicator">
-						<label id = "clickLabel">Draw another quote!</label>
-						<input type="image" src = "/images/click.png" id = "clickMeIndicatorInput" value=''/>
+						<label id = "clickLabel">Click the jar!</label>
+						<!-- <input type="image" src = "/images/click.png" id = "clickMeIndicatorInput" value=''/> -->
 					</div>
 				</div>
 				<div id = 'title'>
