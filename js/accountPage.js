@@ -1,5 +1,7 @@
 $(document).ready(
     function(){
+
+
         //PROMPT LOGIN PAGE IF NOT LOGGED IN
         $.ajax({
           type: 'GET',
@@ -26,8 +28,18 @@ $(document).ready(
 
 
 function logout(){
-    var yes = confirm("Are you sure you want to log out?");
-    if(yes){
+    swal({
+      title: "Are you sure you want to log out?",
+      text: "Feel free to log back in anytime!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("You have been logged out.", {
+          icon: "success",
+        });
+
         //LOG OUT
         $.ajax({
           type: 'GET',
@@ -37,6 +49,6 @@ function logout(){
               window.location.reload();
           }
         });
-    }
-
+      }
+    });
 }

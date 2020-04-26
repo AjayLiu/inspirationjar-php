@@ -3,8 +3,18 @@ $(document).ready(
         //DELETE BUTTON
         $(".deleteButton").click(
             function(){
-                var yes = confirm("Are you sure you want to delete this post permanently?");
-                if(yes){
+                swal({
+                  title: "Are you sure you want to delete this post permanently?",
+                  text: "Your quote can't be recovered if you delete it!",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+                }).then((willDelete) => {
+                  if (willDelete) {
+                    swal("Quote successfully deleted", {
+                      icon: "success",
+                    });
+
                     var deleteID = $(this).attr("name");
                     var ajaxurl = 'backend_php/delete.php',
                     data =  {'deleteID': deleteID};
@@ -12,8 +22,6 @@ $(document).ready(
                         if(response != "SUCCESS"){
                             window.location = response;
                         } else {
-                            alert("Post successfully deleted");
-
                             var reportedBlock = ".quoteBlock[data-gratID=\"" + deleteID + "\"]";
                             $(reportedBlock).remove();
                             $("#prevPosts").load("getAccountNums/numPosts.php");
@@ -21,7 +29,8 @@ $(document).ready(
                         }
 
                     });
-                }
+                  }
+                });
 
             }
         );

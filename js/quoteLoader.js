@@ -31,8 +31,19 @@ $(document).ready(
         //REPORT BUTTON
         $(".reportButton").click(
             function(){
-                var yes = confirm("Are you sure you want to report this post?");
-                if(yes){
+
+                swal({
+                  title: "Are you sure you want to report this post?",
+                  text: "Is this post potentially offensive to viewers or is completely off topic?",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+                }).then((willDelete) => {
+                  if (willDelete) {
+                    swal("Quote successfully reported", {
+                      icon: "success",
+                    });
+
                     var reportID = $(this).attr("name");
                     var ajaxurl = 'backend_php/report.php',
                     data =  {'reportedID': reportID};
@@ -53,7 +64,9 @@ $(document).ready(
                             $(reportedBlock).remove();
                         }
                     });
-                }
+                  }
+                });
+
             }
         );
 

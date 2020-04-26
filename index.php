@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="/css/styles.css" type="text/css">
 		<link rel="stylesheet" href="/css/tabStyles.css" type="text/css">
 		<link rel="stylesheet" href="/css/homepage.css" type="text/css">
-
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<link rel="icon" type="image/png" href="/images/logo.png">
 
@@ -30,7 +30,6 @@
                     <li class="skewLeft"><a href = "submit.php">Submit</a></li>
 					<li class="skewLeft"><a href = "about.html">About</a></li>
                 </ul>
-
             </div>
         </div>
 
