@@ -71,11 +71,13 @@
 				<h4>Sort by: &nbsp&nbsp</h4>
 				<button class="tablinks" onclick="setSort(event, 'MostLiked')" id = "defaultOpen">Most Liked</button>
 				<button class="tablinks" onclick="setSort(event, 'LeastLiked')">Least Liked</button>
-				<button class="tablinks" onclick="setSort(event, 'MostRecent')">Latest</button>
+				<button class="tablinks" onclick="setSort(event, 'MostRecent')">Newest</button>
 				<button class="tablinks" onclick="setSort(event, 'LeastRecent')">Oldest</button>
 			</div>
+			<input type="text" id='searchBar' placeholder="Search..">
 		</div>
 
+		<script>var allowRefresh = true; var isSearch = false;</script>
 		<div id = "quotes_root" >
 			<?php //include "backend_php/load_quotes.php"; ?>
 		</div>
@@ -84,10 +86,10 @@
 		</div>
 
         <script src = "/js/randomColors.js"></script>
-		<script src = "/js/mainPageTabs.js"></script>
 		<script src = "/js/splashScreenAnimation.js"></script>
 		<script src = "/js/jarclick.js"></script>
 		<script src = "/js/scrollAnim.js"></script>
+		<script src = "/js/mainPageTabs.js"></script>
 
 	</body>
 

@@ -1,3 +1,5 @@
+var jarMoving = true;
+
 $(document).ready( function(){
     moveJar();
 });
@@ -18,6 +20,7 @@ function moveJar() {
           showScrollIndicator();
           showClickIndicator();
           setTimeout(displayQuotes, 400);
+          jarMoving = false;
           return;
         } else {
           pos+=2;

@@ -11,7 +11,6 @@
     display: block;
 }
 
-
 .settingsButton:hover {
   transition: 0.70s;
   -webkit-transition: 0.70s;
@@ -32,6 +31,14 @@
 .settingsTab{
 	margin: auto;
 	width: 70vw;
+}
+
+#searchBar{
+	position: relative;
+	bottom: 50px;
+	width: 14vw;
+	height: 30px;
+	right: -25vw;
 }
 
 .splashScreen{
@@ -215,7 +222,9 @@
 
 
 @media screen and (max-width: 767px) {
-
+	.settingsTab{
+		width: 95vw;
+	}
 	#jar{
 		flex-direction: column;
 		position: relative;
@@ -290,4 +299,23 @@
 	.settingsButton, .splashScreen{
 		/* scroll-snap-align: center; */
 	}
+
+}
+
+h4{
+	padding-top: 4px;
+}
+
+@media screen and (max-width: 1200px) {
+	#searchBar{
+		bottom: 70px;
+		right: 0;
+		width: 80%;
+	}
+
+	.tab{
+		height: 150px;
+	}
+
+
 }

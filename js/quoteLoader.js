@@ -112,10 +112,8 @@ $(document).ready(
             });
         }
 
-
-        var allowRefresh =true;
         $(window).scroll(function() {
-            if(allowRefresh){
+            if(allowRefresh && !isSearch){
                 if($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
                     $.ajax({
                         type: 'GET',
@@ -135,6 +133,10 @@ $(document).ready(
                         }
                     });
                 }
+            } else if(isSearch){
+                $('.loadingIndicator').text("End of search");
+            } else {
+                $('.loadingIndicator').text("That's all the quotes so far! Help spread the positivity and submit a quote!");
             }
 
         });

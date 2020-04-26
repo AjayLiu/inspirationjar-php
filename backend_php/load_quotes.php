@@ -30,10 +30,26 @@
 					break;
 			}
 
-			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE isReviewedSafe = 1 ORDER BY ".$sortSetting." LIMIT $quoteNewCount";
-			$result = $mysqli->query($sql) or die("an error has occured");
+
+			$search = $_POST['search'];
+			$sqlSearch = '%';
+			if(isset($_POST['search'])){
+				$sqlSearch = '%'.$search.'%';
+			}
 
 
+			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE isReviewedSafe = 1 AND Happy_quote LIKE ? ORDER BY ".$sortSetting." LIMIT $quoteNewCount";
+			$stmt = mysqli_stmt_init($mysqli);
+			//$result = $mysqli->query($sql) or die("an error has occured");
+			if(!mysqli_stmt_prepare($stmt, $sql)){
+				echo "SQL ERROR";
+			} else {
+				mysqli_stmt_bind_param($stmt, "s", $sqlSearch);
+				mysqli_stmt_execute($stmt);
+			}
+
+
+			$result = $stmt->get_result();
 			if (mysqli_num_rows($result) > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
