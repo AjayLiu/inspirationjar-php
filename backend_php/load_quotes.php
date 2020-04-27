@@ -34,7 +34,6 @@
 					break;
 			}
 
-
 			$search = $_POST['search'];
 			$sqlSearch = '%';
 			if(isset($_POST['search'])){
@@ -62,13 +61,13 @@
 				}
 			}
 
-			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE isReviewedSafe = 1 AND Happy_quote LIKE ? AND HappyID NOT IN ($uniqueIgnore) ORDER BY ? LIMIT ?";
+			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE isReviewedSafe = 1 AND Happy_quote LIKE ? AND HappyID NOT IN ($uniqueIgnore) ORDER BY $sortSetting LIMIT ?";
 			$stmt = mysqli_stmt_init($mysqli);
 			//$result = $mysqli->query($sql) or die("an error has occured");
 			if(!mysqli_stmt_prepare($stmt, $sql)){
 				echo "SQL ERROR";
 			} else {
-				mysqli_stmt_bind_param($stmt, "ssi", $sqlSearch, $sortSetting, $quoteNewCount);
+				mysqli_stmt_bind_param($stmt, "si", $sqlSearch, $quoteNewCount);
 				mysqli_stmt_execute($stmt);
 			}
 
