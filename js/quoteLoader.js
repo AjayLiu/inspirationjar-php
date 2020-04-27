@@ -121,6 +121,7 @@ $(document).ready(
             quoteCount = $( ".quoteBlock" ).length + 10;
             $("#quotes_root").load("/backend_php/load_quotes.php", {'quoteNewCount': quoteCount}, function(){
                 markDupes();
+                isFetching = false;
             });
 
         }
@@ -144,7 +145,6 @@ $(document).ready(
                                 if(allowRefresh){
                                     refresh();
                                 }
-                                isFetching = false;
                             }
                         });
                     }
