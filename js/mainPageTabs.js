@@ -71,3 +71,25 @@ function search(){
         $("#quotes_root").load("backend_php/load_quotes.php");
     }
 }
+
+
+
+
+var checkbox = document.getElementById("uniqueCheckbox");
+document.getElementById("uniqueLabel").addEventListener("click", toggleUnique);
+var list = document.getElementsByClassName("uniqueChange");
+var i;
+for ( i = 0; i < list.length; i++) {
+    list[i].addEventListener("click", uniqueChanged);
+}
+
+function toggleUnique() {
+    checkbox.checked = checkbox.checked == true ? false : true; //for some reason an easy flip flop doesnt work
+}
+function uniqueChanged(){
+    if(checkbox.checked){
+        allowRefresh = false;
+        isSearch = true;
+    }
+    $("#quotes_root").load("backend_php/load_quotes.php", {'unique': checkbox.checked, 'quoteNewCount': Number.MAX_SAFE_INTEGER});
+}

@@ -66,6 +66,10 @@
 		<input alt = "search filter settings button" type="image" src="/images/gear.png" class = "settingsButton" value=''/>
 		<!-- Tab links -->
 		<div class = 'settingsTab'>
+			<div id = "unique">
+				<input type="checkbox" id="uniqueCheckbox" class = "uniqueChange" readonly>
+	            <label for="unique quotes only" id = "uniqueLabel" class = "uniqueChange"> <a>&nbspOnly show quotes I haven't voted on </a> </label>
+			</div>
 			<div class="tab">
 				<h4>Sort by: &nbsp&nbsp</h4>
 				<button class="tablinks" onclick="setSort(event, 'MostLiked')" id = "defaultOpen">Most Liked</button>

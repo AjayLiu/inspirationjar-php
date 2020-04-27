@@ -8,7 +8,7 @@ for ( i = 0; i < list.length; i++) {
 
 
 function toggleCheck() {
-    checkbox.checked = checkbox.checked == true ? false : true;
+    checkbox.checked = checkbox.checked == true ? false : true;//for some reason an easy flip flop doesnt work
 }
 
 function rememberChange (){

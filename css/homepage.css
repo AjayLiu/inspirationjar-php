@@ -29,16 +29,22 @@
 }
 
 .settingsTab{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 	margin: auto;
 	width: 70vw;
+	background-color: #f1f1f1;
+}
+
+.tab{
+	border: none;
 }
 
 #search{
-	position: relative;
+	margin: auto 0;
 	height: 35px;
 	width: 15vw;
-	bottom: 42px;
-	left: 50vw;
 	display: flex;
 	flex-direction: row;
 	border: 1px solid gray;
@@ -57,6 +63,10 @@
 	padding: 2px;
 }
 
+#unique{
+	margin: auto 0;
+
+}
 
 .splashScreen{
 	width: 100%;
@@ -239,9 +249,7 @@
 
 
 @media screen and (max-width: 767px) {
-	.settingsTab{
-		width: 95vw;
-	}
+
 	#jar{
 		flex-direction: column;
 		position: relative;
@@ -327,18 +335,17 @@ h4{
 }
 
 @media screen and (max-width: 1300px) {
-	#search{
-		bottom: 50px;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 60vw;
-	}
-	#searchBar{
-		width: 60vw;
+	.settingsTab{
+		width: 95vw;
+		flex-direction: column;
 	}
 
-	.tab{
-		height: 120px;
+	#search, #searchBar{
+		margin: 0 auto;
+		width: 60vw;
+	}
+	#unique, .tab, #search{
+		margin: 10px auto;
 	}
 
 

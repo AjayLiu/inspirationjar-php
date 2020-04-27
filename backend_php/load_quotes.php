@@ -9,6 +9,10 @@
 
 		<?php
 			include "setup_connection.php";
+			include "redirectLinks.php";
+
+			session_start();
+
 			$quoteNewCount = 10;
 			if(isset($_POST['quoteNewCount'])){
 				$quoteNewCount = $_POST['quoteNewCount'];
@@ -37,14 +41,34 @@
 				$sqlSearch = '%'.$search.'%';
 			}
 
+			$unique = $_POST['unique'];
+			$uniqueIgnore = '-1';
 
-			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE isReviewedSafe = 1 AND Happy_quote LIKE ? ORDER BY ".$sortSetting." LIMIT $quoteNewCount";
+			if(isset($unique)){
+				if($unique == "true"){
+					if(!isset($_SESSION['payload'])){
+						$_SESSION['redir'] = "$indexLink";
+						$url = $loginPageLink;
+						echo "<script type='text/javascript'>window.top.location='$url';</script>"; exit;
+					} else {
+						$email = $_SESSION['payload']['email'];
+						$sql = "SELECT Likes, Dislikes, Favorites FROM accounts WHERE Email = '$email'";
+						$result = $mysqli->query($sql) or die("an error has occured");
+
+						$historyRow = $result->fetch_assoc();
+						$historyStr = $historyRow['Likes'].$historyRow['Dislikes'].$historyRow['Favorites'];
+						$uniqueIgnore = substr($historyStr, 0, strlen($historyStr)-1);
+					}
+				}
+			}
+
+			$sql = "SELECT HappyID, Happy_quote, HappyRating FROM happy_table WHERE isReviewedSafe = 1 AND Happy_quote LIKE ? AND HappyID NOT IN ($uniqueIgnore) ORDER BY ? LIMIT ?";
 			$stmt = mysqli_stmt_init($mysqli);
 			//$result = $mysqli->query($sql) or die("an error has occured");
 			if(!mysqli_stmt_prepare($stmt, $sql)){
 				echo "SQL ERROR";
 			} else {
-				mysqli_stmt_bind_param($stmt, "s", $sqlSearch);
+				mysqli_stmt_bind_param($stmt, "ssi", $sqlSearch, $sortSetting, $quoteNewCount);
 				mysqli_stmt_execute($stmt);
 			}
 
