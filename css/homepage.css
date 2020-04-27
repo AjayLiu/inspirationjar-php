@@ -33,15 +33,30 @@
 	width: 70vw;
 }
 
-#searchBar{
+#search{
 	position: relative;
-	bottom: 45px;
-	width: 14vw;
-	height: 30px;
-	right: -25vw;
-	padding-left: 10px;
-
+	height: 35px;
+	width: 15vw;
+	bottom: 42px;
+	left: 50vw;
+	display: flex;
+	flex-direction: row;
+	border: 1px solid gray;
 }
+
+#searchBar{
+	width: 15vw;
+	height: auto;
+	padding-left: 10px;
+}
+
+#searchSubmit{
+	background-color: rgb(210, 210, 210);
+	width: 31px;
+	height: 31px;
+	padding: 2px;
+}
+
 
 .splashScreen{
 	width: 100%;
@@ -286,6 +301,8 @@
 	}
 
 	#titleDescription{
+		margin: 0 auto;
+		width: 70%;
 		font-weight: lighter;
 		font-size: 1.5rem;
 	}
@@ -309,11 +326,15 @@ h4{
 	bottom: 5px;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1300px) {
+	#search{
+		bottom: 50px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 60vw;
+	}
 	#searchBar{
-		bottom: 60px;
-		right: 0;
-		width: 80%;
+		width: 60vw;
 	}
 
 	.tab{

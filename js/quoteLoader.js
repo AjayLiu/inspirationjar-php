@@ -40,9 +40,7 @@ $(document).ready(
                   dangerMode: true,
                 }).then((willDelete) => {
                   if (willDelete) {
-                    swal("Quote successfully reported", {
-                      icon: "success",
-                    });
+
 
                     var reportID = $(this).attr("name");
                     var ajaxurl = 'backend_php/report.php',
@@ -50,16 +48,25 @@ $(document).ready(
                     $.post(ajaxurl, data, function (response) {
                         if(response != "SUCCESS"){
                             if(response == "DUPE"){
-                                alert("It looks like you reported this quote before. Sorry for showing this to you again, must be an error");
+                                swal("It looks like you reported this quote before.", {
+                                  icon: "error",
+                                  text:"Sorry for showing this to you again, must be an error."
+                                });
                             } else if(isNaN(response)){
                                 //REDIRECT TO LOGIN
                                 window.location = response;
                             } else {
                                 //SPAM
-                                alert("It looks like you reported a quote just " + response + " seconds ago. Please wait at least 30 seconds before reporting.");
+                                swal("You are reporting too quickly", {
+                                  icon: "warning",
+                                  text:"It looks like you reported a quote just " + response + " seconds ago. Please wait at least 30 seconds before reporting."
+                                });
                             }
                         } else {
-                            alert("Report Successful. Thanks for maintaining order in this site! We will review this quote and take the appropriate actions.");
+                            swal("Quote successfully reported", {
+                              icon: "success",
+                              text:"Thanks for maintaining order in this site! We will review this quote and take the appropriate actions."
+                            });
                             var reportedBlock = ".quoteBlock[data-gratID=\"" + reportID + "\"]";
                             $(reportedBlock).remove();
                         }
@@ -110,46 +117,42 @@ $(document).ready(
         //Refresh
         var quoteCount;
         function refresh(){
-            allowRefresh = false;
-            //FIRST CHECK IF THERE ARE ANY QUOTES TO LOAD
-            $.ajax({
-                type: 'GET',
-                url: 'backend_php/returnTotalQuoteCount.php',
-                cache: false,
-                success: function(result) {
-                    quoteCount = $( ".quoteBlock" ).length + 10;
-                    $("#quotes_root").load("/backend_php/load_quotes.php", {'quoteNewCount': quoteCount}, function(){
-                        markDupes();
-                    });
-                },
+
+            quoteCount = $( ".quoteBlock" ).length + 10;
+            $("#quotes_root").load("/backend_php/load_quotes.php", {'quoteNewCount': quoteCount}, function(){
+                markDupes();
             });
+
         }
 
+        var isFetching = false;
         $(window).scroll(function() {
-            if(allowRefresh && !isSearch){
-                if($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
-                    $.ajax({
-                        type: 'GET',
-                        url: 'backend_php/returnTotalQuoteCount.php',
-                        cache: false,
-                        success: function(result) {
-                            quoteCount = $( ".quoteBlock" ).length;
-                            if(quoteCount == result){
-                                $('.loadingIndicator').text("That's all the quotes so far! Help spread the positivity and submit a quote!");
-                                allowRefresh = false;
-                            }
-                            if(quoteCount <= result){
+            if($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
+                if(allowRefresh && !isSearch){
+                    if(!isFetching){
+                        isFetching = true;
+                        $.ajax({
+                            type: 'GET',
+                            url: 'backend_php/returnTotalQuoteCount.php',
+                            cache: false,
+                            success: function(result) {
+                                quoteCount = $( ".quoteBlock" ).length;
+                                if(quoteCount == result){
+                                    $('.loadingIndicator').text("That's all the quotes so far! Help spread the positivity and submit a quote!");
+                                    allowRefresh = false;
+                                }
                                 if(allowRefresh){
                                     refresh();
                                 }
+                                isFetching = false;
                             }
-                        }
-                    });
+                        });
+                    }
+                } else if(isSearch){
+                    $('.loadingIndicator').text("End of search");
+                } else {
+                    $('.loadingIndicator').text("That's all the quotes so far! Help spread the positivity and submit a quote!");
                 }
-            } else if(isSearch){
-                $('.loadingIndicator').text("End of search");
-            } else {
-                $('.loadingIndicator').text("That's all the quotes so far! Help spread the positivity and submit a quote!");
             }
 
         });

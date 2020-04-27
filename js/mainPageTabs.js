@@ -34,20 +34,40 @@ $(document).ready(
             }
         );
 
-
+        $("#searchSubmit").click(
+            function(){
+                search();
+            }
+        );
+        $('#searchBar').keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                search();
+            }
+        });
     }
 );
 
 document.getElementById('searchBar').addEventListener("keyup", searchChange);
 function searchChange(){
     if(!jarMoving){
-        search();
+        var text = document.getElementById('searchBar').value;
+        if(text == ''){
+            search();
+        }
     }
 }
 
 function search(){
     var text = document.getElementById('searchBar').value;
-    $("#quotes_root").load("backend_php/load_quotes.php", {"search": text, 'quoteNewCount': Number.MAX_SAFE_INTEGER});
-    isSearch = text !='';
-    allowRefresh = isSearch;
+    if(text != ''){
+        isSearch = true;
+        allowRefresh = false;
+        $("#quotes_root").load("backend_php/load_quotes.php", {"search": text, 'quoteNewCount': Number.MAX_SAFE_INTEGER});
+    } else {
+        isSearch = false;
+        allowRefresh = true;
+        $('.loadingIndicator').text("Loading quotes...");
+        $("#quotes_root").load("backend_php/load_quotes.php");
+    }
 }

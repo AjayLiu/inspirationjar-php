@@ -262,13 +262,22 @@ hr{
 /* MOBILE */
 @media screen and (max-width: 767px) {
 	.quoteBlock{
+		width: 90vw;
 		padding-top: 50px;
 		height: 55vh;
 	}
 
+	.gratitudeRatings{
+		font-size: 1rem;
+	}
+
 	.quoteText{
 		height: 30vh;
-		font-size: 1rem;
+		font-size: 1.5rem;
+	}
+
+	#posts_root .quoteText{
+		font-size: 1.2rem;
 	}
 
 	.buttons{

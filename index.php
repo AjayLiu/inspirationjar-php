@@ -73,7 +73,10 @@
 				<button class="tablinks" onclick="setSort(event, 'MostRecent')">Newest</button>
 				<button class="tablinks" onclick="setSort(event, 'LeastRecent')">Oldest</button>
 			</div>
-			<input type="text" id='searchBar' placeholder="Search..">
+			<div id = "search">
+				<input type="text" id='searchBar' placeholder="Search..">
+				<input type="image" src="/images/search.png" id = 'searchSubmit'>
+			</div>
 		</div>
 
 		<script>var allowRefresh = true; var isSearch = false;</script>
