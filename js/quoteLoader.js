@@ -114,48 +114,7 @@ $(document).ready(
 
         );
 
-        //Refresh
-        var quoteCount;
-        function refresh(){
-
-            quoteCount = $( ".quoteBlock" ).length + 10;
-            $("#quotes_root").load("/backend_php/load_quotes.php", {'quoteNewCount': quoteCount}, function(){
-                markDupes();
-                isFetching = false;
-            });
-
-        }
-
-        var isFetching = false;
-        $(window).scroll(function() {
-            if($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
-                if(allowRefresh && !isSearch){
-                    if(!isFetching){
-                        isFetching = true;
-                        $.ajax({
-                            type: 'GET',
-                            url: 'backend_php/returnTotalQuoteCount.php',
-                            cache: false,
-                            success: function(result) {
-                                quoteCount = $( ".quoteBlock" ).length;
-                                if(quoteCount == result){
-                                    $('.loadingIndicator').text("That's all the quotes so far! Help spread the positivity and submit a quote!");
-                                    allowRefresh = false;
-                                }
-                                if(allowRefresh){
-                                    refresh();
-                                }
-                            }
-                        });
-                    }
-                } else if(isSearch){
-                    $('.loadingIndicator').text("End of search");
-                } else {
-                    $('.loadingIndicator').text("That's all the quotes so far! Help spread the positivity and submit a quote!");
-                }
-            }
-
-        });
+        
 
         function markDupes(){
             //MARK ALL POSTS THAT ARE ALREADY VOTED IN YELLOW

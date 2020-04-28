@@ -51,11 +51,11 @@
 						echo "<script type='text/javascript'>window.top.location='$url';</script>"; exit;
 					} else {
 						$email = $_SESSION['payload']['email'];
-						$sql = "SELECT Likes, Dislikes, Favorites FROM accounts WHERE Email = '$email'";
+						$sql = "SELECT Likes, Dislikes, Favorites, Reports FROM accounts WHERE Email = '$email'";
 						$result = $mysqli->query($sql) or die("an error has occured");
 
 						$historyRow = $result->fetch_assoc();
-						$historyStr = $historyRow['Likes'].$historyRow['Dislikes'].$historyRow['Favorites'];
+						$historyStr = $historyRow['Likes'].$historyRow['Dislikes'].$historyRow['Favorites'].$historyRow['Reports'];
 						$uniqueIgnore = substr($historyStr, 0, strlen($historyStr)-1);
 					}
 				}

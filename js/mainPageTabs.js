@@ -48,6 +48,7 @@ $(document).ready(
     }
 );
 
+var checkbox = document.getElementById("uniqueCheckbox");
 document.getElementById('searchBar').addEventListener("keyup", searchChange);
 function searchChange(){
     if(!jarMoving){
@@ -62,20 +63,16 @@ function search(){
     var text = document.getElementById('searchBar').value;
     if(text != ''){
         isSearch = true;
-        allowRefresh = false;
-        $("#quotes_root").load("backend_php/load_quotes.php", {"search": text, 'quoteNewCount': Number.MAX_SAFE_INTEGER});
+        $("#quotes_root").load("backend_php/load_quotes.php", {"search": text, "unique": checkbox.checked, 'quoteNewCount': quoteCount});
     } else {
         isSearch = false;
-        allowRefresh = true;
-        $('.loadingIndicator').text("Loading quotes...");
-        $("#quotes_root").load("backend_php/load_quotes.php");
+        $("#quotes_root").load("backend_php/load_quotes.php", {"search": text, "unique": checkbox.checked, 'quoteNewCount': quoteCount});
     }
 }
 
 
 
 
-var checkbox = document.getElementById("uniqueCheckbox");
 document.getElementById("uniqueLabel").addEventListener("click", toggleUnique);
 var list = document.getElementsByClassName("uniqueChange");
 var i;
@@ -87,9 +84,48 @@ function toggleUnique() {
     checkbox.checked = checkbox.checked == true ? false : true; //for some reason an easy flip flop doesnt work
 }
 function uniqueChanged(){
-    if(checkbox.checked){
-        allowRefresh = false;
-        isSearch = true;
-    }
-    $("#quotes_root").load("backend_php/load_quotes.php", {'unique': checkbox.checked, 'quoteNewCount': Number.MAX_SAFE_INTEGER});
+    var text = document.getElementById('searchBar').value;
+    $("#quotes_root").load("backend_php/load_quotes.php", {"search": text, "unique": checkbox.checked, 'quoteNewCount': quoteCount});
 }
+
+
+var isFetching = false;
+//Refresh
+var quoteCount;
+function refresh(){
+    quoteCount = $( ".quoteBlock" ).length + 10;
+    var text = document.getElementById('searchBar').value;
+    $("#quotes_root").load("backend_php/load_quotes.php", {"search": text, "unique": checkbox.checked, 'quoteNewCount': quoteCount}, function(){
+        markDupes();
+        isFetching = false;
+    });
+}
+$(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
+        if(allowRefresh){
+            if(!isFetching){
+                isFetching = true;
+                var text = document.getElementById('searchBar').value;
+                $.ajax({
+                    type: 'POST',
+                    url: 'backend_php/returnTotalQuoteCount.php',
+                    data: {"search": text, "unique": checkbox.checked},
+                    cache: false,
+                    success: function(result) {
+                        //alert(result);
+                        quoteCount = $( ".quoteBlock" ).length;
+                        if(quoteCount == result){
+                            $('.loadingIndicator').text("That's all the quotes so far! Help spread the positivity and submit a quote!");
+                            allowRefresh = false;
+                        }
+                        if(allowRefresh){
+                            refresh();
+                        }
+                        isFetching = false;
+                    }
+                });
+            }
+        }
+    }
+
+});
