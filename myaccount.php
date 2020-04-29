@@ -103,10 +103,6 @@
 			// Get the element with id="defaultOpen" and click on it
 			document.getElementById("defaultOpen").click();
 		</script>
-
-		<footer>
-            © 2020 Ajay Liu. All Rights Reserved • <a href = "https://mail.google.com/mail/?view=cm&fs=1&to=contact@ajayliu.com">contact@ajayliu.com</a>
-        </footer>
 	</body>
 
 </html>

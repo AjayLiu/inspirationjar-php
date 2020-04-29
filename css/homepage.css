@@ -166,11 +166,9 @@
 	position: relative;
 }
 
-
-
 #jarQuote{
 	position: relative;
-	top: -35%;
+	top: -15vh;
 }
 
 #jarQuote .quoteBlock{

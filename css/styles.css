@@ -95,7 +95,7 @@ a:hover{
 
 .quoteBlock{
 	margin-top: 10px;
-	height: 55vh;
+	height: 40vh;
   	width: 70vw;
 	padding-top: 100px;
 	text-align: center;
@@ -110,7 +110,7 @@ a:hover{
 	display: block;
 	font-size: 2rem;
 	width: 90%;
-	height: 60%;
+	height: 40%;
 	overflow: auto;
 	word-wrap: break-word;
 }
@@ -144,8 +144,8 @@ a:hover{
 	color: #069;
 	text-decoration: none;
 	cursor: pointer;
-	width: 12vh;
-	height: 12vh;
+	width: 10vh;
+	height: 10vh;
 	box-shadow: 4px 4px rgba(64, 61, 48, 0.39);
 	border-radius:15vh;
 }
@@ -275,7 +275,7 @@ footer a {
 	.quoteBlock{
 		width: 90vw;
 		padding-top: 50px;
-		height: 55vh;
+		height: 35vh;
 	}
 
 	.gratitudeRatings{
@@ -283,8 +283,8 @@ footer a {
 	}
 
 	.quoteText{
-		height: 30vh;
-		font-size: 1.5rem;
+		height: 15vh;
+		font-size: 1.2rem;
 	}
 
 	#posts_root .quoteText{
@@ -296,8 +296,8 @@ footer a {
 
 	.button{
 		font-size: 1rem;
-		width: 10vh;
-	    height: 10vh;
+		width: 8vh;
+	    height: 8vh;
 	}
 
 	.reportButton{
