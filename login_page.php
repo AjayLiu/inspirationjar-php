@@ -40,6 +40,8 @@
             <input type="checkbox" id="rememberCheckbox" class = "rememberChange" value="Remember" checked readonly>
             <label for="remember me" id = "rememberLabel" class = "rememberChange"> <a> &nbspRemember me </a> </label>
         </div>
+
+        
 	</body>
 
     <script src = "/js/loginPage.js"></script>

@@ -42,5 +42,5 @@ function fadeTitle() {
 $(".settingsButton").hide();
 function displayQuotes(){
     $(".settingsButton").show();
-    $("#quotes_root").load("backend_php/load_quotes.php");
+    //$("#quotes_root").load("backend_php/load_quotes.php");
 }

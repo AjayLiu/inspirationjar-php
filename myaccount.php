@@ -16,7 +16,7 @@
 		<link rel="icon" type="image/png" href="/images/logo.png">
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-		
+
 		<script src = "/js/randomColors.js"></script>
 
 
@@ -104,7 +104,9 @@
 			document.getElementById("defaultOpen").click();
 		</script>
 
-
+		<footer>
+            © 2020 Ajay Liu. All Rights Reserved • <a href = "https://mail.google.com/mail/?view=cm&fs=1&to=contact@ajayliu.com">contact@ajayliu.com</a>
+        </footer>
 	</body>
 
 </html>

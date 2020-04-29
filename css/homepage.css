@@ -135,7 +135,7 @@
 .loadingIndicator{
 	margin: 30px auto;
 	font-size: 1.2rem;
-	color: rgb(255, 153, 0);
+	color: rgb(255, 122, 0);
 }
 
 #clickMeIndicator{
@@ -162,7 +162,7 @@
 #clickLabel{
 	color: rgb(255, 0, 153);
 	font-weight: bold;
-	font-size: 1.6rem;
+	font-size: 2rem;
 	position: relative;
 }
 
@@ -272,7 +272,7 @@
 		height: 40px;
 	}
 	#clickLabel{
-		font-size: 1.3rem;
+		font-size: 1.6rem;
 	}
 
 	#scrollIndicatorInput{

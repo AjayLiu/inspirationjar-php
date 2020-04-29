@@ -97,6 +97,9 @@
 		<script src = "/js/scrollAnim.js"></script>
 		<script src = "/js/mainPageTabs.js"></script>
 
+		<footer>
+            © 2020 Ajay Liu. All Rights Reserved • <a href = "https://mail.google.com/mail/?view=cm&fs=1&to=contact@ajayliu.com">contact@ajayliu.com</a>
+        </footer>
 	</body>
 
 </html>

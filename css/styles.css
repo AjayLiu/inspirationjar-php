@@ -259,6 +259,17 @@ hr{
 	cursor: pointer;
 }
 
+
+footer{
+    margin-top: 15px;
+    padding:15px;
+	background-color: rgb(205, 205, 205);
+}
+
+footer a {
+	color: black;
+}
+
 /* MOBILE */
 @media screen and (max-width: 767px) {
 	.quoteBlock{

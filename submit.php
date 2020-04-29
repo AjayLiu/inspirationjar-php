@@ -56,6 +56,8 @@
             <em><br><br>Please keep your quotes appropriate and uplifting. If your quotes are reported and reviewed to be inappropriate, spam, malicious, or irrelevant to this site, your account's privilege to post may be revoked.</em>
 
         </div>
+
+        
 	</body>
 
 </html>

@@ -114,7 +114,7 @@ $(document).ready(
 
         );
 
-        
+
 
         function markDupes(){
             //MARK ALL POSTS THAT ARE ALREADY VOTED IN YELLOW
@@ -124,7 +124,7 @@ $(document).ready(
                 if(alreadyVotes.indexOf(thisId+",") != -1){
                     var newHTML = "You already voted on this post!";
                     $(this).html(newHTML);
-                    $(this).css('color', "orange");
+                    $(this).css('color', "rgb(255, 122, 0)");
                 }
             });
         }
