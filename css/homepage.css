@@ -251,7 +251,9 @@
 	#jar{
 		flex-direction: column;
 		position: relative;
-		left: -120px;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
 		top: 20%;
 		height: 60%;
 		width: 95vw;
@@ -281,7 +283,6 @@
 
 	#jarQuote{
 		top: 0;
-		left: 3px;
 	}
 	#jarQuote .quoteBlock{
 		width: 90vw;
