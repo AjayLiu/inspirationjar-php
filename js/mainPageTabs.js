@@ -62,10 +62,8 @@ function searchChange(){
 function search(){
     var text = document.getElementById('searchBar').value;
     if(text != ''){
-        isSearch = true;
         $("#quotes_root").load("backend_php/load_quotes.php", {"search": text, "unique": checkbox.checked, 'quoteNewCount': quoteCount});
     } else {
-        isSearch = false;
         $("#quotes_root").load("backend_php/load_quotes.php", {"search": text, "unique": checkbox.checked, 'quoteNewCount': quoteCount});
     }
 }
@@ -102,7 +100,7 @@ function refresh(){
 }
 $(window).scroll(function() {
     if($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
-        if(allowRefresh){
+        if(allowRefresh && !jarMoving){
             if(!isFetching){
                 isFetching = true;
                 var text = document.getElementById('searchBar').value;
