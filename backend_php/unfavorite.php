@@ -18,15 +18,16 @@
 
         //GETS THE ID OF THE QUOTE
         $btnId = $_POST['unfavoriteID'];
-
-        if(strpos($prevFaves, $btnId.',') !== false){
-            //REMOVE FROM FAVE HISTORY
-            $newFave = str_replace($btnId.',', '', $prevFaves);
-            $sql = "UPDATE accounts SET Favorites = '$newFave' WHERE Email = '$email'";
-            $result = $mysqli->query($sql) or die("ouch, error");
-            echo "SUCCESS";
-        } else {
-            echo "CANT DELETE, NOT FOUND IN YOUR FAVORITES HISTORY";
+        if(is_numeric($btnId) && $btnId > 0 && $btnId == round($btnId, 0)){
+            if(strpos($prevFaves, $btnId.',') !== false){
+                //REMOVE FROM FAVE HISTORY
+                $newFave = str_replace($btnId.',', '', $prevFaves);
+                $sql = "UPDATE accounts SET Favorites = '$newFave' WHERE Email = '$email'";
+                $result = $mysqli->query($sql) or die("ouch, error");
+                echo "SUCCESS";
+            } else {
+                echo "CANT DELETE, NOT FOUND IN YOUR FAVORITES HISTORY";
+            }
         }
     }
 ?>

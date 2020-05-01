@@ -24,19 +24,20 @@
 
             //GETS THE ID OF THE QUOTE
             $btnId = $_POST['favID'];
+            if(is_numeric($btnId) && $btnId > 0 && $btnId == round($btnId, 0)){                
+                //TOGGLE FAVORITE
 
-            //TOGGLE FAVORITE
-
-            //if found
-            if(strpos($prevFaves, $btnId.',') === false){
-                //ADD TO FAVE HISTORY
-                $sql = "UPDATE accounts SET Favorites = CONCAT('$prevFaves', '$btnId,') WHERE Email = '$email'";
-                $result = $mysqli->query($sql) or die("ouch, error");
-            } else {
-                //REMOVE FROM FAVE HISTORY
-                $newFave = str_replace($btnId.',', '', $prevFaves);
-                $sql = "UPDATE accounts SET Favorites = '$newFave' WHERE Email = '$email'";
-                $result = $mysqli->query($sql) or die("ouch, error");
+                //if found
+                if(strpos($prevFaves, $btnId.',') === false){
+                    //ADD TO FAVE HISTORY
+                    $sql = "UPDATE accounts SET Favorites = CONCAT('$prevFaves', '$btnId,') WHERE Email = '$email'";
+                    $result = $mysqli->query($sql) or die("ouch, error");
+                } else {
+                    //REMOVE FROM FAVE HISTORY
+                    $newFave = str_replace($btnId.',', '', $prevFaves);
+                    $sql = "UPDATE accounts SET Favorites = '$newFave' WHERE Email = '$email'";
+                    $result = $mysqli->query($sql) or die("ouch, error");
+                }
             }
         }
     }

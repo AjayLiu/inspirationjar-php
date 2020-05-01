@@ -73,8 +73,15 @@
             }
 
             //CHECK FOR DUPLICATES
-            $sql = "SELECT HappyID FROM happy_table WHERE Happy_quote = '$quote'";
-            $result = $mysqli->query($sql) or die("ouch, error");
+            $sql = "SELECT HappyID FROM happy_table WHERE Happy_quote = ?";
+            $stmt = mysqli_stmt_init($mysqli);
+            if(!mysqli_stmt_prepare($stmt, $sql)){
+                echo "SQL ERROR";
+            } else {
+                mysqli_stmt_bind_param($stmt, "s", $quote);
+                mysqli_stmt_execute($stmt);
+            }
+            $result = $stmt->get_result();
             //echo $result->fetch_assoc()['HappyID'];
             if($result->fetch_assoc()['HappyID'] != null){
                 //FOUND A DUPLICATE IN HISTORY
@@ -103,6 +110,8 @@
                     mysqli_stmt_bind_param($stmt, "s", $quote);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $thisId);
+
+                    //GET THE NEW ID OF THIS QUOTE (BRUTE FORCE HAHA)
                     while(mysqli_stmt_fetch($stmt)){
                         $newId = $thisId;
                     }

@@ -18,48 +18,50 @@
             $email = $_SESSION['payload']['email'];
             $action = $_POST['action'];
 
-
-            //GET LIKE HISTORY FROM THIS ACCOUNT
-            $sql = "SELECT Likes FROM accounts WHERE Email = '$email';";
-            $result = $mysqli->query($sql) or die("ouch, error");
-            $prevLikes = $result->fetch_assoc()['Likes'];
-
-            //GET DISLIKE HISTORY FROM THIS ACCOUNT
-            $sql = "SELECT Dislikes FROM accounts WHERE Email = '$email';";
-            $result = $mysqli->query($sql) or die("ouch, error");
-            $prevDislikes = $result->fetch_assoc()['Dislikes'];
-
             //GETS THE ID OF THE QUOTE
-            $btnId = substr($_POST['action'], strpos($_POST['action'],'d') + 1);
+            $btnId = substr($action, strpos($action,'d') + 1);
 
-            //SEE IF IT IS ALREADY LIKED OR DISLIKED
-            if(strpos($prevLikes, $btnId.',') === false && strpos($prevDislikes, $btnId.',') === false){
-
-                //THIS IS A UNIQUE VOTE
+            //CHECK IF BTNID IS A NUMBER
+            if(is_numeric($btnId) && $btnId > 0 && $btnId == round($btnId, 0)){
 
 
-                if(strpos($_POST['action'],'good') !== false){
+                //GET LIKE AND Dislike HISTORY FROM THIS ACCOUNT
+                $sql = "SELECT Likes, Dislikes FROM accounts WHERE Email = '$email';";
+                $result = $mysqli->query($sql) or die("ouch, error");
+                $row = $result->fetch_assoc();
+                $prevLikes = $row['Likes'];
+                $prevDislikes = $row['Dislikes'];
 
-                    //ADD TO LIKE HISTORY
-                    $sql = "UPDATE accounts SET Likes = CONCAT('$prevLikes', '$btnId,') WHERE Email = '$email'";
-                    $result = $mysqli->query($sql) or die("ouch, error");
 
-                    //ADD ONE LIKE TO THE QUOTE
-                    $sql = "UPDATE happy_table SET HappyRating = HappyRating + 1 WHERE HappyID = $btnId;";
-                    $result = $mysqli->query($sql) or die("ouch, error");
 
+                //SEE IF IT IS ALREADY LIKED OR DISLIKED
+                if(strpos($prevLikes, $btnId.',') === false && strpos($prevDislikes, $btnId.',') === false){
+
+                    //THIS IS A UNIQUE VOTE
+                    if(strpos($action,'good') !== false){
+
+                        //ADD TO LIKE HISTORY
+                        $sql = "UPDATE accounts SET Likes = CONCAT('$prevLikes', '$btnId,') WHERE Email = '$email'";
+                        $result = $mysqli->query($sql) or die("ouch, error");
+
+                        //ADD ONE LIKE TO THE QUOTE
+                        $sql = "UPDATE happy_table SET HappyRating = HappyRating + 1 WHERE HappyID = $btnId;";
+                        $result = $mysqli->query($sql) or die("ouch, error");
+
+                    } else if (strpos($action,'bad') !== false){
+                        //ADD TO DISLIKE HISTORY
+                        $sql = "UPDATE accounts SET Dislikes = CONCAT('$prevDislikes', '$btnId,') WHERE Email = '$email'";
+                        $result = $mysqli->query($sql) or die("ouch, error");
+
+                        //ADD ONE DISLIKE TO THE QUOTE
+                        $sql = "UPDATE happy_table SET HappyRating = HappyRating - 1 WHERE HappyID = $btnId;";
+                        $result = $mysqli->query($sql) or die("ouch, error");
+                    }
                 } else {
-                    //ADD TO DISLIKE HISTORY
-                    $sql = "UPDATE accounts SET Dislikes = CONCAT('$prevDislikes', '$btnId,') WHERE Email = '$email'";
-                    $result = $mysqli->query($sql) or die("ouch, error");
-
-                    //ADD ONE DISLIKE TO THE QUOTE
-                    $sql = "UPDATE happy_table SET HappyRating = HappyRating - 1 WHERE HappyID = $btnId;";
-                    $result = $mysqli->query($sql) or die("ouch, error");
+                    $toReturn = "DUPE";
                 }
-            } else {
-                $toReturn = "DUPE";
             }
+
         }
     }
 
