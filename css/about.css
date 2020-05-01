@@ -11,7 +11,12 @@
 }
 
 #jar{
-	left: -10%;
+    align-items: center;
+    justify-content: center;
+}
+
+#title{
+    margin-left: 50px;
 }
 
 #tree{
@@ -33,6 +38,10 @@
 }
 
 @media screen and (max-width: 767px) {
+    #title{
+        margin: 0 auto;
+
+    }
     #tree{
         flex-direction: column;
     }

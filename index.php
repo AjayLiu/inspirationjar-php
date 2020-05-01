@@ -34,13 +34,12 @@
         </div>
 
 		<div class = "splashScreen">
-			<div id = "jar">
-				<div>
-					<input type="image" src = "/images/jar.png" id = "jarImg" value=''/>
+			<div id = "jar"> 
+				<div id = "jarAndLabel">
 					<div id = "clickMeIndicator">
 						<label id = "clickLabel">Click the jar!</label>
-						<!-- <input type="image" src = "/images/click.png" id = "clickMeIndicatorInput" value=''/> -->
 					</div>
+					<input type="image" src = "/images/jar.png" id = "jarImg" value=''/>
 				</div>
 				<div id = 'title'>
 					<div id = "titleText">

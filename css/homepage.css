@@ -77,24 +77,34 @@
 #jar{
 	display: flex;
 	flex-direction: row;
-	position: relative;
-	left: -10vw;
-	top: 25vh;
 	height: 60vh;
-	width: 80vw;
+	width: 90vw;
+	position:absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 	text-align: left;
 	z-index: 2;
+	align-items: center;
+	justify-content: center;
 }
 
-#jar img, #tree img, #jarImg {
+#jarImg, #jar img{
+	width: 100%;
+	max-width: 359px;
+
+}
+
+#tree img{
 	width: 359px;
 	height: 478px;
 }
 
 #title{
-	position: relative;
-	left: 50px;
-	top: 25%;
+	width: 70%;
+	margin-left: 50px;
 	font-size: 4rem;
 }
 
@@ -138,24 +148,18 @@
 	color: rgb(255, 122, 0);
 }
 
-#clickMeIndicator{
-	position: absolute;
-	text-align: center;
-	top: -60px;
-	left: 65px;
-	width: 300px;
-	height: 75px;
-	z-index: 5;
+#jarAndLabel{
+
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
 
-#clickMeIndicatorInput{
-	position: absolute;
-	margin-left: auto;
-	margin-right: auto;
-	left: 0;
-	right: 0;
-	width: 75px;
-	height: 75px;
+#clickMeIndicator{
+	text-align: center;
+	margin-left: 20%;
 	z-index: 5;
 }
 
@@ -166,13 +170,7 @@
 	position: relative;
 }
 
-#jarQuote{
-	position: relative;
-	top: -15vh;
-}
-
 #jarQuote .quoteBlock{
-	width: 60vw;
 	-webkit-animation-name: fadeInLeft;
     -moz-animation-name: fadeInLeft;
     -o-animation-name: fadeInLeft;
@@ -250,27 +248,20 @@
 
 	#jar{
 		flex-direction: column;
-		position: relative;
-		left: 0;
-		right: 0;
-		margin: 0 auto;
-		top: 20%;
-		height: 60%;
-		width: 95vw;
 		text-align: center;
+		justify-content: flex-start;
+		height: 70vh;
+	}
+	#jarAndLabel{
+		width: 100%;
 	}
 
+
+
 	#clickMeIndicator{
-		top: -45px;
-		left: 30px;
-		right: 0;
-		margin-left: auto;
-		margin-right: auto;
+		margin-left: 40px;
 	}
-	#clickMeIndicatorInput{
-		width: 40px;
-		height: 40px;
-	}
+
 	#clickLabel{
 		font-size: 1.6rem;
 	}
@@ -281,44 +272,21 @@
 	}
 
 
-	#jarQuote{
-		top: 0;
-	}
-	#jarQuote .quoteBlock{
-		width: 90vw;
-		height: 32vh;
-	}
-
-	#jarQuote .quoteText{
-		height: 17vh;
-		font-size: 1.2rem;
-	}
-	#jarQuote .button{
-		font-size: 1rem;
-		width: 6vh;
-	    height: 6vh;
-	}
-	#jarQuote .gratitudeRatings{
-		font-size: 1rem;
-		margin-top: 10px;
-	}
-
 	#title{
-		position: static;
+		padding: 0;
+		width: 90%;
 		font-size: 3rem;
 	}
 
 	#titleDescription{
 		margin: 0 auto;
-		width: 70%;
 		font-weight: lighter;
 		font-size: 1.5rem;
 	}
 
 
-	#jar img, #tree img,#jarImg {
+	#jar img, #tree img, #jarImg {
 		margin: 0 auto;
-
 		width: 150px;
 		height: 200px;
 	}

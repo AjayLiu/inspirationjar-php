@@ -23,25 +23,26 @@ function showScrollIndicator(){
 
 $('#clickMeIndicator').hide();
 function showClickIndicator(){
-    $('#clickMeIndicator').fadeIn();
+    setTimeout(function(){
+        $('#clickMeIndicator').fadeIn(800);
+        //animation
+        var elem0 = document.getElementById("clickLabel");
 
-    //animation
-    var elem0 = document.getElementById("clickMeIndicator");
-    var posTop = $("#clickMeIndicator").position().top;
-    var f = 0;
-    var mov = 0;
-    var loop = setInterval(scrollAnim, 20);
-    function scrollAnim(){
-        if(f >= 80 && f < 90){
-            mov++;
-        } else if( f > 80 && f < 100) {
-            mov--;
-        } else if (f == 100){
-            f = 0;
+        var f = 0;
+        var mov = 0;
+        var loop = setInterval(clickAnim, 20);
+        function clickAnim(){
+            if(f >= 80 && f < 90){
+                mov++;
+            } else if( f > 80 && f < 100) {
+                mov--;
+            } else if (f == 100){
+                f = 0;
+            }
+            f++;
+            elem0.style.top = mov-20 + 'px';
         }
-        f++;
-        elem0.style.top = (posTop + mov) + 'px';
-    }
+    }, 1000);
 }
 
 
