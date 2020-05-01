@@ -40,7 +40,6 @@
 @media screen and (max-width: 767px) {
     #title{
         margin: 0 auto;
-
     }
     #tree{
         flex-direction: column;
