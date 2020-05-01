@@ -158,8 +158,8 @@
 }
 
 #clickMeIndicator{
+	margin-left: 80px;
 	text-align: center;
-	margin-left: 20%;
 	z-index: 5;
 }
 
@@ -257,10 +257,8 @@
 		font-size: 1rem;
 	}
 
-
-
 	#clickMeIndicator{
-		margin-left: 40px;
+		margin-left: 20px;
 	}
 
 	#clickLabel{
