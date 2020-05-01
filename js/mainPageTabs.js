@@ -91,7 +91,7 @@ var isFetching = false;
 //Refresh
 var quoteCount;
 function refresh(){
-    quoteCount = $( ".quoteBlock" ).length + 10;
+    quoteCount = $( "#quotes_root .quoteBlock" ).length + 10;
     var text = document.getElementById('searchBar').value;
     $("#quotes_root").load("backend_php/load_quotes.php", {"search": text, "unique": checkbox.checked, 'quoteNewCount': quoteCount}, function(){
         markDupes();
