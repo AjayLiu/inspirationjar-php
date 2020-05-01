@@ -47,7 +47,7 @@ a:hover{
 .navbar ul li a {
 	color:white;
 	font-weight: bolder;
-	font-size: 2.5vh;
+	font-size: 1.3rem;
 }
 
 .navbar img{
@@ -283,11 +283,7 @@ footer a {
 
 	.quoteText{
 		height: 15vh;
-		font-size: 1.2rem;
-	}
-
-	#posts_root .quoteText{
-		font-size: 1.2rem;
+		font-size: 1rem;
 	}
 
 	.buttons{
