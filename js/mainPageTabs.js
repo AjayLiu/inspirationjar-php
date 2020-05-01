@@ -111,7 +111,7 @@ $(window).scroll(function() {
                     cache: false,
                     success: function(result) {
                         //alert(result);
-                        quoteCount = $( ".quoteBlock" ).length;
+                        quoteCount = $( "#quotes_root .quoteBlock" ).length;
                         if(quoteCount == result){
                             $('.loadingIndicator').text("That's all the quotes so far! Help spread the positivity and submit a quote!");
                             allowRefresh = false;
