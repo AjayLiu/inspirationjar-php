@@ -149,7 +149,6 @@
 }
 
 #jarAndLabel{
-
 	width: 30%;
 	display: flex;
 	flex-direction: column;
@@ -166,7 +165,7 @@
 #clickLabel{
 	color: rgb(255, 0, 153);
 	font-weight: bold;
-	font-size: 2rem;
+	font-size: 2.5vw;
 	position: relative;
 }
 
@@ -314,6 +313,4 @@ h4{
 	#unique, .tab, #search{
 		margin: 10px auto;
 	}
-
-
 }

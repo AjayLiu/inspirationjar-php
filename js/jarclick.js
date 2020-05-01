@@ -24,7 +24,7 @@ function jarClick(){
         $("#clickLabel").fadeOut();
         setInterval(function(){
             $("#clickLabel").fadeIn();
-            $("#clickLabel").text("Click the jar for more!");
+            $("#clickLabel").text("Click for more!");
         }, 2000);
 
         $("#titleText").fadeOut();
@@ -35,7 +35,7 @@ function jarClick(){
     if(clickCount < randArr.length){
         $("#jarQuote").load("backend_php/getRandomQuote.php", {'id': randArr[clickCount]});
     } else {
-        $("#jarQuote").load("backend_php/noMoreQuotes.html");    
+        $("#jarQuote").load("backend_php/noMoreQuotes.html");
     }
     $("#jarQuote").show();
     setInterval(function(){fittext();}, 400);

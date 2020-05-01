@@ -107,7 +107,7 @@ a:hover{
 .quoteText{
 	margin: 0 auto 0 auto;
 	display: block;
-	font-size: 2rem;
+	font-size: 2vw;
 	width: 90%;
 	height: 40%;
 	overflow: auto;
@@ -319,12 +319,6 @@ footer a {
 		grid-row-gap: 10px;
         padding: 0;
     }
-	.skewLeft{
-		position: static;
-	}
-	#logo{
-		display: none;
-	}
 
 	.quote_container{
 		/* scroll-snap-align: center; */
@@ -337,5 +331,14 @@ footer a {
 
 	.tab{
 		/* scroll-snap-align: center; */
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	#logo{
+		display: none;
+	}
+	.skewLeft{
+		position: static;
 	}
 }
