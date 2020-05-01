@@ -249,10 +249,8 @@
 	#jar{
 		flex-direction: column;
 		text-align: center;
-		justify-content: center;
-		margin-top: 19vh;
-		border: 1px solid black;
-		height: 70vh;
+		justify-content: flex-start;
+		margin: 20vh auto;
 	}
 	#jarAndLabel{
 		width: 100%;
