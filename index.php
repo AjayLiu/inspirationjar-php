@@ -18,6 +18,13 @@
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<link rel="icon" type="image/png" href="/images/logo.png">
 
+
+		<link rel="stylesheet" type="text/css" href="//wpcc.io/lib/1.0.2/cookieconsent.min.css"/>
+		<script src="//wpcc.io/lib/1.0.2/cookieconsent.min.js"></script>
+		<script>
+			window.addEventListener("load", function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#f6f6f6","text":"#000000","border":"#555555"},"button":{"background":"#555555","text":"#ffffff"}},"content":{"href":"https://www.inspirationjar.com/cookie_policy.html"}})});
+		</script>
+
 	</head>
 
 	<body>
@@ -34,7 +41,7 @@
         </div>
 
 		<div class = "splashScreen">
-			<div id = "jar"> 
+			<div id = "jar">
 				<div id = "jarAndLabel">
 					<div id = "clickMeIndicator">
 						<label id = "clickLabel">Click the jar!</label>
