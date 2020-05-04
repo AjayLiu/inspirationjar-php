@@ -29,7 +29,7 @@
         </div>
 		<div class = "intro">
             <h1>Log in</h1>
-            <p> Don't worry, all your activity will be kept anonymous. Logging in is just to ensure that all posts/likes/dislikes are unique.
+            <p> Don't worry, all your activity will be kept anonymous from other users. Logging in is just to ensure that all posts/likes/dislikes are unique and for you to save your favorites!
         </div>
         <div>
             <?php
@@ -41,7 +41,7 @@
             <label for="remember me" id = "rememberLabel" class = "rememberChange"> <a> &nbspRemember me </a> </label>
         </div>
 
-        
+
 	</body>
 
     <script src = "/js/loginPage.js"></script>
