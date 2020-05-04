@@ -171,6 +171,8 @@
                         echo "Your quote is too long! Please keep your quote shorter than 400 characters!";
                     }else {
                         echo "Thanks for your submission! Your quote will be on the front page after review!";
+
+                        mail("admin@ajayliu.com","Submission!", "new quote lol");
                     }
                 ?>
             </div>
