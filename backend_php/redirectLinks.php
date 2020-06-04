@@ -1,5 +1,5 @@
 <?php
-    $isLocal = false;
+    $isLocal = true;
 
     $siteName = $isLocal ? "localhost" : "inspirationjar.com";
     $http = $isLocal ? "http://" : "https://www.";
@@ -8,5 +8,4 @@
     $afterLoginLink =  $http.$siteName."/backend_php/afterLogin.php";
     $indexLink =  $http.$siteName."/index.php";
     $accountLink =  $http.$siteName."/myaccount.php";
-
 ?>
